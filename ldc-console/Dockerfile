@@ -2,7 +2,7 @@
 # ========================================================================================
 #
 #    Dockerfile
-#      Dockerfile for ldc-console.
+#      Dockerfile for all console applications.
 #
 # ========================================================================================
 #
@@ -11,7 +11,7 @@
 # @copyright © 2019-2020. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ldc-console
-# @subpackage Dockerfile.dconsole
+# @subpackage Dockerfile
 #
 # ========================================================================================
 #

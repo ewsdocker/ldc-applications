@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/Development/ewsldc/ldc-applications/ldc-desktop
+cd ~/Development/ewsldc/ldc-desktop
 
 echo "   ********************************************"
 echo "   ****"
@@ -56,7 +56,7 @@ docker build \
   --build-arg LIB_HOST="http://alpine-nginx-pkgcache" \
   \
   --network=pkgnet \
-  --file Dockerfile \
+  --file Dockerfile.ddesktop \
   \
 -t ewsdocker/ldc-desktop:dia-0.1.0-b1  .
 [[ $? -eq 0 ]] ||

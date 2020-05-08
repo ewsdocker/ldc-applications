@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/Development/ewsldc/ldc-desktop
+cd ~/Development/ewsldc/ldc-applications/ldc-desktop
 
 echo "   ********************************************"
 echo "   ****"
@@ -58,7 +58,7 @@ docker build \
   --build-arg GIMP_HOST="http://alpine-nginx-pkgcache" \
   --network=pkgnet \
   \
-  --file Dockerfile.ddesktop \
+  --file Dockerfile \
   -t ewsdocker/ldc-desktop:gimp-0.1.0-b1  .
 [[ $? -eq 0 ]] ||
  {

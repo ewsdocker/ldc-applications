@@ -4,7 +4,7 @@
 #    ldc-games:sol-0.1.0-b1
 #
 # ===========================================================================
-cd ~/Development/ewsldc/ldc-games
+cd ~/Development/ewsldc/ldc-applications/ldc-games
 
 echo "   ********************************************"
 echo "   ****"
@@ -53,7 +53,7 @@ docker build \
   --build-arg AISLERIOT_HOST="http://alpine-nginx-pkgcache" \
   --network=pkgnet\
   \
-  --file Dockerfile.dgames \
+  --file Dockerfile \
  -t ewsdocker/ldc-games:sol-0.1.0-b1 .
 [[ $? -eq 0 ]] ||
  {

@@ -5,7 +5,7 @@
 #
 # ===========================================================================
 
-cd ~/Development/ewsldc/ldc-libre
+cd ~/Development/ewsldc/ldc-applications/ldc-libre
 
 echo "   ********************************************"
 echo "   ****"
@@ -54,7 +54,7 @@ docker build \
   --build-arg LIB_HOST=http://alpine-nginx-pkgcache \
   --network=pkgnet \
   \
-  --file Dockerfile.doffice \
+  --file Dockerfile \
   -t ewsdocker/ldc-libre:office-jdk-0.1.0-b1  .
 [[ $? -eq 0 ]] ||
  {

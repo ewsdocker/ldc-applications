@@ -4,7 +4,7 @@
 #    ldc-desktop:mousepad-0.1.0
 #
 # ===========================================================================
-cd ~/Development/ewsldc/ldc-applications/ldc-desktop
+cd ~/Development/ewsldc/ldc-desktop
 
 echo "   ********************************************"
 echo "   ****"
@@ -52,7 +52,7 @@ docker build \
   --build-arg LIB_VERS_MOD="-b1" \
   \
   --network=pkgnet \
-  --file Dockerfile \
+  --file Dockerfile.ddesktop \
   \
   -t ewsdocker/ldc-desktop:mousepad-0.1.0-b1  .
 [[ $? -eq 0 ]] ||

@@ -4,7 +4,7 @@
 #    ldc-browser:firefox-0.1.0-b1
 #
 # ===========================================================================
-cd ~/Development/ewsldc/ldc-applications/ldc-browser
+cd ~/Development/ewsldc/ldc-browser
 
 echo "   ********************************************"
 echo "   ****"
@@ -70,7 +70,7 @@ docker build \
   --build-arg FIREFOX_HOST="http://alpine-nginx-pkgcache" \
   \
   --network=pkgnet \
-  --file Dockerfile \
+  --file Dockerfile.browsers \
 -t ewsdocker/ldc-browser:firefox-0.1.0-b1 .
 [[ $? -eq 0 ]] ||
  {

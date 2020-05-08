@@ -1,30 +1,30 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-eclipse:qt-0.1.0-b1
+#    ldc-eclipse:cpp-0.1.0-b1
 #
 # ===========================================================================
-cd ~/Development/ewsldc/ldc-applications/ldc-eclipse
+cd ~/Development/ewsldc/ldc-eclipse
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** stopping ldc-eclipse-qt container(s)"
+echo "   **** stopping ldc-eclipse-cpp container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rm ldc-eclipse-qt-0.1.0-b1
+docker rm ldc-eclipse-cpp-0.1.0-b1
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** removing ldc-eclipse-qt image(s)"
+echo "   **** removing ldc-eclipse-cpp image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-eclipse:qt-0.1.0-b1
+docker rmi ewsdocker/ldc-eclipse:cpp-0.1.0-b1
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-eclipse:qt-0.1.0-b1"
+echo "   **** building ewsdocker/ldc-eclipse:cpp-0.1.0-b1"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -39,13 +39,13 @@ docker build \
   --build-arg BUILD_TEMPLATE="gui" \
   \
   --build-arg BUILD_NAME="ldc-eclipse" \
-  --build-arg BUILD_VERSION="qt" \
+  --build-arg BUILD_VERSION="cpp" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
   --build-arg BUILD_EXT_MOD="-b1" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack-apps" \
-  --build-arg FROM_VERS="dqt4-jdk13dev" \
+  --build-arg FROM_VERS="djdk13-gtk3" \
   --build-arg FROM_EXT="-0.1.0" \
   --build-arg FROM_EXT_MOD="-b1" \
   \
@@ -58,17 +58,17 @@ docker build \
   \
   --network=pkgnet \
   \
-  --file Dockerfile \
--t ewsdocker/ldc-eclipse:qt-0.1.0-b1  .
+  --file Dockerfile.declipse \
+-t ewsdocker/ldc-eclipse:cpp-0.1.0-b1  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-eclipse:qt-0.1.0-b1 failed."
+ 	echo "build ewsdocker/ldc-eclipse:cpp-0.1.0-b1 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-eclipse-qt-0.1.0-b1"
+echo "   **** installing ldc-eclipse-cpp-0.1.0-b1"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -88,8 +88,8 @@ docker run \
    -v ${HOME}/bin:/userbin \
    -v ${HOME}/.local:/usrlocal \
    -v ${HOME}/.config/docker:/conf \
-   -v ${HOME}/.config/docker/ldc-eclipse-qt-0.1.0:/root \
-   -v ${HOME}/.config/docker/ldc-eclipse-qt-0.1.0/workspace:/workspace \
+   -v ${HOME}/.config/docker/ldc-eclipse-cpp-0.1.0:/root \
+   -v ${HOME}/.config/docker/ldc-eclipse-cpp-0.1.0/workspace:/workspace \
    \
    -e DISPLAY=unix${DISPLAY} \
    -v ${HOME}/.Xauthority:/root/.Xauthority \
@@ -100,11 +100,11 @@ docker run \
    -v ${HOME}/Development:/Development \
    -v ${HOME}/Source:/Source \
    \
-   --name=ldc-eclipse-qt-0.1.0-b1 \
- ewsdocker/ldc-eclipse:qt-0.1.0-b1
+   --name=ldc-eclipse-cpp-0.1.0-b1 \
+ ewsdocker/ldc-eclipse:cpp-0.1.0-b1
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-eclipse-qt-0.1.0-b1 failed."
+ 	echo "build container ldc-eclipse-cpp-0.1.0-b1 failed."
  	exit 2
  }
 

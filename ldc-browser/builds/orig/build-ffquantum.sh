@@ -1,31 +1,32 @@
 #!/bin/bash
+
 # ===========================================================================
 #
-#    ldc-browser:firefox-0.1.0-b1
+#    ldc-browser:ffquantum-0.1.0-b1
 #
 # ===========================================================================
-cd ~/Development/ewsldc/ldc-applications/ldc-browser
+cd ~/Development/ewsldc/ldc-browser
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** stopping firefox container(s)"
+echo "   **** stopping ldc-browser-ffquantum container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-firefox-0.1.0-b1
-docker rm ldc-browser-firefox-0.1.0-b1
+docker stop ldc-browser-ffquantum-0.1.0-b1
+docker rm ldc-browser-ffquantum-0.1.0-b1
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** removing firefox image(s)"
+echo "   **** removing ldc-browser:ffquantum image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-browser:firefox-0.1.0-b1
+docker rmi ewsdocker/ldc-browser:ffquantum-0.1.0-b1
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-browser:firefox-0.1.0-b1"
+echo "   **** building ewsdocker/ldc-browser:ffquantum-0.1.0-b1"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -35,24 +36,24 @@ docker build \
   --build-arg BROWSER_COMMON="0" \
   --build-arg BROWSER_BUILD="FFOX" \
   --build-arg BROWSER_NAME="firefox" \
-  --build-arg BROWSER_STABLE="0" \
+  --build-arg BROWSER_STABLE="1" \
   --build-arg BROWSER_LABEL="Firefox Quantum" \
-  --build-arg BROWSER_RELEASE="72" \
-  --build-arg BROWSER_VERS="0.1-1" \
+  --build-arg BROWSER_RELEASE="70" \
+  --build-arg BROWSER_VERS="0.1" \
   \
   --build-arg RUN_APP="firefox" \
   \
-  --build-arg FIREFOX_RELEASE="71" \
-  --build-arg FIREFOX_VER="0" \
+  --build-arg FIREFOX_RELEASE="70" \
+  --build-arg FIREFOX_VER="0.1" \
   --build-arg FIREFOX_NAME="Firefox Quantum" \
-  --build-arg FIREFOX_GENERIC="firefox" \
+  --build-arg FIREFOX_GENERIC="ffquantum" \
   --build-arg FIREFOX_DIR="/opt" \
   \
   --build-arg BUILD_DAEMON="0" \
   --build-arg BUILD_TEMPLATE="gui" \
   \
   --build-arg BUILD_NAME="ldc-browser" \
-  --build-arg BUILD_VERSION="firefox" \
+  --build-arg BUILD_VERSION="ffquantum" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
   --build-arg BUILD_EXT_MOD="-b1" \
   \
@@ -70,17 +71,17 @@ docker build \
   --build-arg FIREFOX_HOST="http://alpine-nginx-pkgcache" \
   \
   --network=pkgnet \
-  --file Dockerfile \
--t ewsdocker/ldc-browser:firefox-0.1.0-b1 .
+  --file Dockerfile.browsers \
+-t ewsdocker/ldc-browser:ffquantum-0.1.0-b1 .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-browser:firefox-0.1.0-b1 failed."
+ 	echo "build ewsdocker/ldc-browser:ffquantum-0.1.0-b1 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-firefox-0.1.0-b1"
+echo "   **** installing ldc-browser-ffquantum-0.1.0-b1"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -98,8 +99,8 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-browser-firefox-0.1.0:/root \
-  -v ${HOME}/.config/docker/ldc-browser-firefox-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-browser-ffquantum-0.1.0:/root \
+  -v ${HOME}/.config/docker/ldc-browser-ffquantum-0.1.0/workspace:/workspace \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
@@ -110,11 +111,11 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Documents:/Documents \
   \
-  --name=ldc-browser-firefox-0.1.0-b1 \
-ewsdocker/ldc-browser:firefox-0.1.0-b1
+  --name=ldc-browser-ffquantum-0.1.0-b1 \
+ewsdocker/ldc-browser:ffquantum-0.1.0-b1
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-firefox-0.1.0-b1 failed."
+ 	echo "build container ldc-browser-ffquantum-0.1.0-b1 failed."
  	exit 2
  }
 

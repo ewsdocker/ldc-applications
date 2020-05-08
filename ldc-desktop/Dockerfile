@@ -1,7 +1,7 @@
 # =========================================================================
 # =========================================================================
 #
-#	Dockerfile.ddesktop
+#	Dockerfile
 #	  Dockerfile for desktop (gui) applications.
 #
 # =========================================================================
@@ -11,7 +11,7 @@
 # @copyright © 2017-2020. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ldc-desktop
-# @subpackage Dockerfile.ddesktop
+# @subpackage Dockerfile
 #
 # =========================================================================
 #

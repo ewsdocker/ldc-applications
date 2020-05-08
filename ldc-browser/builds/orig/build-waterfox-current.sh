@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/Development/ewsldc/ldc-applications/ldc-browser
+cd ~/Development/ewsldc/ldc-browser
 
 echo "   ********************************************"
 echo "   ****"
@@ -61,7 +61,7 @@ docker build \
   --build-arg WATERFOX_HOST="http://alpine-nginx-pkgcache" \
   --network=pkgnet \
   \
-  --file Dockerfile \
+  --file Dockerfile.waterfox \
 -t ewsdocker/ldc-browser:waterfox-current-0.1.0-b1 .
 [[ $? -eq 0 ]] ||
  {

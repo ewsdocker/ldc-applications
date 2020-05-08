@@ -1,21 +1,21 @@
 # =========================================================================
 # =========================================================================
 #
-#	Dockerfile.browsers
-#	  Dockerfile for Firefox Quantum.
+#	Dockerfile
+#	  Dockerfile for all browsers.
 #
 # =========================================================================
 #
 # @author Jay Wheeler.
 # @version 67.0.4
-# @copyright © 2017-2019. EarthWalk Software.
+# @copyright © 2017-2020. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ldc-browser
-# @subpackage Dockerfile.browsers
+# @subpackage Dockerfile
 #
 # =========================================================================
 #
-#	Copyright © 2017-2019. EarthWalk Software
+#	Copyright © 2017-2020. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
 #   This file is part of ewsdocker/ldc-browser.

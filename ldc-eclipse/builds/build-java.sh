@@ -4,7 +4,7 @@
 #    ldc-eclipse:java-0.1.0-b1
 #
 # ===========================================================================
-cd ~/Development/ewsldc/ldc-eclipse
+cd ~/Development/ewsldc/ldc-applications/ldc-eclipse
 
 echo "   ********************************************"
 echo "   ****"
@@ -66,7 +66,7 @@ docker build \
   \
   --network=pkgnet \
   \
-  --file Dockerfile.declipse \
+  --file Dockerfile \
 -t ewsdocker/ldc-eclipse:java-0.1.0-b1  .
 [[ $? -eq 0 ]] ||
  {

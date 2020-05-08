@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/Development/ewslms/ldc-applications/ldc-desktop
+cd ~/Development/ewslms/ldc-desktop
 
 echo
 echo "   ********************************************"

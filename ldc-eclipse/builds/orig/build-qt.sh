@@ -4,7 +4,7 @@
 #    ldc-eclipse:qt-0.1.0-b1
 #
 # ===========================================================================
-cd ~/Development/ewsldc/ldc-applications/ldc-eclipse
+cd ~/Development/ewsldc/ldc-eclipse
 
 echo "   ********************************************"
 echo "   ****"
@@ -58,7 +58,7 @@ docker build \
   \
   --network=pkgnet \
   \
-  --file Dockerfile \
+  --file Dockerfile.declipse \
 -t ewsdocker/ldc-eclipse:qt-0.1.0-b1  .
 [[ $? -eq 0 ]] ||
  {
