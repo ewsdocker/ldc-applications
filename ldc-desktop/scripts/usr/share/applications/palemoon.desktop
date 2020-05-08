@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=/browser/palemoon/palemoon %u
+Icon=/usr/local/share/icons/palemoon.png
+Type=Application
+Terminal=false
+GenericName=PaleMoon
+Name=PaleMoon
+StartupNotify=false
+Categories=Network

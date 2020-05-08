@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=/usr/bin/lynx %u
+Icon=/usr/local/share/icons/default.png
+Type=Application
+Terminal=true
+GenericName=Lynx 2.8.9
+Name=Lynx 2.8.9
+StartupNotify=false
+Categories=Office

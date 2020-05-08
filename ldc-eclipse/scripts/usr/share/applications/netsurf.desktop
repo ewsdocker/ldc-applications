@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=/browser/netsurf/netsurf %u
+Icon=/usr/local/share/icons/netsurf.png
+Type=Application
+Terminal=false
+GenericName=NetSurf
+Name=Netsurf
+StartupNotify=false
+Categories=Network
