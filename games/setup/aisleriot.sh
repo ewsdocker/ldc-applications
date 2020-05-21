@@ -72,26 +72,76 @@ function installPackage()
 
 apt-get -y update
 
-addPkg "apt-get install -y"
+addPkg "apt-get install -y "
 
-addPkg "gconf-service"
-addPkg "gconf2"
-addPkg "gconf2-common"
+addPkg "aisleriot"
+
+addPkg "gconf-defaults-service"
+addPkg "gconf-service" 
+
+addPkg "gconf2" 
+addPkg "gconf2-common" 
 
 addPkg "guile-2.0-libs"
 
-addPkg "libcanberra-gtk3-0"
-addPkg "libcanberra0"
+addPkg "gnome-cards-data" 
 
-addPkg "libgc1c2"
-addPkg "libgconf-2-4"
+addPkg "libcanberra-gtk0"
+addPkg "libcanberra-gtk3-0"
+addPkg "libcanberra-gtk3-module"
+
+addPkg "libcanberra-pulse"
+addPkg "libcanberra0" 
+
+addPkg "libgc1c2" 
+addPkg "libgconf-2-4" 
 
 addPkg "libvorbisfile3"
+
+addPkg "yelp"
+
+#
+# additional packages
+#
+addPkg "aspell"
+addPkg "aspell-en"
+addPkg "dictionaries-common"
+addPkg "emacsen-common"
+addPkg "libaspell15"
+addPkg "libenchant1c2a"
+addPkg "libharfbuzz-icu0"
+addPkg "libhunspell-1.4-0"
+addPkg "libhyphen0"
+addPkg "libjavascriptcoregtk-4.0-18"
+addPkg "libnotify4"
+addPkg "libpipeline1"
+addPkg "libwebkit2gtk-4.0-37"
+addPkg "libyelp0"
+addPkg "man-db"
+addPkg "yelp-xsl"
+
+# ################################
+
+#addPkg "gconf-service"
+#addPkg "gconf2"
+#addPkg "gconf2-common"
+
+#addPkg "guile-2.2.4-libs"
+
+#addPkg "libcanberra-gtk3-0"
+#addPkg "libcanberra0"
+
+#addPkg "libgc1c2"
+#addPkg "libgconf-2-4"
+
+#addPkg "libvorbisfile3"
+
+# ################################
 
 installList
 [[ $? -eq 0 ]] || exit $?
 
 apt-get clean all
 
-installPackage "${LMSSOL_PKG}" "${LMSSOL_URL}"
+#installPackage "${LMSSOL_PKG}" "${LMSSOL_URL}"
 exit $?

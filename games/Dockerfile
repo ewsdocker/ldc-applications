@@ -116,16 +116,16 @@ ENV DEBIAN_FRONTEND noninteractive
 # ========================================================================================
 #
 #   AisleRiot deb package name:
-#		aisleriot_3.22.1-1_amd64.deb
+#		aisleriot_3.22.7-2_amd64.deb
 #	AisleRiot web page
-#		https://packages.debian.org/stretch/games/aisleriot
+#		https://packages.debian.org/buster/aisleriot
 #	AisleRiot package download:
-#       http://ftp.us.debian.org/debian/pool/main/a/aisleriot/aisleriot_3.22.1-1_amd64.deb
+#       http://ftp.us.debian.org/debian/pool/main/a/aisleriot/aisleriot_3.22.7-2_amd64.deb
 #
 # ========================================================================================
 # ========================================================================================
 
-ENV LMSSOL_VERS=${AISLERIOT_VERS:-"3.22.1-1"} \
+ENV LMSSOL_VERS=${AISLERIOT_VERS:-"3.22.7-2"} \
     LMSSOL_NAME="aisleriot"
 
 ENV LMSSOL_HOST=${AISLERIOT_HOST:-"http://ftp.us.debian.org/debian/pool/main/a/${LMSSOL_NAME}"} \
@@ -136,11 +136,20 @@ ENV LMSSOL_URL=${LMSSOL_HOST}/${LMSSOL_PKG}
 # ========================================================================================
 # ========================================================================================
 #
-#   Mahjongg deb package name:
+#  buster:
+#     Mahjongg deb package name:
+#		gnome-mahjongg_3.22.0-4_amd64.deb
+#	  Mahjongg web page
+#		https://packages.debian.org/buster/gnome-mahjongg
+#	  Mahjongg package download:
+#       http://ftp.us.debian.org/debian/pool/main/g/gnome-mahjongg/gnome-mahjongg_3.22.0-4_amd64.deb
+#
+#  stretch:
+#     Mahjongg deb package name:
 #		gnome-mahjongg_3.22.0-1_amd64.deb
-#	Mahjongg web page
+#	  Mahjongg web page
 #		https://packages.debian.org/stretch/gnome-mahjongg
-#	Mahjongg package download:
+#	  Mahjongg package download:
 #       http://ftp.us.debian.org/debian/pool/main/g/gnome-mahjongg/gnome-mahjongg_3.22.0-1_amd64.deb
 #
 # ========================================================================================
