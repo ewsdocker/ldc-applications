@@ -8,14 +8,14 @@
 #
 # @author Jay Wheeler.
 # @version 0.1.0
-# @copyright © 2017-2019. EarthWalk Software.
+# @copyright © 2017-2020. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package libre
 # @subpackage Dockerfile
 #
 # =========================================================================
 #
-#	Copyright © 2017-2019. EarthWalk Software
+#	Copyright © 2017-2020. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
 #   This file is part of ewsdocker/libre.
