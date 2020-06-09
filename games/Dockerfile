@@ -115,12 +115,21 @@ ENV DEBIAN_FRONTEND noninteractive
 # ========================================================================================
 # ========================================================================================
 #
+#  Buster:
 #   AisleRiot deb package name:
 #		aisleriot_3.22.7-2_amd64.deb
 #	AisleRiot web page
 #		https://packages.debian.org/buster/aisleriot
 #	AisleRiot package download:
 #       http://ftp.us.debian.org/debian/pool/main/a/aisleriot/aisleriot_3.22.7-2_amd64.deb
+#
+#  Stretch:
+#   AisleRiot deb package name:
+#		aisleriot_3.22.1-1_amd64.deb
+#	AisleRiot web page
+#		https://packages.debian.org/stretch/aisleriot
+#	AisleRiot package download:
+#       http://ftp.us.debian.org/debian/pool/main/a/aisleriot/aisleriot_3.22.1-1_amd64.deb
 #
 # ========================================================================================
 # ========================================================================================
@@ -155,7 +164,7 @@ ENV LMSSOL_URL=${LMSSOL_HOST}/${LMSSOL_PKG}
 # ========================================================================================
 # ========================================================================================
 
-ENV LMSJ_VERS=${MAHJONGG_VERS:-"3.22.0-1"} \
+ENV LMSJ_VERS=${MAHJONGG_VERS:-"3.22.0-4"} \
     LMSJ_NAME="gnome-mahjongg"
 
 ENV LMSJ_HOST=${MAHJONGG_HOST:-"https://packages.debian.org/stretch/amd64/${LMSJ_NAME}/download"} \

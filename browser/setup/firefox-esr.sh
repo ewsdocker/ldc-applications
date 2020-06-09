@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare instList=""
+declare instList=" "
 
 # =========================================================================
 #
@@ -37,7 +37,7 @@ function installList()
 	echo ""
 
 	$instList
-	[[ $? -eq 0 ]] || exit $?
+	[[ $? -eq 0 ]] || return $?
 
     return 0
 }
@@ -50,17 +50,19 @@ function installList()
 #   Enter:
 #		instPkg = "package" name downloaded - what you are going to extract from
 #		instUrl = server to download the pkg from
+#		instDir = directory to extract to
 #
 # =========================================================================
 function installPackage()
 {
 	local instPkg="${1}"
 	local instUrl="${2}"
+	local instDir="${3}"
 
     wget "${instUrl}" 
     [[ $? -eq 0 ]] || return $?
 
-    dpkg -i "${instPkg}"
+    tar -xvf "${instPkg}" -C "${instDir}" 
     [[ $? -eq 0 ]] || return $?
 
     rm "${instPkg}"
@@ -68,35 +70,31 @@ function installPackage()
     return 0
 }
 
-# =========================================================================
+instList="apt-get -y install "
 
-apt-get -y update
+echo "****************************************"
+echo
+echo "     installing debian firefox-esr "
+echo
+echo "****************************************"
 
-addPkg "apt-get install -y "
+addPkg "firefox-esr"
 
-addPkg "aisleriot"
+addPkg "libevent-2.1-6"
+addPkg "libjsoncpp1"
+addPkg "libstartup-notification0"
 
-addPkg "gnome-cards-data" 
-addPkg "guile-2.2-libs"
-
-addPkg "libcanberra0" 
-addPkg "libcanberra-gtk0"
-addPkg "libcanberra-gtk3-0"
-addPkg "libcanberra-gtk3-module"
-addPkg "libcanberra-pulse"
-addPkg "libgc1c2" 
-addPkg "libvorbisfile3"
-
-addPkg "sound-theme-freedesktop"
-
-#addPkg "yelp"
-
-# ################################
+# =======================================================================
 
 installList
 [[ $? -eq 0 ]] || exit $?
 
-apt-get clean all
+apt-get clean all 
 
-#installPackage "${LMSSOL_PKG}" "${LMSSOL_URL}"
-exit $?
+# =======================================================================
+
+echo
+echo "****************************************"
+echo
+
+exit 0

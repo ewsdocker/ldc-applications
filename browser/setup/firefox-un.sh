@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare instList=""
+declare instList=" "
 
 # =========================================================================
 #
@@ -37,7 +37,7 @@ function installList()
 	echo ""
 
 	$instList
-	[[ $? -eq 0 ]] || exit $?
+	[[ $? -eq 0 ]] || return $?
 
     return 0
 }
@@ -50,17 +50,19 @@ function installList()
 #   Enter:
 #		instPkg = "package" name downloaded - what you are going to extract from
 #		instUrl = server to download the pkg from
+#		instDir = directory to extract to
 #
 # =========================================================================
 function installPackage()
 {
 	local instPkg="${1}"
 	local instUrl="${2}"
+	local instDir="${3}"
 
     wget "${instUrl}" 
     [[ $? -eq 0 ]] || return $?
 
-    dpkg -i "${instPkg}"
+    tar -xvf "${instPkg}" -C "${instDir}" 
     [[ $? -eq 0 ]] || return $?
 
     rm "${instPkg}"
@@ -68,35 +70,49 @@ function installPackage()
     return 0
 }
 
-# =========================================================================
+# =======================================================================
+#
+#	setupUnstableRepo
+#		Setup the unstable sources for APT
+#
+#   Enter:
+#       none
+#   Exit:
+#       0 = no error
+#
+# =======================================================================
+function setupUnstableRepo()
+{
+    mv /tmp/99defaultrelease /etc/apt/apt.conf.d/99defaultrelease
+    mv /tmp/unstable.list /etc/apt/sources.list.d/unstable.list
 
-apt-get -y update
+    chmod 644 /etc/apt/apt.conf.d/99defaultrelease
+    chmod 644 /etc/apt/sources.list.d/unstable.list
 
-addPkg "apt-get install -y "
+    apt-get -y update
+}
 
-addPkg "aisleriot"
+echo "****************************************"
+echo
+echo "     installing firefox \"unstable\" "
+echo
+echo "****************************************"
 
-addPkg "gnome-cards-data" 
-addPkg "guile-2.2-libs"
+setupUnstableRepo
 
-addPkg "libcanberra0" 
-addPkg "libcanberra-gtk0"
-addPkg "libcanberra-gtk3-0"
-addPkg "libcanberra-gtk3-module"
-addPkg "libcanberra-pulse"
-addPkg "libgc1c2" 
-addPkg "libvorbisfile3"
+instList="apt-get -t unstable install -y "
 
-addPkg "sound-theme-freedesktop"
+addPkg "firefox"
 
-#addPkg "yelp"
-
-# ################################
+# =======================================================================
 
 installList
 [[ $? -eq 0 ]] || exit $?
 
-apt-get clean all
+apt-get clean all 
 
-#installPackage "${LMSSOL_PKG}" "${LMSSOL_URL}"
-exit $?
+# =======================================================================
+
+echo
+echo "****************************************"
+echo

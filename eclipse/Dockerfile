@@ -113,6 +113,14 @@ ARG OPT_QUIET
 # HOST:		http://mirror.csclub.uwaterloo.ca/eclipse/technology/epp/downloads/release
 # PACKAGE:	eclipse-IDE-RELEASE-VERSION-linux-gtk-x86_64.tar.gz
 #
+# RELEASE:	2020-05
+# VERSION:	M3
+# IDE:
+#	cpp:		eclipse-cpp-2020-05-M3-linux-gtk-x86_64.tar.gz
+#	java:		eclipse-java-2020-05-M3-linux-gtk-x86_64.tar.gz
+#	javascript:	eclipse-javascript-2020-05-M3-linux-gtk-x86_64.tar.gz
+#	php:		eclipse-php-2020-05-M3-linux-gtk-x86_64.tar.gz
+#
 # RELEASE:	2019-12
 # VERSION:	M2
 # IDE:

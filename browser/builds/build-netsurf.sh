@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-browser:netsurf-0.1.0-b1
+#    ldc-browser:netsurf-0.1.0-b2
 #
 # ===========================================================================
 cd ~/Development/ewsldc/ldc-applications/browser
@@ -12,8 +12,8 @@ echo "   **** stopping netsurf container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-netsurf-0.1.0-b1
-docker rm ldc-browser-netsurf-0.1.0-b1
+docker stop ldc-browser-netsurf-0.1.0-b2
+docker rm ldc-browser-netsurf-0.1.0-b2
 
 echo "   ********************************************"
 echo "   ****"
@@ -21,31 +21,28 @@ echo "   **** removing netsurf image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-browser:netsurf-0.1.0-b1
+docker rmi ewsdocker/ldc-browser:netsurf-0.1.0-b2
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-browser:netsurf-0.1.0-b1"
+echo "   **** building ewsdocker/ldc-browser:netsurf-0.1.0-b2"
 echo "   ****"
 echo "   ***************************************************"
 echo
 
 docker build \
-  --build-arg BROWSER_COMMON="0" \
-  --build-arg BROWSER_BUILD="NSURF" \
-  --build-arg BROWSER_NAME="netsurf" \
-  --build-arg BROWSER_STABLE="1" \
-  --build-arg BROWSER_LABEL="NetSurf" \
-  --build-arg BROWSER_RELEASE="3.8" \
-  --build-arg BROWSER_VERS="" \
+  --build-arg DNAME="NETSURF" \
   \
   --build-arg RUN_APP="netsurf" \
+  \
+  --build-arg BROWSER_LABEL="NetSurf" \
+  --build-arg BROWSER_RELEASE="3.10-1" \
+  --build-arg BROWSER_VERS="" \
   \
   --build-arg NETSURF_NAME="NetSurf" \
   --build-arg NETSURF_GENERIC="netsurf" \
   --build-arg NETSURF_DIR="/opt" \
-  \
-  --build-arg NETSURF_RELEASE="3.8" \
+  --build-arg NETSURF_HOST="http://alpine-nginx-pkgcache" \
   \
   --build-arg BUILD_DAEMON="0" \
   --build-arg BUILD_TEMPLATE="gui" \
@@ -55,33 +52,32 @@ docker build \
   --build-arg BUILD_NAME="ldc-browser" \
   --build-arg BUILD_VERSION="netsurf" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b1" \
+  --build-arg BUILD_EXT_MOD="-b2" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack" \
   --build-arg FROM_VERS="dgtk2-x11" \
   --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b1" \
+  --build-arg FROM_EXT_MOD="-b2" \
   \
   --build-arg LIB_INSTALL="0" \
   --build-arg LIB_VERSION="0.1.6" \
-  --build-arg LIB_VERS_MOD="-b1" \
+  --build-arg LIB_VERS_MOD="-b2" \
   \
-  --build-arg NETSURF_HOST="http://alpine-nginx-pkgcache" \
   --build-arg LIB_HOST="http://alpine-nginx-pkgcache" \
   --network=pkgnet \
   \
   --file Dockerfile \
--t ewsdocker/ldc-browser:netsurf-0.1.0-b1 .
+-t ewsdocker/ldc-browser:netsurf-0.1.0-b2 .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-browser:netsurf-0.1.0-b1 failed."
+ 	echo "build ewsdocker/ldc-browser:netsurf-0.1.0-b2 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-netsurf-0.1.0-b1"
+echo "   **** installing ldc-browser-netsurf-0.1.0-b2"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -108,11 +104,11 @@ docker run \
   -v ${HOME}/Documents:/Documents \
   -v ${HOME}/Source:/source \
   \
-  --name=ldc-browser-netsurf-0.1.0-b1 \
-ewsdocker/ldc-browser:netsurf-0.1.0-b1
+  --name=ldc-browser-netsurf-0.1.0-b2 \
+ewsdocker/ldc-browser:netsurf-0.1.0-b2
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-netsurf-0.1.0-b1 failed."
+ 	echo "build container ldc-browser-netsurf-0.1.0-b2 failed."
  	exit 2
  }
 

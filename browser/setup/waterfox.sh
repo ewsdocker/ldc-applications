@@ -2,21 +2,20 @@
 # =========================================================================
 # =========================================================================
 #
-#	stable-common
-#	  install and setup 1 of 4 browsers using "stable" repo.
+#	Waterfox
 #
 # =========================================================================
 #
 # @author Jay Wheeler.
 # @version 0.0.1
-# @copyright © 2019. EarthWalk Software.
+# @copyright © 2019-2020. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ewsdocker/ldc-browser
-# @subpackage lms-setup
+# @subpackage waterfox
 #
 # =========================================================================
 #
-#	Copyright © 2019. EarthWalk Software
+#	Copyright © 2019-2020. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
 #   This file is part of ewsdocker/ldc-browser.
@@ -75,7 +74,7 @@ function installList()
 	echo ""
 
 	$instList
-	[[ $? -eq 0 ]] || exit $?
+	[[ $? -eq 0 ]] || return $?
 
     return 0
 }
@@ -108,77 +107,26 @@ function installPackage()
     return 0
 }
 
-# =======================================================================
-
-apt-get -y update
-
-# =======================================================================
-
-echo
-echo "*********** stable-common ***********"
-echo
-
-addPkg "apt-get -y install"
-
-addPkg "desktop-file-utils"
-
-addPkg "gvfs"
-addPkg "gvfs-bin"
-
-addPkg "gvfs-common"
-addPkg "gvfs-daemons"
-addPkg "gvfs-libs libatasmart4"
-
-addPkg "libaacs0"
-
-addPkg "libbluray1"
-
-addPkg "libcanberra-gtk0" "libcanberra GTK+ helper for playing event sounds"
-addPkg "libcanberra-gtk-module" "translates GTK+ widgets signals to event sounds"
-addPkg "libcanberra-pulse" "PulseAudio backend for libcanberra"
-addPkg "libcanberra0" "simple abstract interface for playing event sounds"
-
-addPkg "libevent-2.0-5"
-addPkg "libevent-core-2.0-5"
-addPkg "libevent-pthreads-2.0-5"
-
-addPkg "libgck-1-0"
-
-addPkg "libgcr-3-common"
-addPkg "libgcr-base-3-1"
-
-addPkg "libgudev-1.0-0"
-
-addPkg "libnspr4"
-addPkg "libnss3"
-
-addPkg "libparted2"
-
-addPkg "libsecret-1-0"
-addPkg "libsecret-common"
-
-addPkg "libudisks2-0"
-
-addPkg "libv4l-0"
-addPkg "libv4lconvert0"
-
-addPkg "libvorbisfile3"
-
-addPkg "parted"
-
-addPkg "udev"
-addPkg "udisks2"
-
-# =======================================================================
-
-installList
-
-apt-get clean all 
-
-echo
 echo "****************************************"
 echo
+echo "     installing Waterfox Classic "
+echo
+echo "****************************************"
 
+#instList="apt-get -y install "
+
+#installList
+#[[ $? -eq 0 ]] || exit $?
+
+# =========================================================================
+
+installPackage "${WFOX_PKG}" "${WFOX_URL}" "${WFOX_DIR}"
+[[ $? -eq 0 ]] || exit $?
+
+# =========================================================================
+
+chmod 775 /opt/${WFOX_GENERIC}/${LRUN_APP} 
+ln -s /opt/${WFOX_GENERIC}/${LRUN_APP} /usr/bin/${LRUN_APP} 
 
 exit 0
 

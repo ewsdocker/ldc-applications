@@ -144,13 +144,14 @@ ENV GMP_URL=${GMP_HOST}/${GMP_PKG}
 # ========================================================================================
 #
 #    RipMe
-#     https://github.com/RipMeApp/ripme/releases/download/1.7-88/ripme.jar
+#     https://github.com/RipMeApp/ripme/releases/download/1.7.92/ripme.jar
+#     https://github.com/RipMeApp/ripme/releases/download/1.7.88/ripme.jar
 #     https://github.com/RipMeApp/ripme/releases/download/1.7.89/ripme.jar
 #
 # ========================================================================================
 
 ENV LMSRIP_HOST=${RIPME_HOST:-"https://github.com/RipMeApp/ripme/releases/download"} \
-    LMSRIP_VER=${RIPME_VER:-"1.7"}.${RIPME_EXT:-"89"}
+    LMSRIP_VER=${RIPME_VER:-"1.7"}${RIPME_EXT:-".92"}
 
 ENV LMSRIP_NAME=${LMSRIP_VER}/ripme.jar
 

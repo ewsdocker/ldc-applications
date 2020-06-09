@@ -70,24 +70,66 @@ function installPackage()
     return 0
 }
 
-mv /tmp/99defaultrelease /etc/apt/apt.conf.d/99defaultrelease
-mv /tmp/unstable.list /etc/apt/sources.list.d/unstable.list
+# =======================================================================
+#
+#	setupTestingRepo
+#
+# =======================================================================
+function setupTestingRepo()
+{
+    mv /tmp/99defaultrelease /etc/apt/apt.conf.d/99defaultrelease
+    mv /tmp/testing.list /etc/apt/sources.list.d/testing.list
 
-chmod 644 /etc/apt/apt.conf.d/99defaultrelease
-chmod 644 /etc/apt/sources.list.d/unstable.list
+    chmod 644 /etc/apt/apt.conf.d/99defaultrelease
+    chmod 644 /etc/apt/sources.list.d/testing.list
 
-echo "****************************************"
-echo
-echo "     installing firefox \"unstable\" "
-echo
-echo "****************************************"
+    apt-get -y update
+}
 
-apt-get -y update
+# =======================================================================
 
-apt-get -t unstable install -y firefox
-[[ $? -eq 0 ]] || return $?
+setupTestingRepo
 
-apt-get clean all
+# =======================================================================
+
+instList="apt-get -t testing install -y "
+
+addPkg "netsurf-gtk"
+addPkg "netsurf-common"
+
+addPkg "fonts-dejavu"
+addPkg "fonts-dejavu-extra"
+
+addPkg "gcc-10-base"
+
+addPkg "libc-bin"
+addPkg "libc-l10n"
+addPkg "libc6"
+addPkg "libcrypt1"
+
+addPkg "libgcc-s1"
+
+addPkg "libgdk-pixbuf2.0-0"
+addPkg "libgdk-pixbuf2.0-common"
+
+addPkg "libgtk-3-0"
+addPkg "libgtk-3-common"
+
+addPkg "libnih-dbus1"
+addPkg "libnih1"
+
+addPkg "libxcomposite1"
+
+addPkg "locales"
+
+# =======================================================================
+
+installList
+[[ $? -eq 0 ]] || exit $?
+
+apt-get clean all 
+
+# =======================================================================
 
 echo
 echo "****************************************"

@@ -1,0 +1,101 @@
+docker stop ldc-libre-office-jdk-0.1.0-b1
+docker rm ldc-libre-office-jdk-0.1.0-b1
+docker rmi ewsdocker/ldc-libre:office-jdk-0.1.0-b1
+#
+docker stop ldc-libre-office-0.1.0-b1
+docker rm ldc-libre-office-0.1.0-b1
+docker rmi ewsdocker/ldc-libre:office-0.1.0-b1
+#
+#
+docker stop ldc-games-mahjongg-0.1.0-b1
+docker rm ldc-games-mahjongg-0.1.0-b1
+docker rmi ewsdocker/ldc-games:mahjongg-0.1.0-b1
+#
+docker stop ldc-games-sol-0.1.0-b1
+docker rm ldc-games-sol-0.1.0-b1
+docker rmi ewsdocker/ldc-games:sol-0.1.0-b1
+#
+#
+docker stop ldc-eclipse-cpp-0.1.0-b1
+docker rm ldc-eclipse-cpp-0.1.0-b1
+docker rmi ewsdocker/ldc-eclipse:cpp-0.1.0-b1
+#
+docker stop ldc-eclipse-fortran-0.1.0-b1
+docker rm ldc-eclipse-fortran-0.1.0-b1
+docker rmi ewsdocker/ldc-eclipse:fortran-0.1.0-b1
+#
+docker stop ldc-eclipse-java-0.1.0-b1
+docker rm ldc-eclipse-java-0.1.0-b1
+docker rmi ewsdocker/ldc-eclipse:java-0.1.0-b1
+#
+docker stop ldc-eclipse-javascript-0.1.0-b1
+docker rm ldc-eclipse-javascript-0.1.0-b1
+docker rmi ewsdocker/ldc-eclipse:javascript-0.1.0-b1
+#
+docker stop ldc-eclipse-php-0.1.0-b1
+docker rm ldc-eclipse-php-0.1.0-b1
+docker rmi ewsdocker/ldc-eclipse:php-0.1.0-b1
+#
+docker stop ldc-eclipse-qt-0.1.0-b1
+docker rm ldc-eclipse-qt-0.1.0-b1
+docker rmi ewsdocker/ldc-eclipse:qt-0.1.0-b1
+#
+#
+docker stop ldc-desktop-dia-0.1.0-b1
+docker rm ldc-desktop-dia-0.1.0-b1
+docker rmi ewsdocker/ldc-desktop:dia-0.1.0-b1
+#
+docker stop ldc-desktop-gimp-0.1.0-b1
+docker rm ldc-desktop-gimp-0.1.0-b1
+docker rmi ewsdocker/ldc-desktop:gimp-0.1.0-b1
+#
+docker stop ldc-desktop-mousepad-0.1.0-b1
+docker rm ldc-desktop-mousepad-0.1.0-b1
+docker rmi ewsdocker/ldc-desktop:mousepad-0.1.0-b1
+#
+docker stop ldc-desktop-ripme-0.1.0-b1
+docker rm ldc-desktop-ripme-0.1.0-b1
+docker rmi ewsdocker/ldc-desktop:ripme-0.1.0-b1
+#
+#
+docker stop ldc-console-nano-0.1.0-b1
+docker rm ldc-console-nano-0.1.0-b1
+docker rmi ewsdocker/ldc-console:nano-0.1.0-b1
+#
+docker stop ldc-console-tumblr-0.1.0-b1
+docker rm ldc-console-tumblr-0.1.0-b1
+docker rmi ewsdocker/ldc-console:tumblr-0.1.0-b1
+#
+#
+docker stop ldc-browser-ffquantum-0.1.0-b1
+docker rm ldc-browser-ffquantum-0.1.0-b1
+docker rmi ewsdocker/ldc-browser:ffquantum-0.1.0-b1
+#
+docker stop ldc-browser-firefox-0.1.0-b1
+docker rm ldc-browser-firefox-0.1.0-b1
+docker rmi ewsdocker/ldc-browser:firefox-0.1.0-b1
+#
+docker stop ldc-browser-netsurf-0.1.0-b1
+docker rm ldc-browser-netsurf-0.1.0-b1
+docker rmi ewsdocker/ldc-browser:netsurf-0.1.0-b1
+#
+docker stop ldc-browser-palemoon-0.1.0-b1
+docker rm ldc-browser-palemoon-0.1.0-b1
+docker rmi ewsdocker/ldc-browser:palemoon-0.1.0-b1
+#
+docker stop ldc-browser-waterfox-0.1.0-b1
+docker rm ldc-browser-waterfox-0.1.0-b1
+docker rmi ewsdocker/ldc-browser:waterfox-0.1.0-b1
+#
+docker stop ldc-browser-waterfox-current-0.1.0-b1
+docker rm ldc-browser-waterfox-current-0.1.0-b1
+docker rmi ewsdocker/ldc-browser:waterfox-current-0.1.0-b1
+#
+#
+
+
+
+
+
+
+

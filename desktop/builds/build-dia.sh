@@ -7,8 +7,8 @@ echo "   **** stopping ddia container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-dia-0.1.0-b1
-docker rm ldc-desktop-dia-0.1.0-b1
+docker stop ldc-desktop-dia-0.1.0-b2
+docker rm ldc-desktop-dia-0.1.0-b2
 
 echo "   ********************************************"
 echo "   ****"
@@ -17,17 +17,17 @@ echo "   ****"
 echo "   ********************************************"
 echo
 
-docker rmi ewsdocker/ldc-desktop:dia-0.1.0-b1
+docker rmi ewsdocker/ldc-desktop:dia-0.1.0-b2
 
 # ===========================================================================
 #
-#    ldc-desktop:dia-0.1.0-b1
+#    ldc-desktop:dia-0.1.0-b2
 #
 # ===========================================================================
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-desktop:dia-0.1.0-b1"
+echo "   **** building ewsdocker/ldc-desktop:dia-0.1.0-b2"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -42,32 +42,32 @@ docker build \
   --build-arg BUILD_NAME="ldc-desktop" \
   --build-arg BUILD_VERSION="dia" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b1" \
+  --build-arg BUILD_EXT_MOD="-b2" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack-apps" \
   --build-arg FROM_VERS="dfortran-gtk2" \
   --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b1" \
+  --build-arg FROM_EXT_MOD="-b2" \
   \
   --build-arg LIB_INSTALL="0" \
   --build-arg LIB_VERSION="0.1.6" \
-  --build-arg LIB_VERS_MOD="-b1" \
+  --build-arg LIB_VERS_MOD="-b2" \
   --build-arg LIB_HOST="http://alpine-nginx-pkgcache" \
   \
   --network=pkgnet \
   --file Dockerfile \
   \
--t ewsdocker/ldc-desktop:dia-0.1.0-b1  .
+-t ewsdocker/ldc-desktop:dia-0.1.0-b2  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-desktop:dia-0.1.0-b1 failed."
+ 	echo "build ewsdocker/ldc-desktop:dia-0.1.0-b2 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-dia-0.1.0-b1"
+echo "   **** installing ldc-desktop-dia-0.1.0-b2"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -100,23 +100,23 @@ docker run \
   -e LMSLIB_INST="0" \
   -e LMSLIB_HOST=http://alpine-nginx-pkgcache \
   -e LMSLIB_VERS="0.1.6" \
-  -e LMSLIB_VERS_MOD="-b1" \
+  -e LMSLIB_VERS_MOD="-b2" \
   \
-  --name=ldc-desktop-dia-0.1.0-b1 \
-ewsdocker/ldc-desktop:dia-0.1.0-b1
+  --name=ldc-desktop-dia-0.1.0-b2 \
+ewsdocker/ldc-desktop:dia-0.1.0-b2
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-dia-0.1.0-b1 failed."
+ 	echo "create container ldc-desktop-dia-0.1.0-b2 failed."
  	exit 1
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:dia-0.1.0-b1 successfully installed."
+echo "   **** ldc-desktop:dia-0.1.0-b2 successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-dia-0.1.0-b1"
+echo "   ****    docker start ldc-desktop-dia-0.1.0-b2"
 echo "   ****"
 echo "   ****************************************************************"
 echo

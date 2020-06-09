@@ -7,8 +7,8 @@ echo "   **** stopping ripme container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-ripme-0.1.0-b1
-docker rm ldc-desktop-ripme-0.1.0-b1
+docker stop ldc-desktop-ripme-0.1.0-b2
+docker rm ldc-desktop-ripme-0.1.0-b2
 
 echo "   ********************************************"
 echo "   ****"
@@ -17,17 +17,17 @@ echo "   ****"
 echo "   ********************************************"
 echo
 
-docker rmi ewsdocker/ldc-desktop:ripme-0.1.0-b1
+docker rmi ewsdocker/ldc-desktop:ripme-0.1.0-b2
 
 # ===========================================================================
 #
-#    ldc-desktop:ripme-0.1.0-b1
+#    ldc-desktop:ripme-0.1.0-b2
 #
 # ===========================================================================
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-desktop:ripme-0.1.0-b1"
+echo "   **** building ewsdocker/ldc-desktop:ripme-0.1.0-b2"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -37,7 +37,7 @@ docker build \
   --build-arg RUN_APP="ripme" \
   \
   --build-arg RIPME_VER="1.7" \
-  --build-arg RIPME_EXT="89" \
+  --build-arg RIPME_EXT=".92" \
   --build-arg RIPME_HOST="http://alpine-nginx-pkgcache" \
   \
   --build-arg BUILD_DAEMON="0" \
@@ -46,32 +46,32 @@ docker build \
   --build-arg BUILD_NAME="ldc-desktop" \
   --build-arg BUILD_VERSION="ripme" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b1" \
+  --build-arg BUILD_EXT_MOD="-b2" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack-apps" \
   --build-arg FROM_VERS="djre8-gtk2" \
   --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b1" \
+  --build-arg FROM_EXT_MOD="-b2" \
   \
   --build-arg LIB_INSTALL="0" \
   --build-arg LIB_VERSION="0.1.6" \
-  --build-arg LIB_VERS_MOD="-b1" \
+  --build-arg LIB_VERS_MOD="-b2" \
   \
   --build-arg LIB_HOST="http://alpine-nginx-pkgcache" \
   --network=pkgnet \
   \
   --file Dockerfile \
-  -t ewsdocker/ldc-desktop:ripme-0.1.0-b1  .
+  -t ewsdocker/ldc-desktop:ripme-0.1.0-b2  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-desktop:ripme-0.1.0-b1 failed."
+ 	echo "build ewsdocker/ldc-desktop:ripme-0.1.0-b2 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-ripme-0.1.0-b1"
+echo "   **** installing ldc-desktop-ripme-0.1.0-b2"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -79,8 +79,8 @@ echo
 docker run \
       -it \
       \
-  -v /etc/localtime:/etc/localtime:ro \
-  \
+      -v /etc/localtime:/etc/localtime:ro \
+      \
       -e LMS_BASE="${HOME}/.local" \
       -e LMS_HOME="${HOME}" \
       -e LMS_CONF="${HOME}/.config" \
@@ -101,21 +101,21 @@ docker run \
       -v ${HOME}/Pictures:/pictures \
       -v ${HOME}/Documents:/www \
       \
-      --name=ldc-desktop-ripme-0.1.0-b1 \
-    ewsdocker/ldc-desktop:ripme-0.1.0-b1
+      --name=ldc-desktop-ripme-0.1.0-b2 \
+    ewsdocker/ldc-desktop:ripme-0.1.0-b2
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-ripme-0.1.0-b1 failed."
+ 	echo "create container ldc-desktop-ripme-0.1.0-b2 failed."
  	exit 1
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:ripme-0.1.0-b1 successfully installed."
+echo "   **** ldc-desktop:ripme-0.1.0-b2 successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-ripme-0.1.0-b1"
+echo "   ****    docker start ldc-desktop-ripme-0.1.0-b2"
 echo "   ****"
 echo "   ****************************************************************"
 echo

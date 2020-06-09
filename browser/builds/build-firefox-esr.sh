@@ -1,56 +1,54 @@
 #!/bin/bash
+# ===========================================================================
+#
+#    ldc-browser:firefox-esr-0.1.0-b2
+#
+# ===========================================================================
 cd ~/Development/ewsldc/ldc-applications/browser
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** stopping ldc-browser-waterfox-current container(s)"
+echo "   **** stopping firefox-esr container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-waterfox-current-0.1.0-b2
-docker rm ldc-browser-waterfox-current-0.1.0-b2
+docker stop ldc-browser-firefox-esr-0.1.0-b2
+docker rm ldc-browser-firefox-esr-0.1.0-b2
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** removing ldc-browser:waterfox-current image(s)"
+echo "   **** removing firefox-esr image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-browser:waterfox-current-0.1.0-b2
+docker rmi ewsdocker/ldc-browser:firefox-esr-0.1.0-b2
 
-# ===========================================================================
-#
-#    ldc-browser:waterfox-current-0.1.0-b2
-#
-# ===========================================================================
-
-echo
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-browser:waterfox-current-0.1.0-b2"
+echo "   **** building ewsdocker/ldc-browser:firefox-esr-0.1.0-b2"
 echo "   ****"
 echo "   ***************************************************"
 echo
 
 docker build \
-  --build-arg DNAME="WCFOX" \
+  --build-arg DNAME="EFOX" \
   \
-  --build-arg RUN_APP="waterfox" \
+  --build-arg RUN_APP="firefox-esr" \
   \
-  --build-arg BROWSER_LABEL="Waterfox Current" \
-  --build-arg BROWSER_RELEASE="2020" \
-  --build-arg BROWSER_VERS="06" \
+  --build-arg BROWSER_LABEL="Firefox ESR" \
+  --build-arg BROWSER_RELEASE="68" \
+  --build-arg BROWSER_VERS="9.0esr" \
   \
-  --build-arg WATERFOX_NAME="Waterfox Current" \
-  --build-arg WATERFOX_GENERIC="waterfox-current" \
-  --build-arg WATERFOX_DIR="/opt" \
-  --build-arg WATERFOX_HOST="http://alpine-nginx-pkgcache" \
+  --build-arg FIREFOX_NAME="Firefox ESR" \
+  --build-arg FIREFOX_GENERIC="firefox-esr" \
+  --build-arg FIREFOX_DIR="/opt" \
+  --build-arg FIREFOX_HOST="http://alpine-nginx-pkgcache" \
   \
   --build-arg BUILD_DAEMON="0" \
   --build-arg BUILD_TEMPLATE="gui" \
   \
   --build-arg BUILD_NAME="ldc-browser" \
-  --build-arg BUILD_VERSION="waterfox-current" \
+  --build-arg BUILD_VERSION="firefox-esr" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
   --build-arg BUILD_EXT_MOD="-b2" \
   \
@@ -65,33 +63,38 @@ docker build \
   --build-arg LIB_VERS_MOD="-b2" \
   \
   --build-arg LIB_HOST="http://alpine-nginx-pkgcache" \
-  --network=pkgnet \
   \
+  --network=pkgnet \
   --file Dockerfile \
--t ewsdocker/ldc-browser:waterfox-current-0.1.0-b2 .
+-t ewsdocker/ldc-browser:firefox-esr-0.1.0-b2 .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-browser:waterfox-current-0.1.0-b2 failed."
+ 	echo "build ewsdocker/ldc-browser:firefox-esr-0.1.0-b2 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-waterfox-current-0.1.0-b2"
+echo "   **** installing ldc-browser-firefox-esr-0.1.0-b2"
 echo "   ****"
 echo "   ***********************************************"
 echo
 
 docker run \
   -it \
+  -e LRUN_APP="firefox-esr" \
   \
   -v /etc/localtime:/etc/localtime:ro \
+  \
+  -e LMS_BASE="${HOME}/.local" \
+  -e LMS_HOME="${HOME}" \
+  -e LMS_CONF="${HOME}/.config" \
   \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-browser-waterfox-current-0.1.0:${HOME} \
-  -v ${HOME}/.config/docker/ldc-browser-waterfox-current-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-browser-firefox-esr-0.1.0:/root \
+  -v ${HOME}/.config/docker/ldc-browser-firefox-esr-0.1.0/workspace:/workspace \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
@@ -100,15 +103,16 @@ docker run \
   --device /dev/snd \
   \
   -v ${HOME}/Downloads:/Downloads \
-  -v ${HOME}/Source:/source \
+  -v ${HOME}/Documents:/Documents \
   \
-  --name=ldc-browser-waterfox-current-0.1.0-b2 \
-ewsdocker/ldc-browser:waterfox-current-0.1.0-b2
+  --name=ldc-browser-firefox-esr-0.1.0-b2 \
+ewsdocker/ldc-browser:firefox-esr-0.1.0-b2
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-waterfox-current-0.1.0-b2 failed."
+ 	echo "build container ldc-browser-firefox-esr-0.1.0-b2 failed."
  	exit 2
  }
+
 
 exit 0
 

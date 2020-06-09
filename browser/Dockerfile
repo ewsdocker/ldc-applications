@@ -7,7 +7,7 @@
 # =========================================================================
 #
 # @author Jay Wheeler.
-# @version 67.0.4
+# @version 0.1.0
 # @copyright © 2017-2020. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ldc-browser
@@ -38,10 +38,10 @@
 # =========================================================================
 
 ARG FROM_REPO="ewsdocker"
-ARG FROM_PARENT="ldc-lang"
-ARG FROM_VERS="dgtk-gtk3"
+ARG FROM_PARENT="ldc-stack"
+ARG FROM_VERS="dgtk3-x11"
 ARG FROM_EXT="-0.1.0"
-ARG FROM_EXT_MOD=""
+ARG FROM_EXT_MOD="-b2"
 
 FROM ${FROM_REPO}/${FROM_PARENT}:${FROM_VERS}${FROM_EXT}${FROM_EXT_MOD}
 
@@ -70,16 +70,6 @@ ARG RUN_APP
 
 # =========================================================================
 
-ARG BROWSER_BUILD
-ARG BROWSER_STABLE
-ARG BROWSER_NAME
-ARG BROWSER_LABEL
-ARG BROWSER_RELEASE
-ARG BROWSER_VERS
-ARG BROWSER_COMMON
-
-# =========================================================================
-
 ARG BUILD_TEMPLATE
 ARG BUILD_DAEMON
 
@@ -104,37 +94,29 @@ ARG OPT_TIMEOUT
 
 ARG NETSURF_NAME
 ARG NETSURF_GENERIC
-ARG NETSURF_RELEASE
-ARG NETSURF_VER
-ARG NETSURF_HOST
 ARG NETSURF_DIR
+ARG NETSURF_HOST
 
 # =========================================================================
 
 ARG WATERFOX_NAME
 ARG WATERFOX_GENERIC
-ARG WATERFOX_RELEASE
-ARG WATERFOX_VER
-ARG WATERFOX_HOST
 ARG WATERFOX_DIR
+ARG WATERFOX_HOST
 
 # =========================================================================
 
 ARG PALEMOON_NAME
 ARG PALEMOON_GENERIC
-ARG PALEMOON_RELEASE
-ARG PALEMOON_VER
-ARG PALEMOON_HOST
 ARG PALEMOON_DIR
+ARG PALEMOON_HOST
 
 # =========================================================================
 
 ARG FIREFOX_NAME
 ARG FIREFOX_GENERIC
-ARG FIREFOX_RELEASE
-ARG FIREFOX_VER
-ARG FIREFOX_HOST
 ARG FIREFOX_DIR
+ARG FIREFOX_HOST
 
 # =========================================================================
 
@@ -144,7 +126,25 @@ ARG FLASH_HOST
 ARG FLASH_INST
 
 # =========================================================================
+
+ARG DNAME
+
 # =========================================================================
+
+ARG BROWSER_LABEL
+ARG BROWSER_RELEASE
+ARG BROWSER_VERS
+
+# =========================================================================
+# =========================================================================
+
+ENV DSTACK=${DNAME:-"UNKNOWN"}
+
+# =========================================================================
+
+ENV BRWSR_LABEL=${BROWSER_LABEL:-"NetSurf"} \
+    BRWSR_RELEASE=${BROWSER_RELEASE:-"3.10-1"} \
+    BRWSR_VERS=${BROWSER_VERS:-""}
 
 # =========================================================================
 # =========================================================================
@@ -160,15 +160,13 @@ ARG FLASH_INST
 
 ENV NSURF_NAME="NetSurf" \
     NSURF_GENERIC="netsurf" \
-    NSURF_RELEASE=${NETSURF_RELEASE:-"3.8"} \
-    NSURF_VERS=${NETSURF_VER:-"deb-gtk"} \
     NSURF_DIR=${NETSURF_DIR:-"./netsurf"}
 
-ENV NSURF_BUILDER="9.5.3" \
-    NSURF_BUILD=1
+ENV NSURF_BUILDER="0.1.0-b2" \
+    NSURF_BUILD=2
 
 ENV NSURF_HOST=${NETSURF_HOST:-"https://github.com/ewsdocker/debian-netsurf-packager/releases/download/${NSURF_BUILDER}"} \
-    NSURF_PKG="${NSURF_GENERIC}-${NSURF_RELEASE}-${NSURF_BUILD}-${NSURF_VERS}-x86_64.tar.gz" 
+    NSURF_PKG="${NSURF_GENERIC}-${BRWSR_RELEASE}-${NSURF_BUILD}-deb-gtk-x86_64.tar.gz" 
     
 ENV NSURF_URL="${NSURF_HOST}/${NSURF_PKG}"
 
@@ -180,23 +178,24 @@ ENV NSURF_URL="${NSURF_HOST}/${NSURF_PKG}"
 # =========================================================================
 #
 # Classic:
+#   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-classic-2020.06.en-US.linux-x86_64.tar.bz2
+#   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-classic-2020.05.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-classic-2019.12.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-classic-2019.10.en-US.linux-x86_64.tar.bz2
 # Current (Modern):
+#   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-current-2020.06.en-US.linux-x86_64.tar.bz2
+#   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-current-2020.05.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-current-2019.12.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-current-2019.10.en-US.linux-x86_64.tar.bz2
 #
 # =========================================================================
 # =========================================================================
 
-ENV WFOX_NAME=${WATERFOX_NAME:-"WaterfoxClassic"} \
-    WFOX_GENERIC=${WATERFOX_GENERIC} \
-    \
-    WFOX_RELEASE=${WATERFOX_RELEASE:-"2019"} \
-    WFOX_VERS=${WATERFOX_VER:-"12"} \
+ENV WFOX_NAME=${WATERFOX_NAME:-"Waterfox Current"} \
+    WFOX_GENERIC=${WATERFOX_GENERIC:-"waterfox-current"} \
     WFOX_DIR=${WATERFOX_DIR:-"/opt"}
 
-ENV WFOX_PKG="${WFOX_GENERIC}-${WFOX_RELEASE}.${WFOX_VERS}.en-US.linux-x86_64.tar.bz2" 
+ENV WFOX_PKG="${WFOX_GENERIC}-${BRWSR_RELEASE}.${BRWSR_VERS}.en-US.linux-x86_64.tar.bz2" 
 ENV WFOX_HOST=${WATERFOX_HOST:-"https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/${WFOX_PKG}"}
 
 ENV WFOX_URL="${WFOX_HOST}/${WFOX_PKG}"
@@ -212,6 +211,8 @@ ENV WFOX_URL="${WFOX_HOST}/${WFOX_PKG}"
 # The latest release is available from
 #	http://linux.palemoon.org/download/mainline/
 #
+#   http://linux.palemoon.org/datastore/release/palemoon-28.10.0.linux-x86_64.tar.xz
+#   http://linux.palemoon.org/datastore/release/palemoon-28.9.3.linux-x86_64.tar.xz
 #   http://linux.palemoon.org/datastore/release/palemoon-28.8.0.linux-x86_64.tar.xz
 #	http://linux.palemoon.org/datastore/release/palemoon-28.7.2.linux-x86_64.tar.bz2
 #
@@ -220,11 +221,9 @@ ENV WFOX_URL="${WFOX_HOST}/${WFOX_PKG}"
 
 ENV PMOON_NAME=${PALEMOON_NAME:-"Pale Moon"} \
     PMOON_GENERIC=${PALEMOON_GENERIC:-"palemoon"} \
-    PMOON_RELEASE=${PALEMOON_RELEASE:-"28"} \
-    PMOON_VERS=${PALEMOON_VER:-"8.0"} \
     PMOON_DIR=${PALEMOON_DIR:-"/opt"} 
 
-ENV PMOON_PKG="${PMOON_GENERIC}-${PMOON_RELEASE}.${PMOON_VERS}.linux-x86_64.tar.xz" \
+ENV PMOON_PKG="${PMOON_GENERIC}-${BROWSER_RELEASE}.${BROWSER_VERS}.linux-x86_64.tar.xz" \
     PMOON_HOST=${PALEMOON_HOST:-"http://linux.palemoon.org/datastore/release"}
 
 ENV PMOON_URL="${PMOON_HOST}/${PMOON_PKG}"
@@ -236,6 +235,9 @@ ENV PMOON_URL="${PMOON_HOST}/${PMOON_PKG}"
 #
 # =========================================================================
 #
+# wget http://ftp.mozilla.org/pub/firefox/releases/77.0.1/linux-x86_64/en-US/firefox-77.0.1.tar.bz2
+# wget http://ftp.mozilla.org/pub/firefox/releases/76.0.1/linux-x86_64/en-US/firefox-76.0.1.tar.bz2
+# wget http://ftp.mozilla.org/pub/firefox/releases/72.0.2/linux-x86_64/en-US/firefox-72.0.2.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/70.0.1/linux-x86_64/en-US/firefox-70.0.1.tar.bz2
 #
 # =========================================================================
@@ -243,25 +245,12 @@ ENV PMOON_URL="${PMOON_HOST}/${PMOON_PKG}"
 
 ENV FFOX_NAME="Firefox" \
     FFOX_GENERIC="firefox" \
-    FFOX_RELEASE=${FIREFOX_RELEASE:-"70"} \
-    FFOX_VERS=${FIREFOX_VER:-"0.1"} \
     FFOX_DIR=${FIREFOX_DIR:-"/opt"}
 
-ENV FFOX_PKG="firefox-${FFOX_RELEASE}.${FFOX_VERS}.tar.bz2" \
-    FFOX_HOST=${FIREFOX_HOST:-"http://ftp.mozilla.org/pub/firefox/releases/${FFOX_RELEASE}.${FFOX_VERS}/linux-x86_64/en-US"}
+ENV FFOX_PKG="firefox-${BROWSER_RELEASE}.${BROWSER_VERS}.tar.bz2" \
+    FFOX_HOST=${FIREFOX_HOST:-"http://ftp.mozilla.org/pub/firefox/releases/${BROWSER_RELEASE}.${BROWSER_VERS}/linux-x86_64/en-US"}
 
 ENV FFOX_URL="${FFOX_HOST}/${FFOX_PKG}"
-
-# =========================================================================
-# ========================================================================================
-
-ENV BRWSR_BUILD=${BROWSER_BUILD:-"FFOX"} \
-    BRWSR_STABLE=${BROWSER_STABLE:-"1"} \
-    BRWSR_COMMON=${BROWSER_COMMON:-"0"} \
-    BRWSR_NAME=${BROWSER_NAME:-"firefox"} \
-    BRWSR_LABEL=${BROWSER_LABEL:-"NetSurf"} \
-    BRWSR_RELEASE=${BROWSER_RELEASE:-"3.8"} \
-    BRWSR_VERS=${BROWSER_VERS:-""}
 
 # =========================================================================
 # =========================================================================
@@ -298,7 +287,7 @@ ENV \
     LMS_VERS_MOD=${BUILD_EXT_MOD:-""} 
 
 ENV LMS_VERS_EXT="${LMS_VERS_X}${LMS_VERS_MOD}" \
-    LMS_PACKAGE="${LMS_PARENT}, ${BRWSR_LABEL} ${BRWSR_RELEASE}${BRWSR_VERS}"
+    LMS_PACKAGE="${LMS_PARENT}, ${BRWSR_LABEL} ${BRWSR_RELEASE}.${BRWSR_VERS}"
 
 ENV LMS_RUN_NAME="${LMS_NAME}-${LMS_VERSION}${LMS_VERS_EXT}" \
     LMS_DOCKER_NAME="${LMS_NAME}:${LMS_VERSION}${LMS_VERS_EXT}" 
@@ -356,9 +345,16 @@ RUN chmod +x /tmp/*.sh \
  && apt-get -y update \
  && apt-get -y upgrade \
  \
- && if [ "${BRWSR_COMMON}" = "0" ] && [ "${BRWSR_STABLE}" = "1" ]; then /tmp/stable-browser.sh; fi \
- && if [ "${BRWSR_COMMON}" = "0" ] && [ "${BRWSR_STABLE}" = "0" ]; then /tmp/unstable-browser.sh; fi \
- && if [ "${BRWSR_COMMON}" = "1" ]; then /tmp/stable-common.sh; fi \
+ && case ${DSTACK} in \
+ 	  "FQUANT")  /tmp/ffquantum.sh           ;; \
+      "FFOX")    /tmp/firefox-un.sh          ;; \
+      "EFOX")    /tmp/firefox-esr.sh         ;; \
+ 	  "NETSURF") /tmp/netsurf-testing.sh     ;; \
+ 	  "PMOON")   /tmp/palemoon.sh            ;; \
+ 	  "WFOX")    /tmp/waterfox.sh            ;; \
+ 	  "WCFOX")   /tmp/waterfox-current.sh    ;; \
+      *)       echo "UNKNOWN STACK NAME: ${DSTACK}"; exit 1 ;; \
+ esac \
  \
  && apt-get clean all \
  \
@@ -400,7 +396,7 @@ RUN chmod +x /tmp/*.sh \
  \
  # =========================================================================
  #
- #   Register Firefox in build chain
+ #   Register Browser in build chain
  #
  # =========================================================================
  \

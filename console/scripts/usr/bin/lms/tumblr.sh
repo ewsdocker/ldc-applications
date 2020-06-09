@@ -9,14 +9,14 @@
 #
 # @author Jay Wheeler.
 # @version 0.1.2
-# @copyright © 2017-2019. EarthWalk Software.
+# @copyright © 2017-2020. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ldc-cli-apps:dtumblr
 # @subpackage tumblr.sh
 #
 # =========================================================================
 #
-#	Copyright © 2017-2019. EarthWalk Software
+#	Copyright © 2017-2020. EarthWalk Software
 #   This file is part of ldc-cli-apps:dtumblr.
 #
 #   ldc-cli-apps:dtumblr is free software: you can redistribute 
