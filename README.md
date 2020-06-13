@@ -1,5 +1,5 @@
 
-__Preliminary Documentation__ - 2020-06-12
+__Preliminary Documentation__ - 2020-06-13
 ____  
 __ldc-applications: The LDC (Linux Docker Containers) Applications project.__  
 
@@ -81,7 +81,7 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
  <tr>
   <td>&nbsp;0.1.0-b3&nbsp;</td>
   <td>&nbsp;Development&nbsp;</td>
-  <td>&nbsp;2020-06-12&nbsp;</td>
+  <td>&nbsp;2020-06-13&nbsp;</td>
   <td>&nbsp;&nbsp;</td>
   <td>&nbsp;&nbsp;</td>
  </tr>
