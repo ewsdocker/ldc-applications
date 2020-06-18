@@ -353,7 +353,7 @@ RUN chmod +x /tmp/*.sh \
  	  "PMOON")   /tmp/palemoon.sh            ;; \
  	  "WFOX")    /tmp/waterfox.sh            ;; \
  	  "WCFOX")   /tmp/waterfox-current.sh    ;; \
-      *)       echo "UNKNOWN STACK NAME: ${DSTACK}"; exit 1 ;; \
+      *)         echo "UNKNOWN STACK NAME: ${DSTACK}"; exit 1 ;; \
  esac \
  \
  && apt-get clean all \
