@@ -25,7 +25,7 @@ ____
  <a href="#Overview">Overview</a>
  <br />
  <a href="#relinfo">Release Information</a>
- <br />
+ <br>
  <ul>
   <a href="#rellink">Release Links</a>
  </ul>
@@ -34,69 +34,61 @@ ____
   <a href="#appsbrowser">ldc-browser</a>
   <ul>
    <a href="#firefox">Firefox</a>
-   <br />
+   <br>
    <a href="#firefoxq">Firefox Quantum</a>
-   <br />
+   <br>
    <a href="#firefoxe">Firefox-esr</a>
-   <br />
+   <br>
    <a href="#nsurf">NetSurf</a>
-   <br />
+   <br>
    <a href="#pmoon">Pale Moon</a>
-   <br />
+   <br>
    <a href="#wfox">Waterfox Classic</a>
-   <br />
+   <br>
    <a href="#wfoxc">Waterfox Current</a>
   </ul>
-
   <a href="#appsconsole">ldc-console</a>
   <ul>
    <a href="#nano">Nano</a>
-   <br />
+   <br>
    <a href="#tumblr">Tumblr</a>
   </ul>
-
   <a href="#appsdesk">ldc-desktop</a>
   <ul>
    <a href="#dia">Dia</a>
-   <br />
+   <br>
    <a href="#gimp">Gimp</a>
-   <br />
+   <br>
    <a href="#mpad">Mousepad</a>
-   <br />
+   <br>
    <a href="#ripme">RipMe</a>
   </ul>
-
   <a href="#appseclipse">ldc-eclipse</a>
   <ul>
    <a href="#cpp">Cpp</a>
-   <br />
+   <br>
    <a href="#fortran">Fortran</a>
-   <br />
+   <br>
    <a href="#java">Java</a>
-   <br />
+   <br>
    <a href="#javascript">JavaScript</a>
-   <br />
+   <br>
    <a href="#php">Php</a>
-   <br />
+   <br>
    <a href="#wfox">Qt</a>
   </ul>
-
   <a href="#appsgames">ldc-games</a>
   <ul>
    <a href="#aisleriot">Aisleriot Solitaire</a>
-   <br />
+   <br>
    <a href="#mahjongg">Mahjongg</a>
-   <br />
   </ul>
-
   <a href="#appslibre">ldc-libre</a>
   <ul>
    <a href="#office">Office</a>
-   <br />
+   <br>
    <a href="#officejdk">Office + JDK-13</a>
-   <br />
   </ul>
-
  </ul>
  <a href="#relnote">Release Notes</a>  
 </ul>
@@ -180,22 +172,16 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
    <dl>
     <dt><a name="firefox"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#firefox">Firefox 77.0.1</a></dt>
      <dd><b>docker pull ewsdocker/ldc-browser:firefox-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="firefoxq"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#fquantum">Firefox Quantum 77.0.1</a></dt>
      <dd><b>docker pull ewsdocker/ldc-browser:ffquantum-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="firefoxe"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#fesr">Firefox-esr 68.0</a></dt>
      <dd><b>docker pull ewsdocker/ldc-browser:firefox-esr-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="nsurf"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#nsurf">NetSurf 3.10-1</a></dt>
      <dd><b>docker pull ewsdocker/ldc-browser:netsurf-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="pmoon"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#pmoon">Pale Moon 28.10.0</a></dt>
      <dd><b>docker pull ewsdocker/ldc-browser:palemoon-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="wfox"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#wfox">Waterfox Classic 2020-06</a></dt>
      <dd><b>docker pull ewsdocker/ldc-browser:waterfox-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="wfoxc"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#wfoxc">Waterfox Current 2020-06</a></dt>
      <dd><b>docker pull ewsdocker/ldc-browser:waterfox-current-0.1.0-b2</b></dd>
    </dl>
@@ -210,7 +196,6 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
    <dl>
     <dt><a name="nano"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/console#nano">Nano 3.2</a></dt>
      <dd><b>docker pull ewsdocker/ldc-console:nano-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="tumblr"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/console#tumblr">Tumblr 0.0.2</a></dt>
      <dd><b>docker pull ewsdocker/ldc-console:tumblr-0.1.0-b2</b></dd>
    </dl>
@@ -225,13 +210,10 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
    <dl>
     <dt><a name="dia"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/desktop#dia">Dia 0.97.3</a></dt>
      <dd><b>docker pull ewsdocker/ldc-desktop:dia-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="gimp"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/desktop#gimp">Gimp 2.10.8-2</a></dt>
      <dd><b>docker pull ewsdocker/ldc-desktop:gimp-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="mpad"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/desktop#mpad">Mousepad 0.4.1-2</a></dt>
      <dd><b>docker pull ewsdocker/ldc-desktop:mousepad-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="ripme"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/desktop#ripme">RipMe 1.7.92</a></dt>
      <dd><b>docker pull ewsdocker/ldc-desktop:ripme-0.1.0-b2</b></dd>
    </dl>
@@ -246,19 +228,14 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
    <dl>
     <dt><a name="cpp"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/eclipse#cpp">Eclipse CPP 2020-05-M3</a></dt>
      <dd><b>docker pull ewsdocker/ldc-eclipse:cpp-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="fortran"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/eclipse#fortran">Eclipse Fortran 2020-05-M3</a></dt>
      <dd><b>docker pull ewsdocker/ldc-eclipse:fortran-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="java"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/eclipse#java">Eclipse Java 2020-05-M3</a></dt>
      <dd><b>docker pull ewsdocker/ldc-eclipse:java-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="javascript"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/eclipse#javascript">Eclipse JavaScript 2020-05-M3</a></dt>
      <dd><b>docker pull ewsdocker/ldc-eclipse:javascript-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="php"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/eclipse#php">Eclipse Php 2020-05-M3</a></dt>
      <dd><b>docker pull ewsdocker/ldc-eclipse:php-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="qt"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/eclipse#qt">Eclipse Qt 2020-05-M3</a></dt>
      <dd><b>docker pull ewsdocker/ldc-eclipse:qt-0.1.0-b2</b></dd>
    </dl>
@@ -273,7 +250,6 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
    <dl>
     <dt><a href="https://github.com/ewsdocker/ldc-applications/wiki/games#sol">Aisleriot 3.22.7-2</a></dt>
      <dd><b>docker pull ewsdocker/ldc-games:sol-0.1.0-b2</b></dd>
-    <br />
     <dt><a href="https://github.com/ewsdocker/ldc-applications/wiki/games#mahjongg">Mahjongg 3.22.0-4</a></dt>
      <dd><b>docker pull ewsdocker/ldc-games:mahjongg-0.1.0-b2</b></dd>
    </dl>
@@ -288,7 +264,6 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
    <dl>
     <dt><a name="office"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/libre#office">LibreOffice_6.4.4</a></dt>
      <dd><b>docker pull ewsdocker/ldc-libre:office-0.1.0-b2</b></dd>
-    <br />
     <dt><a name="officejdk"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/libre#office-jdk">LibreOffice_6.4.4 + JDK 13</a></dt>
      <dd><b>docker pull ewsdocker/ldc-libre:office-jdk-0.1.0-b2</b></dd>
    </dl>
