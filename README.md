@@ -51,7 +51,7 @@ ____
    <br>
    <a href="#tumblr">Tumblr</a>
   </ul>
-  <a href="#appsdesk">ldc-desktop</a>
+  <a href="#appsdesktop">ldc-desktop</a>
   <ul>
    <a href="#dia">Dia</a>
    <br>
@@ -73,7 +73,7 @@ ____
    <br>
    <a href="#php">Php</a>
    <br>
-   <a href="#wfox">Qt</a>
+   <a href="#qt">Qt</a>
   </ul>
   <a href="#appsgames">ldc-games</a>
   <ul>
@@ -158,13 +158,13 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
           latest <b><i>unstable</i></b> repository for Debian 10.<br />&nbsp;
      </dd>  
      <dd><b>docker pull ewsdocker/ldc-browser:firefox-0.1.0-b2</b><br />&nbsp;</dd>
-    <dt><a name="firefoxq"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#fquantum">Firefox Quantum 77.0.1</a><br />&nbsp;</dt>
+    <dt><a name="firefoxq"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#firefoxq">Firefox Quantum 77.0.1</a><br />&nbsp;</dt>
      <dd>"The latest Firefox brings privacy protections front and center, 
           letting you track the trackers." This version is based upon the
           latest <b><i>stable</i></b> repository for Debian 10.<br />&nbsp;
      </dd>  
      <dd><b>docker pull ewsdocker/ldc-browser:ffquantum-0.1.0-b2</b><br />&nbsp;</dd>
-    <dt><a name="firefoxe"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#fesr">Firefox-esr 68.8.0esr-1</a><br />&nbsp;</dt>
+    <dt><a name="firefoxe"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/browser#firefoxe">Firefox-esr 68.8.0esr-1</a><br />&nbsp;</dt>
      <dd>"The latest Firefox brings privacy protections front and center, 
           letting you track the trackers." This version is based upon the
           latest <b><i>esr stable</i></b> repository for Debian 10.<br />&nbsp;
@@ -288,12 +288,12 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
  <dt><a name="appsgames"><a href="https://hub.docker.com/repository/docker/ewsdocker/ldc-games">ldc-games</a></dt>
   <dd>
    <dl>
-    <dt><a href="https://github.com/ewsdocker/ldc-applications/wiki/games#sol">Aisleriot 3.22.7-2</a><br />&nbsp;</dt>
+    <dt><a name="aisleriot" a href="https://github.com/ewsdocker/ldc-applications/wiki/games#aisleriot">Aisleriot 3.22.7-2</a><br />&nbsp;</dt>
      <dd>
       GNOME solitaire card game collection. This is a collection of over eighty different solitaire card games, including popular variants such as spider, freecell, klondike, thirteen (pyramid), yukon, canfield and many more.<br />&nbsp;
      </dd>
      <dd><b>docker pull ewsdocker/ldc-games:sol-0.1.0-b2</b><br />&nbsp;</dd>
-    <dt><a href="https://github.com/ewsdocker/ldc-applications/wiki/games#mahjongg">Mahjongg 3.22.0-4</a><br />&nbsp;</dt>
+    <dt><a name="mahjongg" a href="https://github.com/ewsdocker/ldc-applications/wiki/games#mahjongg">Mahjongg 3.22.0-4</a><br />&nbsp;</dt>
      <dd>
       This is a solitaire (one player) version of the classic Eastern tile game, Mahjongg.<br />&nbsp;
      </dd>
@@ -303,7 +303,7 @@ All release versions are available in both <i>Zip</i> and <i>Tar-Gzip</i> archiv
 </dl>
  
 <dl>
- <dt><a name="appslibre"><a href="https://hub.docker.com/repository/docker/ewsdocker/ldc-libre">ldc-libre</a></dt>
+ <dt><a name="appslibre" href="https://hub.docker.com/repository/docker/ewsdocker/ldc-libre">ldc-libre</a></dt>
   <dd>
    <dl>
     <dt><a name="office"></a><a href="https://github.com/ewsdocker/ldc-applications/wiki/libre#office">LibreOffice_6.4.4</a><br />&nbsp;</dt>
