@@ -3,50 +3,52 @@ cd ~/Development/ewsldc/ldc-applications/desktop
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** stopping ddia container(s)"
+echo "   **** stopping shotcut container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-dia-0.1.0-b3
-docker rm ldc-desktop-dia-0.1.0-b3
+docker stop ldc-desktop-shotcut-0.1.0-b3
+docker rm ldc-desktop-shotcut-0.1.0-b3
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** removing ddia image(s)"
+echo "   **** removing shotcut image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
 
-docker rmi ewsdocker/ldc-desktop:dia-0.1.0-b3
+docker rmi ewsdocker/ldc-desktop:shotcut-0.1.0-b3
 
 # ===========================================================================
 #
-#    ldc-desktop:dia-0.1.0-b3
+#    ldc-desktop:shotcut-0.1.0-b3
 #
 # ===========================================================================
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-desktop:dia-0.1.0-b3"
+echo "   **** building ewsdocker/ldc-desktop:shotcut-0.1.0-b3"
 echo "   ****"
 echo "   ***************************************************"
 echo
 
 docker build \
-  --build-arg RUN_APP="dia" \
-  --build-arg DNAME="DIA" \
+  --build-arg RUN_APP="shotcut" \
+  --build-arg DNAME="SHOTCUT" \
+  \
+  --build-arg SHOTCUT_HOST="http://alpine-nginx-pkgcache" \
   \
   --build-arg BUILD_DAEMON="0" \
   --build-arg BUILD_TEMPLATE="gui" \
   \
   --build-arg BUILD_NAME="ldc-desktop" \
-  --build-arg BUILD_VERSION="dia" \
+  --build-arg BUILD_VERSION="shotcut" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
   --build-arg BUILD_EXT_MOD="-b3" \
   \
   --build-arg FROM_REPO="ewsdocker" \
-  --build-arg FROM_PARENT="ldc-stack-apps" \
-  --build-arg FROM_VERS="dfortran-gtk2" \
+  --build-arg FROM_PARENT="ldc-stack" \
+  --build-arg FROM_VERS="dcc-x11" \
   --build-arg FROM_EXT="-0.1.0" \
   --build-arg FROM_EXT_MOD="-b3" \
   \
@@ -58,16 +60,16 @@ docker build \
   --network=pkgnet \
   --file Dockerfile \
   \
--t ewsdocker/ldc-desktop:dia-0.1.0-b3  .
+-t ewsdocker/ldc-desktop:shotcut-0.1.0-b3  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-desktop:dia-0.1.0-b3 failed."
+ 	echo "build ewsdocker/ldc-desktop:shotcut-0.1.0-b3 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-dia-0.1.0-b3"
+echo "   **** installing ldc-desktop-shotcut-0.1.0-b3"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -84,12 +86,11 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-desktop-dia-0.1.0:/root \
-  -v ${HOME}/.config/docker/ldc-desktop-dia-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-desktop-shotcut-0.1.0:/root \
+  -v ${HOME}/.config/docker/ldc-desktop-shotcut-0.1.0/workspace:/workspace \
   \
-  -v ${HOME}/Pictures/Dia:/artwork \
-  -v ${HOME}/Pictures:/pictures \
-  -v ${HOME}/Documents:/www \
+  -v ${HOME}/Videos:/videos \
+  -v ${HOME}/Audios:/audios \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:/root/.Xauthority \
@@ -102,21 +103,21 @@ docker run \
   -e LMSLIB_VERS="0.1.6" \
   -e LMSLIB_VERS_MOD="-b3" \
   \
-  --name=ldc-desktop-dia-0.1.0-b3 \
-ewsdocker/ldc-desktop:dia-0.1.0-b3
-[[ $? -eq 0 ]] ||
- {
- 	echo "create container ldc-desktop-dia-0.1.0-b3 failed."
- 	exit 1
- }
+  --name=ldc-desktop-shotcut-0.1.0-b3 \
+ewsdocker/ldc-desktop:shotcut-0.1.0-b3
+#[[ $? -eq 0 ]] ||
+# {
+# 	echo "create container ldc-desktop-shotcut-0.1.0-b3 failed."
+# 	exit 1
+# }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:dia-0.1.0-b3 successfully installed."
+echo "   **** ldc-desktop:shotcut-0.1.0-b3 successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-dia-0.1.0-b3"
+echo "   ****    docker start ldc-desktop-shotcut-0.1.0-b3"
 echo "   ****"
 echo "   ****************************************************************"
 echo

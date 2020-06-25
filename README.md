@@ -29,7 +29,7 @@ ____
  </ul>
  <a href="#appslink">Application Links</a>
  <ul>
-  <a href="#appsbrowser">ldc-browser</a>
+  <a href="#appsbrowser"><b><u>ldc-browser</u></b></a>
   <ul>
    <a href="#firefox">Firefox</a>
    <br>
@@ -45,13 +45,13 @@ ____
    <br>
    <a href="#wfoxc">Waterfox Current</a>
   </ul>
-  <a href="#appsconsole">ldc-console</a>
+  <a href="#appsconsole"><b><u>ldc-console</u></b></a>
   <ul>
    <a href="#nano">Nano</a>
    <br>
    <a href="#tumblr">Tumblr</a>
   </ul>
-  <a href="#appsdesktop">ldc-desktop</a>
+  <a href="#appsdesktop"><b><u>ldc-desktop</u></b></a>
   <ul>
    <a href="#dia">Dia</a>
    <br>
@@ -61,7 +61,7 @@ ____
    <br>
    <a href="#ripme">RipMe</a>
   </ul>
-  <a href="#appseclipse">ldc-eclipse</a>
+  <a href="#appseclipse"><b><u>ldc-eclipse</u></b></a>
   <ul>
    <a href="#cpp">Cpp</a>
    <br>
@@ -75,13 +75,13 @@ ____
    <br>
    <a href="#qt">Qt</a>
   </ul>
-  <a href="#appsgames">ldc-games</a>
+  <a href="#appsgames"><b><u>ldc-games</u></b></a>
   <ul>
    <a href="#aisleriot">Aisleriot Solitaire</a>
    <br>
    <a href="#mahjongg">Mahjongg</a>
   </ul>
-  <a href="#appslibre">ldc-libre</a>
+  <a href="#appslibre"><b><u>ldc-libre</u></b></a>
   <ul>
    <a href="#office">Office</a>
    <br>

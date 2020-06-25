@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-browser:netsurf-0.1.0-b2
+#    ldc-browser:netsurf-0.1.0-b3
 #
 # ===========================================================================
 cd ~/Development/ewsldc/ldc-applications/browser
@@ -12,8 +12,8 @@ echo "   **** stopping netsurf container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-netsurf-0.1.0-b2
-docker rm ldc-browser-netsurf-0.1.0-b2
+docker stop ldc-browser-netsurf-0.1.0-b3
+docker rm ldc-browser-netsurf-0.1.0-b3
 
 echo "   ********************************************"
 echo "   ****"
@@ -21,11 +21,11 @@ echo "   **** removing netsurf image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-browser:netsurf-0.1.0-b2
+docker rmi ewsdocker/ldc-browser:netsurf-0.1.0-b3
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-browser:netsurf-0.1.0-b2"
+echo "   **** building ewsdocker/ldc-browser:netsurf-0.1.0-b3"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -52,32 +52,32 @@ docker build \
   --build-arg BUILD_NAME="ldc-browser" \
   --build-arg BUILD_VERSION="netsurf" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b2" \
+  --build-arg BUILD_EXT_MOD="-b3" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack" \
   --build-arg FROM_VERS="dgtk2-x11" \
   --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b2" \
+  --build-arg FROM_EXT_MOD="-b3" \
   \
   --build-arg LIB_INSTALL="0" \
   --build-arg LIB_VERSION="0.1.6" \
-  --build-arg LIB_VERS_MOD="-b2" \
+  --build-arg LIB_VERS_MOD="-b3" \
   \
   --build-arg LIB_HOST="http://alpine-nginx-pkgcache" \
   --network=pkgnet \
   \
   --file Dockerfile \
--t ewsdocker/ldc-browser:netsurf-0.1.0-b2 .
+-t ewsdocker/ldc-browser:netsurf-0.1.0-b3 .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-browser:netsurf-0.1.0-b2 failed."
+ 	echo "build ewsdocker/ldc-browser:netsurf-0.1.0-b3 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-netsurf-0.1.0-b2"
+echo "   **** installing ldc-browser-netsurf-0.1.0-b3"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -104,11 +104,11 @@ docker run \
   -v ${HOME}/Documents:/Documents \
   -v ${HOME}/Source:/source \
   \
-  --name=ldc-browser-netsurf-0.1.0-b2 \
-ewsdocker/ldc-browser:netsurf-0.1.0-b2
+  --name=ldc-browser-netsurf-0.1.0-b3 \
+ewsdocker/ldc-browser:netsurf-0.1.0-b3
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-netsurf-0.1.0-b2 failed."
+ 	echo "build container ldc-browser-netsurf-0.1.0-b3 failed."
  	exit 2
  }
 

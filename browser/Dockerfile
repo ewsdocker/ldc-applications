@@ -41,7 +41,7 @@ ARG FROM_REPO="ewsdocker"
 ARG FROM_PARENT="ldc-stack"
 ARG FROM_VERS="dgtk3-x11"
 ARG FROM_EXT="-0.1.0"
-ARG FROM_EXT_MOD="-b2"
+ARG FROM_EXT_MOD="-b3"
 
 FROM ${FROM_REPO}/${FROM_PARENT}:${FROM_VERS}${FROM_EXT}${FROM_EXT_MOD}
 
@@ -162,7 +162,7 @@ ENV NSURF_NAME="NetSurf" \
     NSURF_GENERIC="netsurf" \
     NSURF_DIR=${NETSURF_DIR:-"./netsurf"}
 
-ENV NSURF_BUILDER="0.1.0-b2" \
+ENV NSURF_BUILDER="0.1.0-b3" \
     NSURF_BUILD=2
 
 ENV NSURF_HOST=${NETSURF_HOST:-"https://github.com/ewsdocker/debian-netsurf-packager/releases/download/${NSURF_BUILDER}"} \
@@ -297,7 +297,7 @@ ENV LMS_DOCKER="${LMS_REPO}/${LMS_DOCKER_NAME}"
 # ========================================================================================
 # ========================================================================================
 #
-# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b1.tar.gz
+# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b3.tar.gz
 #
 # ========================================================================================
 # ========================================================================================
@@ -305,7 +305,7 @@ ENV LMS_DOCKER="${LMS_REPO}/${LMS_DOCKER_NAME}"
 ENV LMSLIB_INST=${LIB_INSTALL:-"0"} \
     LMSLIB_NAME=${LIB_NAME:-"ldc-library"} \
     LMSLIB_VERS=${LIB_VERSION:-"0.1.6"} \
-    LMSLIB_VERS_MOD=${LIB_VERS_MOD:-""}
+    LMSLIB_VERS_MOD=${LIB_VERS_MOD:-"-b3"}
 
 ENV LMSLIB_HOST=${LIB_HOST:-"https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-${LMSLIB_VERS}"}
 

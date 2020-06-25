@@ -41,7 +41,7 @@ ARG FROM_REPO="ewsdocker"
 ARG FROM_PARENT="console" 
 ARG FROM_VERS="dbase" 
 ARG FROM_EXT="-0.1.0" 
-ARG FROM_EXT_MOD=""
+ARG FROM_EXT_MOD="-b3"
 
 FROM ${FROM_REPO}/${FROM_PARENT}:${FROM_VERS}${FROM_EXT}${FROM_EXT_MOD}
 
@@ -159,14 +159,14 @@ ENV LMS_DOCKER="${LMS_REPO}/${LMS_DOCKER_NAME}"
 # ========================================================================================
 # ========================================================================================
 #
-# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b1.tar.gz
+# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b3.tar.gz
 #
 # ========================================================================================
 # ========================================================================================
 
 ENV LMSLIB_NAME=${LIB_NAME:-"ldc-library"} \
     LMSLIB_VERS=${LIB_VERSION:-"0.1.6"} \
-    LMSLIB_VERS_MOD=${LIB_VERS_MOD:-"-b1"}
+    LMSLIB_VERS_MOD=${LIB_VERS_MOD:-"-b3"}
 
 ENV LMSLIB_HOST=${LIB_HOST:-"https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-${LMSLIB_VERS}"}
 

@@ -41,7 +41,7 @@ ARG FROM_REPO="ewsdocker"
 ARG FROM_PARENT="ldc-lang"
 ARG FROM_VERS="djdk13-gtk3"
 ARG FROM_EXT="-0.1.0"
-ARG FROM_EXT_MOD=""
+ARG FROM_EXT_MOD="-b3"
 
 FROM ${FROM_REPO}/${FROM_PARENT}:${FROM_VERS}${FROM_EXT}${FROM_EXT_MOD}
 
@@ -203,7 +203,7 @@ ENV LMS_DOCKER="${LMS_REPO}/${LMS_DOCKER_NAME}"
 # ========================================================================================
 # ========================================================================================
 #
-# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b1.tar.gz
+# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b3.tar.gz
 #
 # ========================================================================================
 # ========================================================================================

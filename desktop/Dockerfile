@@ -41,7 +41,7 @@ ARG FROM_REPO="ewsdocker"
 ARG FROM_PARENT="ldc-stack"
 ARG FROM_VERS="dgtk2-x11"
 ARG FROM_EXT="-0.1.0"
-ARG FROM_EXT_MOD=""
+ARG FROM_EXT_MOD="-b3"
 
 FROM ${FROM_REPO}/${FROM_PARENT}:${FROM_VERS}${FROM_EXT}${FROM_EXT_MOD}
 
@@ -112,6 +112,12 @@ ARG RIPME_HOST
 
 # =========================================================================
 
+ARG SHOTCUT_VER
+ARG SHOTCUT_EXT
+ARG SHOTCUT_HOST
+
+# =========================================================================
+
 ARG DNAME
 
 # ========================================================================================
@@ -125,6 +131,23 @@ ARG OPT_QUIET
 ENV DSTACK=${DNAME:-"NONE"}
 
 # =========================================================================
+# =========================================================================
+#
+#    Shotcut v 20.04.12
+#       https://github.com/mltframework/shotcut/releases/download/v20.04.12/shotcut-linux-x86_64-200412.txz
+#
+# =========================================================================
+# =========================================================================
+
+ENV SCUT_REL=${SHOTCUT_REL:-"20.04.12"} \
+    SCUT_VER=${SHOTCUT_VER:-"200412"} 
+
+ENV SCUT_HOST=${SHOTCUT_HOST:-"https://github.com/mltframework/shotcut/releases/download/v${SCUT_VER}"} \
+    SCUT_PKG="shotcut-linux-x86_64-${SCUT_VER}.txz"  
+
+ENV SCUT_URL=${SCUT_HOST}/${SCUT_PKG} 
+
+## =========================================================================
 # =========================================================================
 #
 #    Gimp v 2.10.10
@@ -205,7 +228,7 @@ ENV DSTACK=${DNAME:-"NONE"}
 # =========================================================================
 # =========================================================================
 #
-# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b1.tar.gz
+# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b3.tar.gz
 #
 # =========================================================================
 # =========================================================================
@@ -256,6 +279,7 @@ RUN chmod +x /lmstmp/*.sh \
      "GIMP")       /lmstmp/gimp.sh      ;; \
      "MPAD")       /lmstmp/mpad.sh      ;; \
      "RIPME")      /lmstmp/ripme.sh     ;; \
+     "SHOTCUT")	   /lmstmp/shotcut.sh   ;; \
      *)            echo "unknown selection \"${DSTACK}\""; exit 1 ;; \
     esac \
  \

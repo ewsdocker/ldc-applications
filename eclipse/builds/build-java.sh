@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-eclipse:java-0.1.0-b2
+#    ldc-eclipse:java-0.1.0-b3
 #
 # ===========================================================================
 cd ~/Development/ewsldc/ldc-applications/eclipse
@@ -12,7 +12,7 @@ echo "   **** stopping ldc-eclipse-java container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-eclipse-java-0.1.0-b2
+docker stop ldc-eclipse-java-0.1.0-b3
 
 echo "   ********************************************"
 echo "   ****"
@@ -20,7 +20,7 @@ echo "   **** removing ldc-eclipse-java container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rm ldc-eclipse-java-0.1.0-b2
+docker rm ldc-eclipse-java-0.1.0-b3
 
 echo "   ********************************************"
 echo "   ****"
@@ -28,11 +28,11 @@ echo "   **** removing ldc-eclipse:java image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-eclipse:java-0.1.0-b2
+docker rmi ewsdocker/ldc-eclipse:java-0.1.0-b3
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-eclipse:java-0.1.0-b2"
+echo "   **** building ewsdocker/ldc-eclipse:java-0.1.0-b3"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -49,17 +49,17 @@ docker build \
   --build-arg BUILD_NAME="ldc-eclipse" \
   --build-arg BUILD_VERSION="java" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b2" \
+  --build-arg BUILD_EXT_MOD="-b3" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack-apps" \
   --build-arg FROM_VERS="djdk13-gtk3" \
   --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b2" \
+  --build-arg FROM_EXT_MOD="-b3" \
   \
   --build-arg LIB_INSTALL="0" \
   --build-arg LIB_VERSION="0.1.6" \
-  --build-arg LIB_VERS_MOD="-b2" \
+  --build-arg LIB_VERS_MOD="-b3" \
   \
   --build-arg ECLIPSE_HOST=http://alpine-nginx-pkgcache \
   --build-arg LIB_HOST=http://alpine-nginx-pkgcache \
@@ -67,16 +67,16 @@ docker build \
   --network=pkgnet \
   \
   --file Dockerfile \
--t ewsdocker/ldc-eclipse:java-0.1.0-b2  .
+-t ewsdocker/ldc-eclipse:java-0.1.0-b3  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-eclipse:java-0.1.0-b2 failed."
+ 	echo "build ewsdocker/ldc-eclipse:java-0.1.0-b3 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-eclipse-java-0.1.0-b2"
+echo "   **** installing ldc-eclipse-java-0.1.0-b3"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -110,11 +110,11 @@ docker run \
   -v ${HOME}/Development:/Development \
   -v ${HOME}/Source:/Source \
   \
-  --name=ldc-eclipse-java-0.1.0-b2 \
-ewsdocker/ldc-eclipse:java-0.1.0-b2
+  --name=ldc-eclipse-java-0.1.0-b3 \
+ewsdocker/ldc-eclipse:java-0.1.0-b3
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-eclipse-java-0.1.0-b2 failed."
+ 	echo "build container ldc-eclipse-java-0.1.0-b3 failed."
  	exit 2
  }
 
