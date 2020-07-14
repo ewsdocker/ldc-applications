@@ -29,6 +29,8 @@ echo "   ****"
 echo "   ***************************************************"
 echo
 docker build \
+  --build-arg DNAME="SOL" \
+  \
   --build-arg RUN_APP="sol" \
   \
   --build-arg AISLERIOT_VERS="3.22.1-1" \
@@ -69,27 +71,22 @@ echo "   ****"
 echo "   ***********************************************"
 echo
 
-XSOCK=/tmp/.X11-unix
-XAUTH=/tmp/.docker.xauth
-touch $XAUTH
-xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
-
-#   -v ${HOME}/.Xauthority:/root/.Xauthority \
-#   -v /tmp/.X11-unix:/tmp/.X11-unix \
-#   \
-#   -e DISPLAY=unix${DISPLAY} \
-#   -v ${HOME}/.config/docker/ldc-games-sol-0.1.0/workspace/.gnome2:/root/.gnome2 \
-#   \
+#XSOCK=/tmp/.X11-unix
+#XAUTH=/tmp/.docker.xauth
+#touch $XAUTH
+#xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
 docker run \
    -it \
    \
    -v /etc/localtime:/etc/localtime:ro \
    \
-   -v $XSOCK:$XSOCK:rw \
-   -v $XAUTH:$XAUTH:rw \
-   -e "XAUTHORITY=${XAUTH}" \
-   -e "DISPLAY" \
+   -v ${HOME}/.Xauthority:/root/.Xauthority \
+   -v /tmp/.X11-unix:/tmp/.X11-unix \
+   \
+   -e DISPLAY=unix${DISPLAY} \
+   -v ${HOME}/.config/docker/ldc-games-sol-0.1.0/workspace/.gnome2:/root/.gnome2 \
+   \
    \
    -v /dev/shm:/dev/shm \
    --device /dev/snd \

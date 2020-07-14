@@ -118,6 +118,10 @@ ARG SHOTCUT_HOST
 
 # =========================================================================
 
+ARG OBSSTUDIO_VER
+
+# =========================================================================
+
 ARG DNAME
 
 # ========================================================================================
@@ -278,6 +282,7 @@ RUN chmod +x /lmstmp/*.sh \
      "DIA")        /lmstmp/dia.sh       ;; \
      "GIMP")       /lmstmp/gimp.sh      ;; \
      "MPAD")       /lmstmp/mpad.sh      ;; \
+     "OBS")        /lmstmp/obsstudio.sh ;; \
      "RIPME")      /lmstmp/ripme.sh     ;; \
      "SHOTCUT")	   /lmstmp/shotcut.sh   ;; \
      *)            echo "unknown selection \"${DSTACK}\""; exit 1 ;; \

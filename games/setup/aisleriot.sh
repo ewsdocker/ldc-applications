@@ -89,8 +89,6 @@ addPkg "libvorbisfile3"
 
 addPkg "sound-theme-freedesktop"
 
-#addPkg "yelp"
-
 # ################################
 
 installList

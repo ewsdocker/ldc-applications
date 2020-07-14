@@ -29,8 +29,12 @@ echo "   ****"
 echo "   ***************************************************"
 echo
 docker build \
+  --build-arg DNAME="MAJ" \
+  \
   --build-arg RUN_APP="gnome-mahjongg" \
-  --build-arg BUILD_GAME="MAJ" \
+  \
+  --build-arg MAHJONGG_VERS="3.22.0-4" \
+  --build-arg MAHJONGG_HOST="http://alpine-nginx-pkgcache" \
   \
   --build-arg BUILD_DAEMON="0" \
   --build-arg BUILD_TEMPLATE="run" \
@@ -51,7 +55,6 @@ docker build \
   --build-arg LIB_VERS_MOD="-b3" \
   \
   --build-arg LIB_HOST="http://alpine-nginx-pkgcache" \
-  --build-arg MAHJONGG_HOST="http://alpine-nginx-pkgcache" \
   --network=pkgnet\
   \
   --file Dockerfile \
@@ -74,18 +77,18 @@ docker run \
    \
   -v /etc/localtime:/etc/localtime:ro \
   \
-   -e LMS_BASE="/root/.local" \
-   -e LMS_HOME="/root" \
-   -e LMS_CONF="/root/.config" \
+   -e LMS_BASE="${HOME}/.local" \
+   -e LMS_HOME="${HOME}" \
+   -e LMS_CONF="${HOME}/.config" \
    \
    -v ${HOME}/bin:/userbin \
    -v ${HOME}/.local:/usrlocal \
    -v ${HOME}/.config/docker:/conf \
-   -v ${HOME}/.config/docker/ldc-games-mahjongg-0.1.0:/root \
+   -v ${HOME}/.config/docker/ldc-games-mahjongg-0.1.0:${HOME} \
    -v ${HOME}/.config/docker/ldc-games-mahjongg-0.1.0/workspace:/workspace \
    \
    -e DISPLAY=unix${DISPLAY} \
-   -v ${HOME}/.Xauthority:/root/.Xauthority \
+   -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
    -v /tmp/.X11-unix:/tmp/.X11-unix \
    -v /dev/shm:/dev/shm \
    --device /dev/snd \
