@@ -88,6 +88,7 @@ docker run \
   \
   -v ${HOME}/Documents:/documents \
   -v ${HOME}/Source:/source \
+  -v /stories/Stories:/stories \
   \
   --name=ldc-libre-office-0.1.0-b3 \
 ewsdocker/ldc-libre:office-0.1.0-b3

@@ -80,16 +80,14 @@ docker run \
    -it \
    \
    -v /etc/localtime:/etc/localtime:ro \
+   -e DISPLAY=unix${DISPLAY} \
    \
    -v ${HOME}/.Xauthority:/root/.Xauthority \
    -v /tmp/.X11-unix:/tmp/.X11-unix \
-   \
-   -e DISPLAY=unix${DISPLAY} \
-   -v ${HOME}/.config/docker/ldc-games-sol-0.1.0/workspace/.gnome2:/root/.gnome2 \
-   \
-   \
    -v /dev/shm:/dev/shm \
    --device /dev/snd \
+   \
+   -v ${HOME}/.config/docker/ldc-games-sol-0.1.0/workspace/.gnome2:/root/.gnome2 \
    \
    -e LMS_BASE="/root/.local" \
    -e LMS_HOME="/root" \
