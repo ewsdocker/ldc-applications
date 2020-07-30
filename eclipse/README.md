@@ -79,4 +79,20 @@ __LDC Eclipse:__
 
 ____  
 
+<b><u>Note: Post setup</u></b>
+<br>
+To include <b>ShellEd</b>, add the following url (for v 2019-09) to 
+the <i>Available Software</i> list (in the <b>Help</b>, 
+<i>Install New Software</i> menu selection):
+<ul>
+ 2019-09 - http://download.eclipse.org/releases/2019-09 
+</ul>
+
+<br>
+
+Select the 
+<ul>
+  <i>Dynamic Languages Toolkit - ShellEd IDE</i> - http://download.eclipse.org/releases/2019-09/201909181001
+</ul>
+entry under the <i>Programming Languages</i> category.
 
