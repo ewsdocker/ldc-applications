@@ -113,13 +113,17 @@ ARG OPT_QUIET
 # HOST:		http://mirror.csclub.uwaterloo.ca/eclipse/technology/epp/downloads/release
 # PACKAGE:	eclipse-IDE-RELEASE-VERSION-linux-gtk-x86_64.tar.gz
 #
-# RELEASE:	2020-05
+# =========================================================================
+#
+# RELEASE:	2020-06
 # VERSION:	M3
 # IDE:
-#	cpp:		eclipse-cpp-2020-05-M3-linux-gtk-x86_64.tar.gz
-#	java:		eclipse-java-2020-05-M3-linux-gtk-x86_64.tar.gz
-#	javascript:	eclipse-javascript-2020-05-M3-linux-gtk-x86_64.tar.gz
-#	php:		eclipse-php-2020-05-M3-linux-gtk-x86_64.tar.gz
+#	cpp:		eclipse-cpp-2020-06-M3-linux-gtk-x86_64.tar.gz
+#	java:		eclipse-java-2020-06-M3-linux-gtk-x86_64.tar.gz
+#	javascript:	eclipse-javascript-2020-06-M3-linux-gtk-x86_64.tar.gz
+#	php:		eclipse-php-2020-06-M3-linux-gtk-x86_64.tar.gz
+#
+# =========================================================================
 #
 # RELEASE:	2019-12
 # VERSION:	M2
@@ -152,8 +156,8 @@ ARG OPT_QUIET
 
 ENV EC_IDE=${ECLIPSE_IDE:-"cpp"} \
     \
-    EC_RELEASE=${ECLIPSE_RELEASE:-"2019-12"} \
-    EC_VERS=${ECLIPSE_VERS:-"M2"} \
+    EC_RELEASE=${ECLIPSE_RELEASE:-"2020-06"} \
+    EC_VERS=${ECLIPSE_VERS:-"M3"} \
     \
     EC_DIR=${ECLIPSE_DIR:-"eclipse"} 
 

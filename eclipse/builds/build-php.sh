@@ -32,6 +32,8 @@ docker build \
   --build-arg RUN_APP="eclipse" \
   \
   --build-arg ECLIPSE_IDE="php" \
+  --build-arg ECLIPSE_RELEASE="2020-06" \
+  --build-arg ECLIPSE_VERS="M3" \
   \
   --build-arg BUILD_DESKTOP="Eclipse IDE Php" \
   --build-arg BUILD_ICON="default.png" \
