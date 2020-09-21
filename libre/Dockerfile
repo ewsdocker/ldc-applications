@@ -57,6 +57,15 @@ ARG FROM_VERS
 ARG FROM_EXT
 ARG FROM_EXT_MOD
 
+# ========================================================================================
+
+ARG DNAME
+
+# =========================================================================
+
+ARG NODEJS_HOST
+ARG NODEJS_VER
+
 # =========================================================================
 
 ARG OFFICE_VER 
@@ -111,6 +120,14 @@ ARG OPT_QUIET
 # =========================================================================
 #
 # LibreOffice download site:
+#   https://download.documentfoundation.org/libreoffice/stable/6.4.5/deb/x86_64/LibreOffice_6.4.5_Linux_x86-64_deb.tar.gz
+# Help pack
+#   https://download.documentfoundation.org/libreoffice/stable/6.4.5/deb/x86_64/LibreOffice_6.4.5_Linux_x86-64_deb_helppack_en-US.tar.gz
+#
+# =========================================================================
+# =========================================================================
+#
+# LibreOffice download site:
 #   https://download.documentfoundation.org/libreoffice/stable/6.4.4/deb/x86_64/LibreOffice_6.4.4_Linux_x86-64_deb.tar.gz
 # Help pack
 #   https://download.documentfoundation.org/libreoffice/stable/6.4.4/deb/x86_64/LibreOffice_6.4.4_Linux_x86-64_deb_helppack_en-US.tar.gz
@@ -148,7 +165,7 @@ ARG OPT_QUIET
 #
 # =========================================================================
 
-ENV LIBRE_VER=${OFFICE_VER:-"6.4.4"} \
+ENV LIBRE_VER=${OFFICE_VER:-"6.4.5"} \
     LIBRE_REL=${OFFICE_REL:-"6.4"} \
     LIBRE_LANG_VER=${OFFICE_LANG_VER:-"2"} \
     LIBRE_LANG=${OFFICE_LANG:-"en-US"}
@@ -174,6 +191,19 @@ ENV LANG_TAR="LibreOffice_${LIBRE_VER}_Linux_x86-64_deb_langpack_${LIBRE_LANG}.t
 ENV LANG_URL="${LIBRE_HOST}/${LANG_TAR}" 
 
 ENV LRUN_APP=${RUN_APP}
+
+# =========================================================================
+
+ENV NJS_VER=${NODEJS_VER:-"14"} \
+    NJS_HOST=${NODEJS_HOST:-"https://deb.nodesource.com"} \
+    NJS_DIR="NodeJS" 
+
+ENV NJS_NAME="setup_${NJS_VER}.x" 
+ENV NJS_URL=${NJS_HOST}/${NJS_NAME}  
+
+# ========================================================================================
+
+ENV DSTACK=${DNAME:-""}
 
 # =========================================================================
 
@@ -288,6 +318,8 @@ RUN chmod +x /lmstmp/*.sh \
  # =========================================================================
  \
  && /lmstmp/libre.sh \
+ \
+ && if test "${DSTACK}" = "NJS"; then cd /lmstmp; /lmstmp/install-bash-server.sh; fi \
  \
  # =========================================================================
  #

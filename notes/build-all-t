@@ -1,0 +1,26 @@
+cd ../console
+builds/build-tumblr.sh
+#
+cd ../desktop
+builds/build-dia.sh
+builds/build-gimp.sh
+builds/build-mousepad.sh
+builds/build-ripme.sh
+builds/build-shotcut.sh
+#
+cd ../eclipse
+builds/build-cpp.sh
+builds/build-fortran.sh
+builds/build-java.sh
+builds/build-javascript.sh
+builds/build-php.sh
+builds/build-php-js.sh
+builds/build-qt.sh
+#
+cd ../games
+builds/build-mahjongg.sh
+builds/build-sol.sh
+#
+cd ../libre
+builds/build-office.sh
+builds/build-office-jdk.sh

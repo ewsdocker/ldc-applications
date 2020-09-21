@@ -2,7 +2,7 @@
 # =========================================================================
 #
 #	Dockerfile
-#	  Dockerfile for Eclipse in a Debian container.
+#	  Dockerfile for Eclipse IDE in a Debian container.
 #
 # =========================================================================
 #
@@ -10,7 +10,7 @@
 # @version 0.1.0
 # @copyright © 2016-2020. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
-# @package eclipse
+# @package ldc-applications/eclipse
 # @subpackage Dockerfile
 #
 # =========================================================================
@@ -18,28 +18,28 @@
 #	Copyright © 2016-2020. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
-#   This file is part of ewsdocker/eclipse.
+#   This file is part of ewsdocker/ldc-applications.
 #
-#   ewsdocker/eclipse is free software: you can redistribute 
+#   ewsdocker/ldc-applications is free software: you can redistribute 
 #   it and/or modify it under the terms of the GNU General Public License 
 #   as published by the Free Software Foundation, either version 3 of the 
 #   License, or (at your option) any later version.
 #
-#   ewsdocker/eclipse is distributed in the hope that it will 
+#   ewsdocker/ldc-applications is distributed in the hope that it will 
 #   be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
 #   of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License
-#   along with ewsdocker/eclipse.  If not, see 
+#   along with ewsdocker/ldc-applications.  If not, see 
 #   <http://www.gnu.org/licenses/>.
 #
 # =========================================================================
 # =========================================================================
 
 ARG FROM_REPO="ewsdocker"
-ARG FROM_PARENT="ldc-lang"
-ARG FROM_VERS="djdk13-gtk3"
+ARG FROM_PARENT="ldc-base"
+ARG FROM_VERS="dx11-surface"
 ARG FROM_EXT="-0.1.0"
 ARG FROM_EXT_MOD="-b3"
 
@@ -59,6 +59,10 @@ ARG FROM_EXT_MOD
 
 # =========================================================================
 
+ARG DNAME
+
+# =========================================================================
+
 ARG ECLIPSE_HOST
 ARG ECLIPSE_IDE
 ARG ECLIPSE_RELEASE
@@ -70,15 +74,7 @@ ARG ECLIPSE_DIR
 
 ARG RUN_APP
 
-# ========================================================================================
-
-ARG LIB_HOST
-ARG LIB_NAME
-ARG LIB_VERSION
-ARG LIB_VERS_MOD
-ARG LIB_INSTALL
-
-# ========================================================================================
+# =========================================================================
 
 ARG BUILD_REGISTRY
 ARG BUILD_REPO
@@ -88,23 +84,138 @@ ARG BUILD_VERSION
 ARG BUILD_VERS_EXT
 ARG BUILD_EXT_MOD
 
-# ========================================================================================
+# =========================================================================
 
 ARG BUILD_CATEGORIES
 ARG BUILD_TEMPLATE
 ARG BUILD_DAEMON
 
-# ========================================================================================
+# =========================================================================
 
 ARG BUILD_CATEGORIES
 ARG BUILD_DESKTOP
 ARG BUILD_ICON
 
-# ========================================================================================
+# =========================================================================
 
 ARG OPT_DEBUG
 ARG OPT_TIMEOUT
 ARG OPT_QUIET
+
+# =========================================================================
+#
+#	Plugin arguments
+#
+# =========================================================================
+
+ARG PLUGINS
+ARG PLUGINS_ONLY
+
+# ========================================================================================
+
+ARG CC_VER
+ARG CC_TYPE
+
+# ========================================================================================
+
+ARG FORTRAN_VER
+
+# =========================================================================
+
+ARG GTK_VER
+ARG GTK_COMMON
+
+# =========================================================================
+
+ARG JDK_RELEASE 
+ARG JDK_VERS 
+ARG JDK_HOST
+ARG JDK_TYPE
+
+ARG JDK_BUILD
+
+# =========================================================================
+
+ARG NODEJS_BASH
+ARG NODEJS_HOST
+ARG NODEJS_VER
+
+# =========================================================================
+
+ARG NPM_INSTALL
+
+# =========================================================================
+
+ARG PHP_PLUGIN
+ARG PHP_PLUGIN_COMP
+
+# =========================================================================
+#
+#	Plugin Environment declarations
+#
+# =========================================================================
+
+ENV PLUGIN_LIST=${PLUGINS:-""} \
+    PLUGIN_ONLY=${PLUGINS_ONLY:-"0"}
+
+# =========================================================================
+
+ENV OJDK_RELEASE=${JDK_RELEASE:-"jdk11"} \
+    OJDK_VERS=${JDK_VERS:-"13.0.1"} \
+    OJDK_TYPE=${JDK_TYPE:-""}
+
+ENV OJDK_PKG="openjdk-${OJDK_VERS}_linux-x64_bin.tar.gz" 
+
+ENV OJDK_HOST=${JDK_HOST:-"https://download.java.net/java/GA/jdk11/9/GPL/"}
+ENV OJDK_URL="${OJDK_HOST}/${OJDK_PKG}" \
+    \
+    LMS_JDK=${JDK_BUILD:-"jdk11"} 
+ 
+# =========================================================================
+
+ENV FOR_VER=${FORTRAN_VER:-"FORTRAN8"} 
+
+# ========================================================================================
+
+ENV GTKVER=${GTK_VER:-"GTK3"}
+
+# =========================================================================
+
+ENV CCVER=${CC_VER:-"8"} \ 
+    CCTYPE=${CC_TYPE:-"CC"}
+
+# =========================================================================
+
+ENV NJS_BASH=${NODEJS_BASH:-""}
+
+ENV NJS_VER=${NODEJS_VER:-"14"} \
+    NJS_HOST=${NODEJS_HOST:-"https://deb.nodesource.com"} \
+    NJS_DIR="NodeJS" 
+
+ENV NJS_NAME="setup_${NJS_VER}.x" 
+ENV NJS_URL=${NJS_HOST}/${NJS_NAME}  
+
+# =========================================================================
+
+ENV NPM_LIST=${NPM_INSTALL:-""}
+
+# =========================================================================
+# =========================================================================
+#
+#	To add ShellWax after install bash-lanauage-server,
+#		- start eclipse
+#		- select Help/Install New Software from menu,
+# 		- select Add button and fill in the form:
+#			Name:     ShellWax
+#           Location: https://download.eclipse.org/shellwax/snapshots/
+#		- pull-down the Uncatagorized selection and enable ShellWax
+#		- Follow install instructions.
+#
+# =========================================================================
+# =========================================================================
+
+ENV PHP_VER=${PHP_PLUGIN:-""}
+ENV PHP_COMPOSER=${PHP_PLUGIN_COMP:-""}
 
 # =========================================================================
 # =========================================================================
@@ -112,6 +223,17 @@ ARG OPT_QUIET
 # URL:		HOST/RELEASE/VERSION/PACKAGE
 # HOST:		http://mirror.csclub.uwaterloo.ca/eclipse/technology/epp/downloads/release
 # PACKAGE:	eclipse-IDE-RELEASE-VERSION-linux-gtk-x86_64.tar.gz
+#
+# =========================================================================
+#
+# RELEASE:	2020-09
+# VERSION:	M1
+# IDE:
+#	cpp:		eclipse-cpp-2020-09-M1-linux-gtk-x86_64.tar.gz
+#	java:		eclipse-java-2020-09-M1-linux-gtk-x86_64.tar.gz
+#	javascript:	eclipse-javascript-2020-09-M1-linux-gtk-x86_64.tar.gz
+#	php:		eclipse-php-2020-09-M1-linux-gtk-x86_64.tar.gz
+#	rust:		eclipse-rust-2020-09-M1-linux-gtk-x86_64.tar.gz
 #
 # =========================================================================
 #
@@ -156,8 +278,8 @@ ARG OPT_QUIET
 
 ENV EC_IDE=${ECLIPSE_IDE:-"cpp"} \
     \
-    EC_RELEASE=${ECLIPSE_RELEASE:-"2020-06"} \
-    EC_VERS=${ECLIPSE_VERS:-"M3"} \
+    EC_RELEASE=${ECLIPSE_RELEASE:-"2020-09"} \
+    EC_VERS=${ECLIPSE_VERS:-"M1"} \
     \
     EC_DIR=${ECLIPSE_DIR:-"eclipse"} 
 
@@ -165,6 +287,10 @@ ENV EC_PKG="eclipse-${EC_IDE}-${EC_RELEASE}-${EC_VERS}-linux-gtk-x86_64.tar.gz" 
     EC_HOST=${ECLIPSE_HOST:-"http://mirror.csclub.uwaterloo.ca/eclipse/technology/epp/downloads/release/${EC_RELEASE}/${EC_VERS}"}
 
 ENV EC_URL="${EC_HOST}/${EC_PKG}"
+
+# =========================================================================
+
+ENV DSTACK=${DNAME:-""}
 
 # =========================================================================
 
@@ -204,28 +330,6 @@ ENV LMS_RUN_NAME="${LMS_NAME}-${LMS_VERSION}${LMS_VERS_EXT}" \
 
 ENV LMS_DOCKER="${LMS_REPO}/${LMS_DOCKER_NAME}"
 
-# ========================================================================================
-# ========================================================================================
-#
-# https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-0.1.6/ldc-library-0.1.6-b3.tar.gz
-#
-# ========================================================================================
-# ========================================================================================
-
-ENV LMSLIB_INST=${LIB_INSTALL:-"0"} \
-    LMSLIB_NAME=${LIB_NAME:-"ldc-library"} \
-    LMSLIB_VERS=${LIB_VERSION:-"0.1.6"} \
-    LMSLIB_VERS_MOD=${LIB_VERS_MOD:-""}
-
-ENV LMSLIB_HOST=${LIB_HOST:-"https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-${LMSLIB_VERS}"}
-
-ENV LMSLIB_VERSION="${LMSLIB_VERS}${LMSLIB_VERS_MOD}"
-ENV LMSLIB_FULLNAME="${LMSLIB_NAME}-${LMSLIB_VERSION}"
-
-ENV LMSLIB_PKG=${LMSLIB_FULLNAME}.tar.gz 
-
-ENV LMSLIB_URL=${LMSLIB_HOST}/${LMSLIB_PKG}
-
 # =========================================================================
 
 VOLUME /library
@@ -236,10 +340,13 @@ VOLUME /workspace
 # =========================================================================
 
 COPY scripts/. /
+COPY setup/. /dockerSetup/
 
 # =========================================================================
 
-RUN echo "" \
+RUN chmod +x /dockerSetup/*.sh \
+ \
+ && echo "" \
  && echo "**************************************************" \
  && echo "" \
  && echo "Building: ${LMS_DESKTOP} - ${LMS_DOCKER}" \
@@ -250,23 +357,21 @@ RUN echo "" \
  \
  # =========================================================================
  #
+ #    Pre-installing plugins to satisfy dependencies
+ #
+ # =========================================================================
+ \
+ && /dockerSetup/plugins.sh \
+  \
+ # =========================================================================
+ #
  #    ECLIPSE IDE
  #
  # =========================================================================
  \
- && echo ""; echo "   **** Installing ${LMS_DESKTOP} ****"; echo "" \
- && cd /usr/local/share \
- &&   wget ${EC_URL}; tar -xvf ${EC_PKG}; rm ${EC_PKG} \
- && ln -s /usr/local/share/${EC_DIR}/eclipse /usr/bin/eclipse \
+ && if test "${PLUGIN_ONLY}" = "0"; then /dockerSetup/IDE.sh ; fi \
  \
- # =========================================================================
- #
- #   download and install ldc-library
- #
- # =========================================================================
- \
- && if test "${LMSLIB_INST}" = "1"; then echo ""; echo "   **** Installing ldc-library ****"; echo ""; fi \
- && if test "${LMSLIB_INST}" = "1"; then cd / ; wget "${LMSLIB_URL}"; tar -xvf "${LMSLIB_PKG}"; rm "${LMSLIB_PKG}"; cd /root; fi \
+ && rm -Rf /dockerSetup \
  \
  # ========================================================================
  #
