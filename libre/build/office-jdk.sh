@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-libre:office-jdk-0.1.0-b3
+#    ldc-libre:office-jdk-0.1.0-b4
 #
 # ===========================================================================
 
@@ -13,8 +13,8 @@ echo "   **** stopping ldc-libre-office-jdk container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-libre-office-jdk-0.1.0-b3
-docker rm ldc-libre-office-jdk-0.1.0-b3
+docker stop ldc-libre-office-jdk-0.1.0-b4
+docker rm ldc-libre-office-jdk-0.1.0-b4
 
 echo "   ********************************************"
 echo "   ****"
@@ -23,11 +23,11 @@ echo "   ****"
 echo "   ********************************************"
 echo
 
-docker rmi ewsdocker/ldc-libre:office-jdk-0.1.0-b3
+docker rmi ewsdocker/ldc-libre:office-jdk-0.1.0-b4
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-libre:office-jdk-0.1.0-b3"
+echo "   **** building ewsdocker/ldc-libre:office-jdk-0.1.0-b4"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -48,31 +48,31 @@ docker build \
   --build-arg BUILD_NAME="ldc-libre" \
   --build-arg BUILD_VERSION="office-jdk" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b3" \
+  --build-arg BUILD_EXT_MOD="-b4" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack-apps" \
   --build-arg FROM_VERS="djdk13-gtk3" \
   --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b3" \
+  --build-arg FROM_EXT_MOD="-b4" \
   \
   --build-arg OFFICE_HOST=http://alpine-nginx-pkgcache \
   --build-arg LIB_HOST=http://alpine-nginx-pkgcache \
   --network=pkgnet \
   \
   --file Dockerfile \
-  -t ewsdocker/ldc-libre:office-jdk-0.1.0-b3  .
+  -t ewsdocker/ldc-libre:office-jdk-0.1.0-b4  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-libre:office-jdk-0.1.0-b3 failed."
+ 	echo "build ewsdocker/ldc-libre:office-jdk-0.1.0-b4 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** creating ldc-libre-office-jdk-0.1.0-b3"
+echo "   **** creating ldc-libre-office-jdk-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
 
-, run/office-jdk.sh
+. run/office-jdk.sh

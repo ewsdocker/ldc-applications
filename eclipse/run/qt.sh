@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-eclipse:qt-0.1.0-b3
+#    ldc-eclipse:qt-0.1.0-b4
 #
 # ===========================================================================
 
@@ -11,12 +11,12 @@ echo "   **** stopping ldc-eclipse-qt container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-eclipse-qt-0.1.0-b3
-docker rm ldc-eclipse-qt-0.1.0-b3
+docker stop ldc-eclipse-qt-0.1.0-b4
+docker rm ldc-eclipse-qt-0.1.0-b4
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-eclipse-qt-0.1.0-b3"
+echo "   **** installing ldc-eclipse-qt-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -48,11 +48,11 @@ docker run \
    -v ${HOME}/Development:/Development \
    -v ${HOME}/Source:/Source \
    \
-   --name=ldc-eclipse-qt-0.1.0-b3 \
- ewsdocker/ldc-eclipse:qt-0.1.0-b3
+   --name=ldc-eclipse-qt-0.1.0-b4 \
+ ewsdocker/ldc-eclipse:qt-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-eclipse-qt-0.1.0-b3 failed."
+ 	echo "build container ldc-eclipse-qt-0.1.0-b4 failed."
  	exit 2
  }
 

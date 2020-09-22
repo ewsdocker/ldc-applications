@@ -361,8 +361,8 @@ RUN chmod +x /dockerSetup/*.sh \
  #
  # =========================================================================
  \
- && /dockerSetup/plugins.sh \
-  \
+ && if test "${PLUGIN_LIST}" != ""; then /dockerSetup/plugins.sh; fi \
+ \
  # =========================================================================
  #
  #    ECLIPSE IDE

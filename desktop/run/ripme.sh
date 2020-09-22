@@ -6,12 +6,12 @@ echo "   **** stopping ripme container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-ripme-0.1.0-b3
-docker rm ldc-desktop-ripme-0.1.0-b3
+docker stop ldc-desktop-ripme-0.1.0-b4
+docker rm ldc-desktop-ripme-0.1.0-b4
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-ripme-0.1.0-b3"
+echo "   **** installing ldc-desktop-ripme-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -41,21 +41,21 @@ docker run \
       -v ${HOME}/Pictures:/pictures \
       -v ${HOME}/Documents:/www \
       \
-      --name=ldc-desktop-ripme-0.1.0-b3 \
-    ewsdocker/ldc-desktop:ripme-0.1.0-b3
+      --name=ldc-desktop-ripme-0.1.0-b4 \
+    ewsdocker/ldc-desktop:ripme-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-ripme-0.1.0-b3 failed."
+ 	echo "create container ldc-desktop-ripme-0.1.0-b4 failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:ripme-0.1.0-b3 successfully installed."
+echo "   **** ldc-desktop:ripme-0.1.0-b4 successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-ripme-0.1.0-b3"
+echo "   ****    docker start ldc-desktop-ripme-0.1.0-b4"
 echo "   ****"
 echo "   ****************************************************************"
 echo

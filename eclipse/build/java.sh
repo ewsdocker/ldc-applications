@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-eclipse:java-0.1.0-b3
+#    ldc-eclipse:java-0.1.0-b4
 #
 # ===========================================================================
 cd ~/Development/ewsldc/ldc-applications/eclipse
@@ -12,7 +12,7 @@ echo "   **** stopping ldc-eclipse-java container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-eclipse-java-0.1.0-b3
+docker stop ldc-eclipse-java-0.1.0-b4
 
 echo "   ********************************************"
 echo "   ****"
@@ -20,7 +20,7 @@ echo "   **** removing ldc-eclipse-java container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rm ldc-eclipse-java-0.1.0-b3
+docker rm ldc-eclipse-java-0.1.0-b4
 
 echo "   ********************************************"
 echo "   ****"
@@ -28,11 +28,11 @@ echo "   **** removing ldc-eclipse:java image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-eclipse:java-0.1.0-b3
+docker rmi ewsdocker/ldc-eclipse:java-0.1.0-b4
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-eclipse:java-0.1.0-b3"
+echo "   **** building ewsdocker/ldc-eclipse:java-0.1.0-b4"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -61,20 +61,20 @@ docker build \
   --build-arg BUILD_NAME="ldc-eclipse" \
   --build-arg BUILD_VERSION="java" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b3" \
+  --build-arg BUILD_EXT_MOD="-b4" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack-apps" \
   --build-arg FROM_VERS="djs14-jdk13" \
   --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b3" \
+  --build-arg FROM_EXT_MOD="-b4" \
   \
   --network=pkgnet \
   --file Dockerfile \
--t ewsdocker/ldc-eclipse:java-0.1.0-b3  .
+-t ewsdocker/ldc-eclipse:java-0.1.0-b4  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-eclipse:java-0.1.0-b3 failed."
+ 	echo "build ewsdocker/ldc-eclipse:java-0.1.0-b4 failed."
  	exit 1
  }
 

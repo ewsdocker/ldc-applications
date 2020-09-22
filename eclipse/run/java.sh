@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-eclipse:java-0.1.0-b3
+#    ldc-eclipse:java-0.1.0-b4
 #
 # ===========================================================================
 
@@ -11,7 +11,7 @@ echo "   **** stopping ldc-eclipse-java container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-eclipse-java-0.1.0-b3
+docker stop ldc-eclipse-java-0.1.0-b4
 
 echo "   ********************************************"
 echo "   ****"
@@ -19,11 +19,11 @@ echo "   **** removing ldc-eclipse-java container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rm ldc-eclipse-java-0.1.0-b3
+docker rm ldc-eclipse-java-0.1.0-b4
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-eclipse-java-0.1.0-b3"
+echo "   **** installing ldc-eclipse-java-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -57,11 +57,11 @@ docker run \
   -v ${HOME}/Development:/Development \
   -v ${HOME}/Source:/Source \
   \
-  --name=ldc-eclipse-java-0.1.0-b3 \
-ewsdocker/ldc-eclipse:java-0.1.0-b3
+  --name=ldc-eclipse-java-0.1.0-b4 \
+ewsdocker/ldc-eclipse:java-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-eclipse-java-0.1.0-b3 failed."
+ 	echo "build container ldc-eclipse-java-0.1.0-b4 failed."
  	exit 2
  }
 

@@ -6,12 +6,12 @@ echo "   **** stopping obs-studio container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-obs-studio-0.1.0-b3
-docker rm ldc-desktop-obs-studio-0.1.0-b3
+docker stop ldc-desktop-obs-studio-0.1.0-b4
+docker rm ldc-desktop-obs-studio-0.1.0-b4
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-obs-studio-0.1.0-b3"
+echo "   **** installing ldc-desktop-obs-studio-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -44,23 +44,23 @@ docker run \
   -e LMSLIB_INST="0" \
   -e LMSLIB_HOST=http://alpine-nginx-pkgcache \
   -e LMSLIB_VERS="0.1.6" \
-  -e LMSLIB_VERS_MOD="-b3" \
+  -e LMSLIB_VERS_MOD="-b4" \
   \
-  --name=ldc-desktop-obs-studio-0.1.0-b3 \
-ewsdocker/ldc-desktop:obs-studio-0.1.0-b3
+  --name=ldc-desktop-obs-studio-0.1.0-b4 \
+ewsdocker/ldc-desktop:obs-studio-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-obs-studio-0.1.0-b3 failed."
+ 	echo "create container ldc-desktop-obs-studio-0.1.0-b4 failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:obs-studio-0.1.0-b3 successfully installed."
+echo "   **** ldc-desktop:obs-studio-0.1.0-b4 successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-obs-studio-0.1.0-b3"
+echo "   ****    docker start ldc-desktop-obs-studio-0.1.0-b4"
 echo "   ****"
 echo "   ****************************************************************"
 echo

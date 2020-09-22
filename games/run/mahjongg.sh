@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-games:mahjongg-0.1.0-b3
+#    ldc-games:mahjongg-0.1.0-b4
 #
 # ===========================================================================
 
@@ -11,12 +11,12 @@ echo "   **** stopping ldc-games-mahjongg container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-games-mahjongg-0.1.0-b3
-docker rm ldc-games-mahjongg-0.1.0-b3
+docker stop ldc-games-mahjongg-0.1.0-b4
+docker rm ldc-games-mahjongg-0.1.0-b4
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-games-mahjongg-0.1.0-b3"
+echo "   **** installing ldc-games-mahjongg-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -44,30 +44,30 @@ docker run \
    -v ${HOME}/.config/docker/ldc-games-mahjongg-0.1.0:/root \
    -v ${HOME}/.config/docker/ldc-games-mahjongg-0.1.0/workspace:/workspace \
    \
-   --name=ldc-games-mahjongg-0.1.0-b3 \
- ewsdocker/ldc-games:mahjongg-0.1.0-b3
+   --name=ldc-games-mahjongg-0.1.0-b4 \
+ ewsdocker/ldc-games:mahjongg-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-games-mahjongg-0.1.0-b3 failed."
+ 	echo "build container ldc-games-mahjongg-0.1.0-b4 failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** stopping ldc-games-mahjongg-0.1.0-b3"
+echo "   **** stopping ldc-games-mahjongg-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
 
-docker stop ldc-games-mahjongg-0.1.0-b3
+docker stop ldc-games-mahjongg-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "stop ldc-games-mahjongg-0.1.0-b3 failed."
+ 	echo "stop ldc-games-mahjongg-0.1.0-b4 failed."
  }
 
 echo "   ******************************************************"
 echo "   ****"
-echo "   **** ldc-games:mahjongg-0.1.0-b3 successfully installed."
+echo "   **** ldc-games:mahjongg-0.1.0-b4 successfully installed."
 echo "   ****"
 echo "   ******************************************************"
 echo

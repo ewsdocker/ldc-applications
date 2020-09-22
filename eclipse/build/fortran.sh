@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-eclipse:fortran-0.1.0-b3
+#    ldc-eclipse:fortran-0.1.0-b4
 #
 # ===========================================================================
 cd ~/Development/ewsldc/ldc-applications/eclipse
@@ -12,8 +12,8 @@ echo "   **** stopping fortran container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-eclipse-fortran-0.1.0-b3
-docker rm ldc-eclipse-fortran-0.1.0-b3
+docker stop ldc-eclipse-fortran-0.1.0-b4
+docker rm ldc-eclipse-fortran-0.1.0-b4
 
 echo "   ********************************************"
 echo "   ****"
@@ -21,11 +21,11 @@ echo "   **** removing fortran image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-eclipse:fortran-0.1.0-b3
+docker rmi ewsdocker/ldc-eclipse:fortran-0.1.0-b4
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-eclipse:fortran-0.1.0-b3"
+echo "   **** building ewsdocker/ldc-eclipse:fortran-0.1.0-b4"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -70,20 +70,20 @@ docker build \
   --build-arg BUILD_NAME="ldc-eclipse" \
   --build-arg BUILD_VERSION="fortran" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b3" \
+  --build-arg BUILD_EXT_MOD="-b4" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-eclipse" \
   --build-arg FROM_VERS="cpp" \
   --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b3" \
+  --build-arg FROM_EXT_MOD="-b4" \
   \
   --network=pkgnet \
   --file Dockerfile \
--t ewsdocker/ldc-eclipse:fortran-0.1.0-b3  .
+-t ewsdocker/ldc-eclipse:fortran-0.1.0-b4  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-eclipse:fortran-0.1.0-b3 failed."
+ 	echo "build ewsdocker/ldc-eclipse:fortran-0.1.0-b4 failed."
  	exit 1
  }
 

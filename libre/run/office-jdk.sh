@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-libre:office-jdk-0.1.0-b3
+#    ldc-libre:office-jdk-0.1.0-b4
 #
 # ===========================================================================
 
@@ -11,12 +11,12 @@ echo "   **** stopping ldc-libre-office-jdk container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-libre-office-jdk-0.1.0-b3
-docker rm ldc-libre-office-jdk-0.1.0-b3
+docker stop ldc-libre-office-jdk-0.1.0-b4
+docker rm ldc-libre-office-jdk-0.1.0-b4
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-libre-office-jdk-0.1.0-b3"
+echo "   **** installing ldc-libre-office-jdk-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -41,21 +41,21 @@ docker run \
   -v ${HOME}/Documents:/documents \
   -v ${HOME}/Source:/source \
   \
-  --name=ldc-libre-office-jdk-0.1.0-b3 \
-ewsdocker/ldc-libre:office-jdk-0.1.0-b3
+  --name=ldc-libre-office-jdk-0.1.0-b4 \
+ewsdocker/ldc-libre:office-jdk-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-libre-office-jdk-0.1.0-b3 failed."
+ 	echo "create container ldc-libre-office-jdk-0.1.0-b4 failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-libre:office-jdk-0.1.0-b3 successfully installed."
+echo "   **** ldc-libre:office-jdk-0.1.0-b4 successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-libre-office-jdk-0.1.0-b3"
+echo "   ****    docker start ldc-libre-office-jdk-0.1.0-b4"
 echo "   ****"
 echo "   ****************************************************************"
 echo

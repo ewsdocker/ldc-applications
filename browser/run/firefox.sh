@@ -1,7 +1,7 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-browser:firefox-0.1.0-b3
+#    ldc-browser:firefox-0.1.0-b4
 #
 # ===========================================================================
 
@@ -11,12 +11,12 @@ echo "   **** stopping firefox container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-firefox-0.1.0-b3
-docker rm ldc-browser-firefox-0.1.0-b3
+docker stop ldc-browser-firefox-0.1.0-b4
+docker rm ldc-browser-firefox-0.1.0-b4
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-firefox-0.1.0-b3"
+echo "   **** installing ldc-browser-firefox-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -46,11 +46,11 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Documents:/Documents \
   \
-  --name=ldc-browser-firefox-0.1.0-b3 \
-ewsdocker/ldc-browser:firefox-0.1.0-b3
+  --name=ldc-browser-firefox-0.1.0-b4 \
+ewsdocker/ldc-browser:firefox-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-firefox-0.1.0-b3 failed."
+ 	echo "build container ldc-browser-firefox-0.1.0-b4 failed."
  	exit 2
  }
 

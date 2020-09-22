@@ -6,12 +6,12 @@ echo "   **** stopping gimp container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-gimp-0.1.0-b3
-docker rm ldc-desktop-gimp-0.1.0-b3
+docker stop ldc-desktop-gimp-0.1.0-b4
+docker rm ldc-desktop-gimp-0.1.0-b4
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-gimp-0.1.0-b3"
+echo "   **** installing ldc-desktop-gimp-0.1.0-b4"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -42,21 +42,21 @@ docker run \
       -v ${HOME}/Documents:/www \
       \
       -e LRUN_APP="gimp" \
-      --name=ldc-desktop-gimp-0.1.0-b3 \
-    ewsdocker/ldc-desktop:gimp-0.1.0-b3
+      --name=ldc-desktop-gimp-0.1.0-b4 \
+    ewsdocker/ldc-desktop:gimp-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-gimp-0.1.0-b3 failed."
+ 	echo "create container ldc-desktop-gimp-0.1.0-b4 failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:gimp-0.1.0-b3 successfully installed."
+echo "   **** ldc-desktop:gimp-0.1.0-b4 successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-gimp-0.1.0-b3"
+echo "   ****    docker start ldc-desktop-gimp-0.1.0-b4"
 echo "   ****"
 echo "   ****************************************************************"
 echo
