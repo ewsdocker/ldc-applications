@@ -1,40 +1,40 @@
 #!/bin/bash
 # ===========================================================================
 #
-#    ldc-eclipse:php-0.1.0-b4
+#    ldc-eclipse:rust-0.1.0-b4
 #
 # ===========================================================================
 cd ~/Development/ewsldc/ldc-applications/eclipse
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** stopping php container(s)"
+echo "   **** stopping rust container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-eclipse-php-0.1.0-b4
-docker rm ldc-eclipse-php-0.1.0-b4
+docker stop ldc-eclipse-rust-0.1.0-b4
+docker rm ldc-eclipse-rust-0.1.0-b4
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** removing php image(s)"
+echo "   **** removing rust image(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-eclipse:php-0.1.0-b4
+docker rmi ewsdocker/ldc-eclipse:rust-0.1.0-b4
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-eclipse:php-0.1.0-b4"
+echo "   **** building ewsdocker/ldc-eclipse:rust-0.1.0-b4"
 echo "   ****"
 echo "   ***************************************************"
 echo
 docker build \
   --build-arg RUN_APP="eclipse" \
   \
-  --build-arg DNAME="PHP" \
+  --build-arg DNAME="RUST" \
   \
-  --build-arg PLUGINS="njs14 npm php5.6" \
+  --build-arg PLUGINS="npm" \
   --build-arg PLUGINS_ONLY="0"\
   \
   --build-arg CC_VER="8" \
@@ -55,36 +55,39 @@ docker build \
   --build-arg NODEJS_HOST="http://alpine-nginx-pkgcache" \
   --build-arg NODEJS_VER="14" \
   \
+  --build-arg rust_HOST="http://alpine-nginx-pkgcache" \
+  --build-arg rust_VER="14" \
+  \
   --build-arg NPM_INSTALL="bash-language-server" \
   \
   --build-arg ECLIPSE_HOST="http://alpine-nginx-pkgcache" \
-  --build-arg ECLIPSE_IDE="php" \
+  --build-arg ECLIPSE_IDE="rust" \
   --build-arg ECLIPSE_RELEASE="2020-09" \
   --build-arg ECLIPSE_VERS="R" \
   \
-  --build-arg BUILD_DESKTOP="Eclipse IDE Php" \
+  --build-arg BUILD_DESKTOP="Eclipse IDE rust" \
   --build-arg BUILD_ICON="default.png" \
   --build-arg BUILD_DAEMON="0" \
   --build-arg BUILD_TEMPLATE="gui" \
   \
   --build-arg BUILD_NAME="ldc-eclipse" \
-  --build-arg BUILD_VERSION="php" \
+  --build-arg BUILD_VERSION="rust" \
   --build-arg BUILD_VERS_EXT="-0.1.0" \
   --build-arg BUILD_EXT_MOD="-b4" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack-apps" \
-  --build-arg FROM_VERS="djdk13-gtk3" \
+  --build-arg FROM_VERS="djs14-jdk13" \
   --build-arg FROM_EXT="-0.1.0" \
   --build-arg FROM_EXT_MOD="-b4" \
   \
   --network=pkgnet \
   --file Dockerfile \
--t ewsdocker/ldc-eclipse:php-0.1.0-b4  .
+-t ewsdocker/ldc-eclipse:rust-0.1.0-b4  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-eclipse:php-0.1.0-b4 failed."
+ 	echo "build ewsdocker/ldc-eclipse:rust-0.1.0-b4 failed."
  	exit 1
  }
 
-. run/php.sh
+. run/rust.sh

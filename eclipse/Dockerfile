@@ -142,6 +142,13 @@ ARG NODEJS_VER
 
 # =========================================================================
 
+ARG RUST_REPO
+ARG RUST_VERS
+ARG RUST_HOST
+ARG RUST_NAME 
+
+# =========================================================================
+
 ARG NPM_INSTALL
 
 # =========================================================================
@@ -157,6 +164,22 @@ ARG PHP_PLUGIN_COMP
 
 ENV PLUGIN_LIST=${PLUGINS:-""} \
     PLUGIN_ONLY=${PLUGINS_ONLY:-"0"}
+
+# =========================================================================
+#
+# https://sh.rustup.rs/rustup-init.sh
+#
+# =========================================================================
+
+ENV RUP_REPO=${RUST_REPO:-"/repo"} \
+    RUP_VERS=${RUST_VERS:-"0.1.0"} \
+    RUP_HOST=${RUST_HOST:-"https://sh.rustup.rs"} \
+    RUP_NAME=${RUST_NAME:-"rustup"} 
+
+    # =====================================================================
+
+ENV RUP_PKG="${RUP_NAME}-init.sh"
+ENV RUP_URL="${RUP_HOST}/${RUP_PKG}"
 
 # =========================================================================
 
@@ -200,6 +223,13 @@ ENV NJS_URL=${NJS_HOST}/${NJS_NAME}
 ENV NPM_LIST=${NPM_INSTALL:-""}
 
 # =========================================================================
+
+ARG RUST_REPO
+ARG RUST_VERS
+ARG RUST_HOST
+ARG RUST_NAME 
+
+# =========================================================================
 # =========================================================================
 #
 #	To add ShellWax after install bash-lanauage-server,
@@ -223,6 +253,17 @@ ENV PHP_COMPOSER=${PHP_PLUGIN_COMP:-""}
 # URL:		HOST/RELEASE/VERSION/PACKAGE
 # HOST:		http://mirror.csclub.uwaterloo.ca/eclipse/technology/epp/downloads/release
 # PACKAGE:	eclipse-IDE-RELEASE-VERSION-linux-gtk-x86_64.tar.gz
+#
+# =========================================================================
+#
+# RELEASE:	2020-09
+# VERSION:	R
+# IDE:
+#	cpp:		eclipse-cpp-2020-09-R-linux-gtk-x86_64.tar.gz
+#	java:		eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
+#	javascript:	eclipse-javascript-2020-09-R-linux-gtk-x86_64.tar.gz
+#	php:		eclipse-php-2020-09-R-linux-gtk-x86_64.tar.gz
+#	rust:		eclipse-rust-2020-09-R-linux-gtk-x86_64.tar.gz
 #
 # =========================================================================
 #
@@ -279,7 +320,7 @@ ENV PHP_COMPOSER=${PHP_PLUGIN_COMP:-""}
 ENV EC_IDE=${ECLIPSE_IDE:-"cpp"} \
     \
     EC_RELEASE=${ECLIPSE_RELEASE:-"2020-09"} \
-    EC_VERS=${ECLIPSE_VERS:-"M1"} \
+    EC_VERS=${ECLIPSE_VERS:-"R"} \
     \
     EC_DIR=${ECLIPSE_DIR:-"eclipse"} 
 
@@ -369,8 +410,7 @@ RUN chmod +x /dockerSetup/*.sh \
  #
  # =========================================================================
  \
- && if test "${PLUGIN_ONLY}" = "0"; then /dockerSetup/IDE.sh ; fi \
- \
+ && if test "${PLUGIN_ONLY}" = "0"; then /dockerSetup/IDE.sh; fi \
  && rm -Rf /dockerSetup \
  \
  # ========================================================================

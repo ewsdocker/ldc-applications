@@ -31,9 +31,9 @@ echo
 docker run \
   -it \
   --rm \
-   \
-   -v /etc/localtime:/etc/localtime:ro \
-   \
+  \
+  -v /etc/localtime:/etc/localtime:ro \
+  \
   \
   -e LMSOPT_QUIET="0" \
   -e LRUN_APP="eclipse" \

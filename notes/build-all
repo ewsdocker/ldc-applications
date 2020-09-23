@@ -2,38 +2,40 @@ cd ~/Development/ewsldc/ldc-applications
 #================
 #
 cd browser
-builds/build-ffquantum.sh
-builds/build-firefox.sh
-builds/build-firefox-esr.sh
-builds/build-netsurf.sh
-builds/build-palemoon.sh
-builds/build-waterfox-classic.sh
-builds/build-waterfox-current.sh
+build/ffquantum.sh
+build/firefox.sh
+build/firefox-esr.sh
+build/netsurf.sh
+build/palemoon.sh
+build/waterfox-classic.sh
+build/waterfox-current.sh
 #
 cd ../console
-builds/build-nano.sh
-builds/build-tumblr.sh
+build/nano.sh
+build/tumblr.sh
 #
 cd ../desktop
-builds/build-dia.sh
-builds/build-gimp.sh
-builds/build-mousepad.sh
-builds/build-ripme.sh
-builds/build-shotcut.sh
+build/dia.sh
+build/gimp.sh
+build/mousepad.sh
+build/ripme.sh
+build/shotcut.sh
 #
 cd ../eclipse
-builds/build-cpp.sh
-builds/build-fortran.sh
-builds/build-java.sh
-builds/build-javascript.sh
-builds/build-php.sh
-builds/build-php-js.sh
-builds/build-qt.sh
+build/bash.sh
+build/cpp.sh
+build/fortran.sh
+build/java.sh
+build/javascript.sh
+build/php.sh
+build/php-js.sh
+build/qt.sh
+build/rust.sh
 #
 cd ../games
-builds/build-mahjongg.sh
-builds/build-sol.sh
+build/mahjongg.sh
+build/sol.sh
 #
 cd ../libre
-builds/build-office.sh
-builds/build-office-jdk.sh
+build/office.sh
+build/office-jdk.sh
