@@ -34,7 +34,7 @@ docker build \
   \
   --build-arg DNAME="" \
   \
-  --build-arg PLUGINS="npm" \
+  --build-arg PLUGINS="" \
   --build-arg PLUGINS_ONLY="1" \
   \
   --build-arg CC_VER="8" \

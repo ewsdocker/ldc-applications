@@ -125,7 +125,7 @@ function gtkAddPackages()
 		#
 		#	Web - WebKitGTK service
 		#
-		pkgAddItemList "libwebkit2gtk-4.0.37"
+		pkgAddItemList "libwebkit2gtk-4.0.37 libjavascriptcoregtk-4.0-18"
 		[[ $? -eq 0 ]] || break
 
 		# ===================================================================
