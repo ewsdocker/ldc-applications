@@ -1,9 +1,9 @@
 
-__Preliminary Documentation__ - 2020-05-22
+__Preliminary Documentation__ - 2020-10-15
 ____  
 __ldc-console: The LDC (Linux Docker Container) Applications Console project.__  
 
-Current Development Version: __0.1.0-b1__  
+Current Development Version: __0.1.0-b3__  
 Latest Release Version: __n/a__  
 LDC Console Resources:  
 
@@ -35,15 +35,15 @@ __LDC Console:__
   </tr>
   <tr>
     <td>&nbsp;<a href="https://ewsdocker.github.io/ldc-applications/console/tumblr.html">ldc-console:tumblr</a>&nbsp;</td>
-    <td>&nbsp;0.1.0-b1&nbsp;</td>
-    <td>&nbsp;<b>ewsdocker/ldc-console:tumblr-0.1.0-b1</b>&nbsp;</td>
+    <td>&nbsp;0.1.0-b3&nbsp;</td>
+    <td>&nbsp;<b>ewsdocker/ldc-console:tumblr-0.1.0-b3</b>&nbsp;</td>
     <td>&nbsp;<a href="https://github.com/ewsdocker/ldc-applications/wiki/console/Tumblr.md">Tumblr</a>&nbsp;</td>
     <td>&nbsp;<b>0.1.0</b>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;<a href="https://ewsdocker.github.io/ldc-applications/console/nano.html">ldc-console:nano</a>&nbsp;</td>
-    <td>&nbsp;0.1.0-b1&nbsp;</td>
-    <td>&nbsp;<b>ewsdocker/ldc-console:nano-0.1.0-b1</b>&nbsp;</td>
+    <td>&nbsp;0.1.0-b3&nbsp;</td>
+    <td>&nbsp;<b>ewsdocker/ldc-console:nano-0.1.0-b3</b>&nbsp;</td>
     <td>&nbsp;<a href="https://github.com/ewsdocker/ldc-applications/wiki/console/Nano.md">Nano</a>&nbsp;</td>
     <td>&nbsp;<b>9.12</b>&nbsp;</td>
   </tr>

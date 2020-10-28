@@ -1,9 +1,9 @@
 
-__Preliminary Documentation__ - 2020-05-22
+__Preliminary Documentation__ - 2020-10-15
 ____  
 __ldc-games: The LDC (Linux Docker Container) Applications Games project.__  
 
-Current Development Version: __0.1.0-b1__  
+Current Development Version: __0.1.0-b3__  
 Latest Release Version: __n/a__  
 LDC Games Resources:  
 
@@ -35,15 +35,15 @@ __LDC Games:__
   </tr>
   <tr>
     <td>&nbsp;<a href="https://ewsdocker.github.io/ldc-applications/games/sol.html">ldc-games:sol</a>&nbsp;</td>
-    <td>&nbsp;0.1.0-b1&nbsp;</td>
-    <td>&nbsp;<b>ewsdocker/ldc-games:sol-0.1.0-b1</b>&nbsp;</td>
+    <td>&nbsp;0.1.0-b3&nbsp;</td>
+    <td>&nbsp;<b>ewsdocker/ldc-games:sol-0.1.0-b3</b>&nbsp;</td>
     <td>&nbsp;<a href="https://github.com/ewsdocker/ldc-applications/wiki/games/Aisleriot.md">Aisleriot</a>&nbsp;</td>
     <td>&nbsp;<b>3.22.7-2</b>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;<a href="https://ewsdocker.github.io/ldc-applications/games/mahjongg.html">ldc-games:mahjongg</a>&nbsp;</td>
-    <td>&nbsp;0.1.0-b1&nbsp;</td>
-    <td>&nbsp;<b>ewsdocker/ldc-games:mahjongg-0.1.0-b1</b>&nbsp;</td>
+    <td>&nbsp;0.1.0-b3&nbsp;</td>
+    <td>&nbsp;<b>ewsdocker/ldc-games:mahjongg-0.1.0-b3</b>&nbsp;</td>
     <td>&nbsp;<a href="https://github.com/ewsdocker/ldc-applications/wiki/games/Mahjongg.md">Mahjongg</a>&nbsp;</td>
     <td>&nbsp;<b>3.22.0-1</b>&nbsp;</td>
   </tr>
