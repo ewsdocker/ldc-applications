@@ -80,9 +80,9 @@ echo "****************************************"
 
 addPkg "firefox-esr"
 
-addPkg "libevent-2.1-6"
-addPkg "libjsoncpp1"
-addPkg "libstartup-notification0"
+#addPkg "libevent-2.1-6"
+#addPkg "libjsoncpp1"
+#addPkg "libstartup-notification0"
 
 # =======================================================================
 

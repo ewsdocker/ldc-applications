@@ -46,6 +46,8 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Documents:/Documents \
   \
+  --network=webnet \
+  \
   --name=ldc-browser-firefox-0.1.0-b4 \
 ewsdocker/ldc-browser:firefox-0.1.0-b4
 [[ $? -eq 0 ]] ||

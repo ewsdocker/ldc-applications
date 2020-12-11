@@ -2,22 +2,22 @@
 
 # ===========================================================================
 #
-#    ldc-browser:ffquantum-0.1.0-b4
+#    ldc-ffquantum
 #
 # ===========================================================================
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** stopping ldc-browser-ffquantum container(s)"
+echo "   **** stopping ldc-ffquantum container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-ffquantum-0.1.0-b4
-docker rm ldc-browser-ffquantum-0.1.0-b4
+docker stop ldc-ffquantum
+docker rm ldc-ffquantum
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-ffquantum-0.1.0-b4"
+echo "   **** installing ldc-ffquantum"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -47,14 +47,15 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Documents:/Documents \
   \
-  --name=ldc-browser-ffquantum-0.1.0-b4 \
+  --network=webnet \
+  \
+  --name=ldc-ffquantum \
 ewsdocker/ldc-browser:ffquantum-0.1.0-b4
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-ffquantum-0.1.0-b4 failed."
+ 	echo "build container ldc-ffquantum failed."
  	exit 2
  }
 
 
 exit 0
-

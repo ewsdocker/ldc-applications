@@ -9,12 +9,12 @@ cd ~/Development/ewsldc/ldc-applications/browser
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** stopping ldc-browser-ffquantum container(s)"
+echo "   **** stopping ldc-ffquantum container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-ffquantum-0.1.0-b4
-docker rm ldc-browser-ffquantum-0.1.0-b4
+docker stop ldc-ffquantum
+docker rm ldc-ffquantum
 
 echo "   ********************************************"
 echo "   ****"
@@ -37,8 +37,8 @@ docker build \
   --build-arg RUN_APP="firefox" \
   \
   --build-arg BROWSER_LABEL="Firefox Quantum" \
-  --build-arg BROWSER_RELEASE="77" \
-  --build-arg BROWSER_VERS="0.1" \
+  --build-arg BROWSER_RELEASE="83" \
+  --build-arg BROWSER_VERS="0" \
   \
   --build-arg FIREFOX_NAME="Firefox Quantum" \
   --build-arg FIREFOX_GENERIC="ffquantum" \
@@ -65,6 +65,7 @@ docker build \
   --build-arg LIB_HOST="http://alpine-nginx-pkgcache" \
   \
   --network=pkgnet \
+  \
   --file Dockerfile \
 -t ewsdocker/ldc-browser:ffquantum-0.1.0-b4 .
 [[ $? -eq 0 ]] ||

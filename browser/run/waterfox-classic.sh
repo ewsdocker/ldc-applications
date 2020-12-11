@@ -36,6 +36,8 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Source:/source \
   \
+  --network=webnet \
+  \
   --name=ldc-browser-waterfox-0.1.0-b4 \
 ewsdocker/ldc-browser:waterfox-0.1.0-b4
 [[ $? -eq 0 ]] ||

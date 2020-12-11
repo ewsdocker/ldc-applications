@@ -40,7 +40,7 @@ docker build \
   \
   --build-arg BROWSER_LABEL="Pale Moon" \
   --build-arg BROWSER_RELEASE="28" \
-  --build-arg BROWSER_VERS="10.0" \
+  --build-arg BROWSER_VERS="16.0" \
   \
   --build-arg PALEMOON_NAME="Pale Moon" \
   --build-arg PALEMOON_GENERIC="palemoon" \

@@ -34,7 +34,7 @@ echo
 
 docker build \
   --build-arg RUN_APP="libreoffice" \
-  --build-arg OFFICE_VER="6.4.4" \
+  --build-arg OFFICE_VER="6.4.5" \
   \
   --build-arg DNAME="NONJS" \
   \

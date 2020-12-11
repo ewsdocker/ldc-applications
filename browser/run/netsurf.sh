@@ -44,6 +44,8 @@ docker run \
   -v ${HOME}/Documents:/Documents \
   -v ${HOME}/Source:/source \
   \
+  --network=webnet \
+  \
   --name=ldc-browser-netsurf-0.1.0-b4 \
 ewsdocker/ldc-browser:netsurf-0.1.0-b4
 [[ $? -eq 0 ]] ||

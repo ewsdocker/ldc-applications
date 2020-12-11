@@ -39,7 +39,7 @@ docker build \
   \
   --build-arg BROWSER_LABEL="Waterfox Classic" \
   --build-arg BROWSER_RELEASE="2020" \
-  --build-arg BROWSER_VERS="06" \
+  --build-arg BROWSER_VERS="10" \
   \
   --build-arg WATERFOX_NAME="Waterfox Classic" \
   --build-arg WATERFOX_GENERIC="waterfox-classic" \

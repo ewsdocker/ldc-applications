@@ -142,7 +142,7 @@ addPkg "udisks2"
 
 # =======================================================================
 
-installList
+#installList
 
 apt-get clean all 
 

@@ -41,7 +41,7 @@ ARG FROM_REPO="ewsdocker"
 ARG FROM_PARENT="ldc-stack"
 ARG FROM_VERS="dgtk3-x11"
 ARG FROM_EXT="-0.1.0"
-ARG FROM_EXT_MOD="-b3"
+ARG FROM_EXT_MOD="-b4"
 
 FROM ${FROM_REPO}/${FROM_PARENT}:${FROM_VERS}${FROM_EXT}${FROM_EXT_MOD}
 
@@ -178,11 +178,20 @@ ENV NSURF_URL="${NSURF_HOST}/${NSURF_PKG}"
 # =========================================================================
 #
 # Classic:
+#   wget https://cdn.waterfox.net/releases/linux64/installer/waterfox-classic-2020.10.en-US.linux-x86_64.tar.bz2
+#
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-classic-2020.06.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-classic-2020.05.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-classic-2019.12.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-classic-2019.10.en-US.linux-x86_64.tar.bz2
-# Current (Modern):
+#
+# Generation 3 (G3): - Modern (Current) renamed 2020-10
+#   wget https://cdn.waterfox.net/releases/linux64/installer/waterfox-G3.0.1.en-US.linux-x86_64.tar.bz2
+#
+# =========================================================================
+#
+# Current (Modern): - eol, relaced by Gen3
+#
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-current-2020.06.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-current-2020.05.en-US.linux-x86_64.tar.bz2
 #   wget https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-current-2019.12.en-US.linux-x86_64.tar.bz2
@@ -191,8 +200,8 @@ ENV NSURF_URL="${NSURF_HOST}/${NSURF_PKG}"
 # =========================================================================
 # =========================================================================
 
-ENV WFOX_NAME=${WATERFOX_NAME:-"Waterfox Current"} \
-    WFOX_GENERIC=${WATERFOX_GENERIC:-"waterfox-current"} \
+ENV WFOX_NAME=${WATERFOX_NAME:-"Waterfox Classic"} \
+    WFOX_GENERIC=${WATERFOX_GENERIC:-"waterfox-classic"} \
     WFOX_DIR=${WATERFOX_DIR:-"/opt"}
 
 ENV WFOX_PKG="${WFOX_GENERIC}-${BRWSR_RELEASE}.${BRWSR_VERS}.en-US.linux-x86_64.tar.bz2" 
@@ -211,6 +220,8 @@ ENV WFOX_URL="${WFOX_HOST}/${WFOX_PKG}"
 # The latest release is available from
 #	http://linux.palemoon.org/download/mainline/
 #
+#   https://linux.palemoon.org/datastore/release/palemoon-28.16.0.linux-x86_64.tar.xz
+#
 #   http://linux.palemoon.org/datastore/release/palemoon-28.10.0.linux-x86_64.tar.xz
 #   http://linux.palemoon.org/datastore/release/palemoon-28.9.3.linux-x86_64.tar.xz
 #   http://linux.palemoon.org/datastore/release/palemoon-28.8.0.linux-x86_64.tar.xz
@@ -224,7 +235,7 @@ ENV PMOON_NAME=${PALEMOON_NAME:-"Pale Moon"} \
     PMOON_DIR=${PALEMOON_DIR:-"/opt"} 
 
 ENV PMOON_PKG="${PMOON_GENERIC}-${BROWSER_RELEASE}.${BROWSER_VERS}.linux-x86_64.tar.xz" \
-    PMOON_HOST=${PALEMOON_HOST:-"http://linux.palemoon.org/datastore/release"}
+    PMOON_HOST=${PALEMOON_HOST:-"https://linux.palemoon.org/datastore/release"}
 
 ENV PMOON_URL="${PMOON_HOST}/${PMOON_PKG}"
 
@@ -235,6 +246,8 @@ ENV PMOON_URL="${PMOON_HOST}/${PMOON_PKG}"
 #
 # =========================================================================
 #
+#
+# wget http://ftp.mozilla.org/pub/firefox/releases/83.0/linux-x86_64/en-US/firefox-83.0.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/80.0/linux-x86_64/en-US/firefox-80.0.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/77.0.1/linux-x86_64/en-US/firefox-77.0.1.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/76.0.1/linux-x86_64/en-US/firefox-76.0.1.tar.bz2
@@ -284,7 +297,7 @@ ENV \
     LMS_NAME=${BUILD_NAME:-"ldc-browser"} \
     LMS_VERSION=${BUILD_VERSION:-"browsers"} \
     \
-    LMS_VERS_X=${BUILD_VERS_EXT:-"-0.1.0"} \
+    LMS_VERS_X=${BUILD_VERS_EXT:-""} \
     LMS_VERS_MOD=${BUILD_EXT_MOD:-""} 
 
 ENV LMS_VERS_EXT="${LMS_VERS_X}${LMS_VERS_MOD}" \
@@ -306,7 +319,7 @@ ENV LMS_DOCKER="${LMS_REPO}/${LMS_DOCKER_NAME}"
 ENV LMSLIB_INST=${LIB_INSTALL:-"0"} \
     LMSLIB_NAME=${LIB_NAME:-"ldc-library"} \
     LMSLIB_VERS=${LIB_VERSION:-"0.1.6"} \
-    LMSLIB_VERS_MOD=${LIB_VERS_MOD:-"-b3"}
+    LMSLIB_VERS_MOD=${LIB_VERS_MOD:-"-b4"}
 
 ENV LMSLIB_HOST=${LIB_HOST:-"https://github.com/ewsdocker/ldc-utilities/releases/download/ldc-utilities-${LMSLIB_VERS}"}
 
@@ -358,22 +371,6 @@ RUN chmod +x /tmp/*.sh \
  esac \
  \
  && apt-get clean all \
- \
- # =========================================================================
- #
- #   installFlash
- #
- # =========================================================================
- \
- &&  if test "${FLINST}" = "1"; then wget ${FLURL}; mkdir -p ${FLDIR}; tar -xvf ${FLNAME} -C ${FLDIR}; rm ${FLNAME}; fi \
- \
- # =========================================================================
- #
- #   download and install ldc-library
- #
- # =========================================================================
- \
- && if test "${LMSLIB_INST}" = "1"; then cd / ; wget "${LMSLIB_URL}"; tar -xvf "${LMSLIB_PKG}"; rm "${LMSLIB_PKG}"; cd \root; fi \
  \
  # ========================================================================
  #
