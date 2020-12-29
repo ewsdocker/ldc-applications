@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-games:mahjongg-0.1.0-b4
+#    ldc-games:mahjongg${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -11,12 +14,12 @@ echo "   **** stopping ldc-games-mahjongg container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-games-mahjongg-0.1.0-b4
-docker rm ldc-games-mahjongg-0.1.0-b4
+docker stop ldc-games-mahjongg${ldcvers}${ldcextv}
+docker rm ldc-games-mahjongg${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-games-mahjongg-0.1.0-b4"
+echo "   **** installing ldc-games-mahjongg${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -41,33 +44,33 @@ docker run \
    -v ${HOME}/bin:/userbin \
    -v ${HOME}/.local:/usrlocal \
    -v ${HOME}/.config/docker:/conf \
-   -v ${HOME}/.config/docker/ldc-games-mahjongg-0.1.0:/root \
-   -v ${HOME}/.config/docker/ldc-games-mahjongg-0.1.0/workspace:/workspace \
+   -v ${HOME}/.config/docker/ldc-games-mahjongg${ldcvers}:/root \
+   -v ${HOME}/.config/docker/ldc-games-mahjongg${ldcvers}/workspace:/workspace \
    \
-   --name=ldc-games-mahjongg-0.1.0-b4 \
- ewsdocker/ldc-games:mahjongg-0.1.0-b4
+   --name=ldc-games-mahjongg${ldcvers}${ldcextv} \
+ ewsdocker/ldc-games:mahjongg${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-games-mahjongg-0.1.0-b4 failed."
+ 	echo "build container ldc-games-mahjongg${ldcvers}${ldcextv} failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** stopping ldc-games-mahjongg-0.1.0-b4"
+echo "   **** stopping ldc-games-mahjongg${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
 
-docker stop ldc-games-mahjongg-0.1.0-b4
+docker stop ldc-games-mahjongg${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "stop ldc-games-mahjongg-0.1.0-b4 failed."
+ 	echo "stop ldc-games-mahjongg${ldcvers}${ldcextv} failed."
  }
 
 echo "   ******************************************************"
 echo "   ****"
-echo "   **** ldc-games:mahjongg-0.1.0-b4 successfully installed."
+echo "   **** ldc-games:mahjongg${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   ******************************************************"
 echo

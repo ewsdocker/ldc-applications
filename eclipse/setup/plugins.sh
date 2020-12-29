@@ -71,7 +71,7 @@ declare  ldc_plugins="/usr/local/lib/ldc/plugins"
 
 [[ -z "${NJS_BASH}" ]] ||
  {
-    . ${ldc_plugins}/npm/npm_bashserver.sh
+    . ${ldc_plugins}/npm/npmlib.sh
  }
 
 [[ -z "${PHP_COMPOSER}" ]] ||

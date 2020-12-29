@@ -1,0 +1,8 @@
+   **** Installing Eclipse IDE Java ****
+
+--2020-12-28 19:08:14--  http://anginx-pkgcache/eclipse-java-2020-12-RC1-linux-gtk-x86_64.tar.gz
+Resolving anginx-pkgcache (anginx-pkgcache)... 172.30.0.2
+Connecting to anginx-pkgcache (anginx-pkgcache)|172.30.0.2|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 336158717 (321M) [application/octet-stream]
+Saving to: 'eclipse-java-2020-12-RC1-linux-gtk-x86_64.tar.gz'

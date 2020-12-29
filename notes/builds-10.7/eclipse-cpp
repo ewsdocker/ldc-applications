@@ -1,0 +1,25 @@
+apt-get -y install libwebkit2gtk-4.0.37 build-essential dpkg-dev libdpkg-perl nodejs
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libwebkit2gtk-4.0-37 is already the newest version (2.30.4-1~deb10u1).
+libwebkit2gtk-4.0-37-gtk2 is already the newest version (2.30.4-1~deb10u1).
+Suggested packages:
+  debian-keyring git bzr
+Recommended packages:
+  libalgorithm-merge-perl libfile-fcntllock-perl liblocale-gettext-perl
+The following NEW packages will be installed:
+  build-essential dpkg-dev libdpkg-perl nodejs
+0 upgraded, 4 newly installed, 0 to remove and 2 not upgraded.
+Need to get 28.0 MB of archives.
+After this operation, 124 MB of additional disk space will be used.
+
+   **** Installing Eclipse IDE Cpp ****
+
+--2020-12-28 07:30:37--  http://anginx-pkgcache/eclipse-cpp-2020-09-M3-linux-gtk-x86_64.tar.gz
+Resolving anginx-pkgcache (anginx-pkgcache)... 172.30.0.2
+Connecting to anginx-pkgcache (anginx-pkgcache)|172.30.0.2|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 328022910 (313M) [application/octet-stream]
+Saving to: 'eclipse-cpp-2020-09-M3-linux-gtk-x86_64.tar.gz'

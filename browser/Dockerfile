@@ -246,7 +246,7 @@ ENV PMOON_URL="${PMOON_HOST}/${PMOON_PKG}"
 #
 # =========================================================================
 #
-#
+# wget http://ftp.mozilla.org/pub/firefox/releases/84.0.1/linux-x86_64/en-US/firefox-84.0.1.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/83.0/linux-x86_64/en-US/firefox-83.0.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/80.0/linux-x86_64/en-US/firefox-80.0.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/77.0.1/linux-x86_64/en-US/firefox-77.0.1.tar.bz2
@@ -360,13 +360,13 @@ RUN chmod +x /tmp/*.sh \
  && apt-get -y upgrade \
  \
  && case ${DSTACK} in \
- 	  "FQUANT")  /tmp/ffquantum.sh           ;; \
+      "FQUANT")  /tmp/ffquantum.sh           ;; \
       "FFOX")    /tmp/firefox-un.sh          ;; \
       "EFOX")    /tmp/firefox-esr.sh         ;; \
- 	  "NETSURF") /tmp/netsurf-testing.sh     ;; \
- 	  "PMOON")   /tmp/palemoon.sh            ;; \
- 	  "WFOX")    /tmp/waterfox.sh            ;; \
- 	  "WCFOX")   /tmp/waterfox-current.sh    ;; \
+      "NETSURF") /tmp/netsurf-testing.sh     ;; \
+      "PMOON")   /tmp/palemoon.sh            ;; \
+      "WFOX")    /tmp/waterfox.sh            ;; \
+      "WCFOX")   /tmp/waterfox-current.sh    ;; \
       *)         echo "UNKNOWN STACK NAME: ${DSTACK}"; exit 1 ;; \
  esac \
  \

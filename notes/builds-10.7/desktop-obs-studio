@@ -1,0 +1,62 @@
+apt-get -y install  obs-build obs-studio obs-plugins vlc
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  debootstrap debugedit liba52-0.7.4 libaa1 libarchive-tools libarchive13
+  libaribb24-0 libass9 libavc1394-0 libavdevice58 libavfilter7 libavformat58
+  libbasicusageenvironment1 libbluray2 libbs2b0 libcaca0 libcddb2
+  libcdio-cdda2 libcdio-paranoia2 libcdio18 libchromaprint1 libdc1394-22
+  libdca0 libdvbpsi10 libdvdnav4 libdvdread4 libdw1 libebml4v5 libfaad2
+  libfftw3-double3 libflite1 libgles2 libgme0 libgpm2 libgroupsock8
+  libiec61883-0 libixml10 libjansson4 libkate1 liblilv-0-0 liblirc-client0
+  liblivemedia64 liblua5.2-0 libluajit-5.1-2 libluajit-5.1-common libmad0
+  libmatroska6v5 libmpcdec6 libmpeg2-4 libmpg123-0 libmtp-common libmtp9
+  libmysofa0 libnfs12 libnorm1 libnspr4 libnss3 libobs0 libopenal-data
+  libopenal1 libopenmpt-modplug1 libopenmpt0 libpcre2-16-0 libpgm-5.2-0
+  libplacebo7 libpostproc55 libprotobuf-lite17 libpython3.7 libqt5core5a
+  libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5
+  libqt5x11extras5 libraw1394-11 libresid-builder0c2a librpm8 librpmbuild8
+  librpmio8 librpmsign8 librubberband2 libsdl-image1.2 libsdl1.2debian
+  libserd-0-0 libshout3 libsidplay2 libsodium23 libsord-0-0 libspatialaudio0
+  libsratom-0-0 libssh-gcrypt-4 libswscale5 libtag1v5 libtag1v5-vanilla
+  libupnp13 libusageenvironment3 libv4l-0 libv4lconvert0 libvidstab1.1
+  libvlc-bin libvlc5 libvlccore9 libvorbisfile3 libvulkan1 libxcb-xinput0
+  libxcb-xv0 libzmq5 rpm rpm-common rpm2cpio vlc-bin vlc-data vlc-plugin-base
+  vlc-plugin-qt vlc-plugin-video-output
+Suggested packages:
+  ubuntu-archive-keyring squid-deb-proxy-client rpm-i18n lrzip libbluray-bdj
+  libdvdcss2 libfftw3-bin libfftw3-dev gpm lirc libportaudio2
+  qt5-image-formats-plugins qtwayland5 libraw1394-doc serdi sordi xfsprogs
+  btrfs-progs alien elfutils rpmlint rpm2html
+Recommended packages:
+  gnupg arch-test libaacs0 libmtp-runtime udev qttranslations5-l10n
+  qt5-gtk-platformtheme libproxy-tools osc libcrypt-ssleay-perl xzdec vlc-l10n
+  vlc-plugin-notify vlc-plugin-samba vlc-plugin-skins2
+  vlc-plugin-video-splitter vlc-plugin-visualization
+The following NEW packages will be installed:
+  debootstrap debugedit liba52-0.7.4 libaa1 libarchive-tools libarchive13
+  libaribb24-0 libass9 libavc1394-0 libavdevice58 libavfilter7 libavformat58
+  libbasicusageenvironment1 libbluray2 libbs2b0 libcaca0 libcddb2
+  libcdio-cdda2 libcdio-paranoia2 libcdio18 libchromaprint1 libdc1394-22
+  libdca0 libdvbpsi10 libdvdnav4 libdvdread4 libdw1 libebml4v5 libfaad2
+  libfftw3-double3 libflite1 libgles2 libgme0 libgpm2 libgroupsock8
+  libiec61883-0 libixml10 libjansson4 libkate1 liblilv-0-0 liblirc-client0
+  liblivemedia64 liblua5.2-0 libluajit-5.1-2 libluajit-5.1-common libmad0
+  libmatroska6v5 libmpcdec6 libmpeg2-4 libmpg123-0 libmtp-common libmtp9
+  libmysofa0 libnfs12 libnorm1 libnspr4 libnss3 libobs0 libopenal-data
+  libopenal1 libopenmpt-modplug1 libopenmpt0 libpcre2-16-0 libpgm-5.2-0
+  libplacebo7 libpostproc55 libprotobuf-lite17 libpython3.7 libqt5core5a
+  libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5
+  libqt5x11extras5 libraw1394-11 libresid-builder0c2a librpm8 librpmbuild8
+  librpmio8 librpmsign8 librubberband2 libsdl-image1.2 libsdl1.2debian
+  libserd-0-0 libshout3 libsidplay2 libsodium23 libsord-0-0 libspatialaudio0
+  libsratom-0-0 libssh-gcrypt-4 libswscale5 libtag1v5 libtag1v5-vanilla
+  libupnp13 libusageenvironment3 libv4l-0 libv4lconvert0 libvidstab1.1
+  libvlc-bin libvlc5 libvlccore9 libvorbisfile3 libvulkan1 libxcb-xinput0
+  libxcb-xv0 libzmq5 obs-build obs-plugins obs-studio rpm rpm-common rpm2cpio
+  vlc vlc-bin vlc-data vlc-plugin-base vlc-plugin-qt vlc-plugin-video-output
+0 upgraded, 120 newly installed, 0 to remove and 2 not upgraded.
+Need to get 56.9 MB of archives.
+After this operation, 150 MB of additional disk space will be used.

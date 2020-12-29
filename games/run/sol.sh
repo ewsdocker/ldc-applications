@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-games:sol-0.1.0-b4
+#    ldc-games:sol${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -11,12 +14,12 @@ echo "   **** stopping sol container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-games-sol-0.1.0-b4
-docker rm ldc-games-sol-0.1.0-b4
+docker stop ldc-games-sol${ldcvers}${ldcextv}
+docker rm ldc-games-sol${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-games-sol-0.1.0-b4"
+echo "   **** installing ldc-games-sol${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -37,7 +40,7 @@ docker run \
    -v /dev/shm:/dev/shm \
    --device /dev/snd \
    \
-   -v ${HOME}/.config/docker/ldc-games-sol-0.1.0/workspace/.gnome2:/root/.gnome2 \
+   -v ${HOME}/.config/docker/ldc-games-sol-${ldcvers}/workspace/.gnome2:/root/.gnome2 \
    \
    -e LMS_BASE="/root/.local" \
    -e LMS_HOME="/root" \
@@ -46,35 +49,35 @@ docker run \
    -v ${HOME}/bin:/userbin \
    -v ${HOME}/.local:/usrlocal \
    -v ${HOME}/.config/docker:/conf \
-   -v ${HOME}/.config/docker/ldc-games-sol-0.1.0:/root \
-   -v ${HOME}/.config/docker/ldc-games-sol-0.1.0/workspace:/workspace \
+   -v ${HOME}/.config/docker/ldc-games-sol-${ldcvers}:/root \
+   -v ${HOME}/.config/docker/ldc-games-sol-${ldcvers}/workspace:/workspace \
    \
    -v ${HOME}/Downloads:/Downloads \
    \
-   --name=ldc-games-sol-0.1.0-b4 \
- ewsdocker/ldc-games:sol-0.1.0-b4
+   --name=ldc-games-sol${ldcvers}${ldcextv} \
+ ewsdocker/ldc-games:sol${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-games-sol-0.1.0-b4 failed."
+ 	echo "build container ldc-games-sol${ldcvers}${ldcextv} failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** stopping ldc-games-sol-0.1.0-b4"
+echo "   **** stopping ldc-games-sol${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
 
-docker stop ldc-games-sol-0.1.0-b4
+docker stop ldc-games-sol${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "stop ldc-games-sol-0.1.0-b4 failed."
+ 	echo "stop ldc-games-sol${ldcvers}${ldcextv} failed."
  }
 
 echo "   ******************************************************"
 echo "   ****"
-echo "   **** ldc-games:sol-0.1.0-b4 successfully installed."
+echo "   **** ldc-games:sol${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   ******************************************************"
 echo

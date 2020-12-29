@@ -1,22 +1,25 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-browser:firefox-esr-0.1.0-b4
+#    ldc-firefox-esr
 #
 # ===========================================================================
 
-echo "   ********************************************"
+echo "   *********************************************************"
 echo "   ****"
-echo "   **** stopping firefox-esr container(s)"
+echo "   **** stopping and removing ldc-firefox-esr container(s)"
 echo "   ****"
-echo "   ********************************************"
+echo "   *********************************************************"
 echo
-docker stop ldc-browser-firefox-esr-0.1.0-b4
-docker rm ldc-browser-firefox-esr-0.1.0-b4
+docker stop ldc-firefox-esr
+docker rm ldc-firefox-esr
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-firefox-esr-0.1.0-b4"
+echo "   **** installing ldc-firefox-esr"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -34,8 +37,8 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-browser-firefox-esr-0.1.0:/root \
-  -v ${HOME}/.config/docker/ldc-browser-firefox-esr-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-browser-firefox-esr${ldcvers}:/root \
+  -v ${HOME}/.config/docker/ldc-browser-firefox-esr${ldcvers}/workspace:/workspace \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
@@ -46,13 +49,13 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Documents:/Documents \
   \
-  --network=webnet \
+  --network="${webnet}" \
   \
-  --name=ldc-browser-firefox-esr-0.1.0-b4 \
-ewsdocker/ldc-browser:firefox-esr-0.1.0-b4
+  --name=ldc-firefox-esr \
+ewsdocker/ldc-browser:firefox-esr${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-firefox-esr-0.1.0-b4 failed."
+ 	echo "build container ldc-firefox-esr failed."
  	exit 2
  }
 

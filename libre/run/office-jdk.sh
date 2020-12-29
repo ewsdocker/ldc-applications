@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-libre:office-jdk-0.1.0-b4
+#    ldc-libre:office-jdk${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -11,12 +14,12 @@ echo "   **** stopping ldc-libre-office-jdk container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-libre-office-jdk-0.1.0-b4
-docker rm ldc-libre-office-jdk-0.1.0-b4
+docker stop ldc-libre-office-jdk${ldcvers}${ldcextv}
+docker rm ldc-libre-office-jdk${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-libre-office-jdk-0.1.0-b4"
+echo "   **** installing ldc-libre-office-jdk${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -29,8 +32,8 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-libre-office-jdk-0.1.0:/root \
-  -v ${HOME}/.config/docker/ldc-libre-office-jdk-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-libre-office-jdk${ldcvers}:/root \
+  -v ${HOME}/.config/docker/ldc-libre-office-jdk${ldcvers}/workspace:/workspace \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:/root/.Xauthority \
@@ -41,11 +44,11 @@ docker run \
   -v ${HOME}/Documents:/documents \
   -v ${HOME}/Source:/source \
   \
-  --name=ldc-libre-office-jdk-0.1.0-b4 \
-ewsdocker/ldc-libre:office-jdk-0.1.0-b4
+  --name=ldc-libre-office-jdk${ldcvers}${ldcextv} \
+ewsdocker/ldc-libre:office-jdk${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-libre-office-jdk-0.1.0-b4 failed."
+ 	echo "create container ldc-libre-office-jdk${ldcvers}${ldcextv} failed."
  	exit 2
  }
 

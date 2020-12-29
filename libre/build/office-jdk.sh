@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-libre:office-jdk-0.1.0-b4
+#    ldc-libre:office-jdk${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -13,8 +16,8 @@ echo "   **** stopping ldc-libre-office-jdk container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-libre-office-jdk-0.1.0-b4
-docker rm ldc-libre-office-jdk-0.1.0-b4
+docker stop ldc-libre-office-jdk${ldcvers}${ldcextv}
+docker rm ldc-libre-office-jdk${ldcvers}${ldcextv}
 
 echo "   ********************************************"
 echo "   ****"
@@ -23,11 +26,11 @@ echo "   ****"
 echo "   ********************************************"
 echo
 
-docker rmi ewsdocker/ldc-libre:office-jdk-0.1.0-b4
+docker rmi ewsdocker/ldc-libre:office-jdk${ldcvers}${ldcextv}
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-libre:office-jdk-0.1.0-b4"
+echo "   **** building ewsdocker/ldc-libre:office-jdk${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -38,7 +41,7 @@ docker build \
   \
   --build-arg DNAME="NONJS" \
   \
-  --build-arg NODEJS_HOST="http://alpine-nginx-pkgcache" \
+  --build-arg NODEJS_HOST="${pkgserver}" \
   --build-arg NODEJS_VER="14" \
   \
   --build-arg BUILD_BASE="/usr/local/" \
@@ -47,30 +50,29 @@ docker build \
   \
   --build-arg BUILD_NAME="ldc-libre" \
   --build-arg BUILD_VERSION="office-jdk" \
-  --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b4" \
+  --build-arg BUILD_VERS_EXT="${ldcvers}" \
+  --build-arg BUILD_EXT_MOD="${ldcextv}" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack-apps" \
   --build-arg FROM_VERS="djdk13-gtk3" \
-  --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b4" \
+  --build-arg FROM_EXT="${ldcvers}" \
+  --build-arg FROM_EXT_MOD="${ldcextv}" \
   \
-  --build-arg OFFICE_HOST=http://alpine-nginx-pkgcache \
-  --build-arg LIB_HOST=http://alpine-nginx-pkgcache \
-  --network=pkgnet \
+  --build-arg OFFICE_HOST="${pkgserver}" \
+  --network="${pkgnet}" \
   \
   --file Dockerfile \
-  -t ewsdocker/ldc-libre:office-jdk-0.1.0-b4  .
+  -t ewsdocker/ldc-libre:office-jdk${ldcvers}${ldcextv}  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-libre:office-jdk-0.1.0-b4 failed."
+ 	echo "build ewsdocker/ldc-libre:office-jdk${ldcvers}${ldcextv} failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** creating ldc-libre-office-jdk-0.1.0-b4"
+echo "   **** creating ldc-libre-office-jdk${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo

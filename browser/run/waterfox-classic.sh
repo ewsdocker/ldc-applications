@@ -1,17 +1,19 @@
 #!/bin/bash
 
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 echo "   ********************************************"
 echo "   ****"
 echo "   **** stopping ldc-browser-dwaterfox container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-waterfox-0.1.0-b4
-docker rm ldc-browser-waterfox-0.1.0-b4
+docker stop ldc-browser-waterfox${ldcvers}${ldcextv}
+docker rm ldc-browser-waterfox${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-waterfox-0.1.0-b4"
+echo "   **** installing ldc-browser-waterfox${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -24,8 +26,8 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-browser-waterfox-0.1.0:${HOME} \
-  -v ${HOME}/.config/docker/ldc-browser-waterfox-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-browser-waterfox${ldcvers}:${HOME} \
+  -v ${HOME}/.config/docker/ldc-browser-waterfox${ldcvers}/workspace:/workspace \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
@@ -36,13 +38,13 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Source:/source \
   \
-  --network=webnet \
+  --network="${webnet}" \
   \
-  --name=ldc-browser-waterfox-0.1.0-b4 \
-ewsdocker/ldc-browser:waterfox-0.1.0-b4
+  --name=ldc-browser-waterfox${ldcvers}${ldcextv} \
+ewsdocker/ldc-browser:waterfox${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-waterfox-0.1.0-b4 failed."
+ 	echo "build container ldc-browser-waterfox${ldcvers}${ldcextv} failed."
  	exit 2
  }
 

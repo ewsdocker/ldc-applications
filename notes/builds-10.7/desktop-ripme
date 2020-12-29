@@ -1,0 +1,7 @@
+Reading package lists...
+--2020-12-28 06:07:11--  http://anginx-pkgcache/1.7.92/ripme.jar
+Resolving anginx-pkgcache (anginx-pkgcache)... 172.30.0.2
+Connecting to anginx-pkgcache (anginx-pkgcache)|172.30.0.2|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4272379 (4.1M) [application/java-archive]
+Saving to: 'ripme.jar'

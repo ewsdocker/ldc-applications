@@ -1,17 +1,19 @@
 #!/bin/bash
 
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 echo "   ********************************************"
 echo "   ****"
 echo "   **** stopping shotcut container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-shotcut-0.1.0-b4
-docker rm ldc-desktop-shotcut-0.1.0-b4
+docker stop ldc-desktop-shotcut${ldcvers}${ldcextv}
+docker rm ldc-desktop-shotcut${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-shotcut-0.1.0-b4"
+echo "   **** installing ldc-desktop-shotcut${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -28,8 +30,8 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-desktop-shotcut-0.1.0:/root \
-  -v ${HOME}/.config/docker/ldc-desktop-shotcut-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-desktop-shotcut${ldcvers}:/root \
+  -v ${HOME}/.config/docker/ldc-desktop-shotcut${ldcvers}/workspace:/workspace \
   \
   -v ${HOME}/Videos:/videos \
   -v ${HOME}/Audios:/audios \
@@ -41,25 +43,22 @@ docker run \
   --device /dev/snd \
   \
   -e LMSLIB_INST="0" \
-  -e LMSLIB_HOST=http://alpine-nginx-pkgcache \
-  -e LMSLIB_VERS="0.1.6" \
-  -e LMSLIB_VERS_MOD="-b4" \
   \
-  --name=ldc-desktop-shotcut-0.1.0-b4 \
-ewsdocker/ldc-desktop:shotcut-0.1.0-b4
+  --name=ldc-desktop-shotcut${ldcvers}${ldcextv} \
+ewsdocker/ldc-desktop:shotcut${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-shotcut-0.1.0-b4 failed."
+ 	echo "create container ldc-desktop-shotcut${ldcvers}${ldcextv} failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:shotcut-0.1.0-b4 successfully installed."
+echo "   **** ldc-desktop:shotcut${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-shotcut-0.1.0-b4"
+echo "   ****    docker start ldc-desktop-shotcut${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ****************************************************************"
 echo

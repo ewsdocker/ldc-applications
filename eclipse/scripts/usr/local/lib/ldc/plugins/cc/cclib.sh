@@ -84,8 +84,6 @@ function ccAddPackages()
 # ===================================================================================
 function ccInstall()
 {
-echo "ccInstall in cc.sh"
-
     ccAddPackages
     [[ $? -eq 0 ]] || 
      {

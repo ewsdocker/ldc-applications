@@ -171,6 +171,7 @@ ENV GMP_URL=${GMP_HOST}/${GMP_PKG}
 # ========================================================================================
 #
 #    RipMe
+#     https://github.com/RipMeApp/ripme/releases/download/1.7.94/ripme.jar
 #     https://github.com/RipMeApp/ripme/releases/download/1.7.92/ripme.jar
 #     https://github.com/RipMeApp/ripme/releases/download/1.7.88/ripme.jar
 #     https://github.com/RipMeApp/ripme/releases/download/1.7.89/ripme.jar

@@ -1,0 +1,31 @@
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  python-apt-common python3-apt
+2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 281 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://security.debian.org/debian-security buster/updates/main amd64 python-apt-common all 1.8.4.3 [96.3 kB]
+Get:2 http://security.debian.org/debian-security buster/updates/main amd64 python3-apt amd64 1.8.4.3 [185 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 281 kB in 10s (27.2 kB/s)
+(Reading database ... 36502 files and directories currently installed.)
+Preparing to unpack .../python-apt-common_1.8.4.3_all.deb ...
+Unpacking python-apt-common (1.8.4.3) over (1.8.4.2) ...
+Preparing to unpack .../python3-apt_1.8.4.3_amd64.deb ...
+Unpacking python3-apt (1.8.4.3) over (1.8.4.2) ...
+Setting up python-apt-common (1.8.4.3) ...
+Setting up python3-apt (1.8.4.3) ...
+
+*********** ffquantum stable ***********
+
+Hit:1 http://security.debian.org/debian-security buster/updates InRelease
+Hit:2 http://deb.debian.org/debian buster InRelease
+Hit:3 http://deb.debian.org/debian buster-updates InRelease
+Reading package lists...
+--2020-12-27 21:19:52--  http://anginx-pkgcache/firefox-84.0.1.tar.bz2
+Resolving anginx-pkgcache (anginx-pkgcache)... 172.30.0.2
+Connecting to anginx-pkgcache (anginx-pkgcache)|172.30.0.2|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 76247713 (73M) [application/octet-stream]
+Saving to: 'firefox-84.0.1.tar.bz2'

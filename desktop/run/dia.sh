@@ -1,17 +1,19 @@
 #!/bin/bash
 
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 echo "   ********************************************"
 echo "   ****"
 echo "   **** stopping ddia container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-dia-0.1.0-b4
-docker rm ldc-desktop-dia-0.1.0-b4
+docker stop ldc-desktop-dia${ldcvers}${ldcextv}
+docker rm ldc-desktop-dia${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-dia-0.1.0-b4"
+echo "   **** installing ldc-desktop-dia${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -28,8 +30,8 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-desktop-dia-0.1.0:/root \
-  -v ${HOME}/.config/docker/ldc-desktop-dia-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-desktop-dia${ldcvers}:/root \
+  -v ${HOME}/.config/docker/ldc-desktop-dia${ldcvers}/workspace:/workspace \
   \
   -v ${HOME}/Pictures/Dia:/artwork \
   -v ${HOME}/Pictures:/pictures \
@@ -42,25 +44,22 @@ docker run \
   --device /dev/snd \
   \
   -e LMSLIB_INST="0" \
-  -e LMSLIB_HOST=http://alpine-nginx-pkgcache \
-  -e LMSLIB_VERS="0.1.6" \
-  -e LMSLIB_VERS_MOD="-b4" \
   \
-  --name=ldc-desktop-dia-0.1.0-b4 \
-ewsdocker/ldc-desktop:dia-0.1.0-b4
+  --name=ldc-desktop-dia${ldcvers}${ldcextv} \
+ewsdocker/ldc-desktop:dia${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-dia-0.1.0-b4 failed."
+ 	echo "create container ldc-desktop-dia${ldcvers}${ldcextv} failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:dia-0.1.0-b4 successfully installed."
+echo "   **** ldc-desktop:dia${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-dia-0.1.0-b4"
+echo "   ****    docker start ldc-desktop-dia${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ****************************************************************"
 echo

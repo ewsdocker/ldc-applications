@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-console:nano-0.1.0-b4
+#    ldc-console:nano${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -11,12 +14,12 @@ echo "   **** stopping ldc-console-nano container"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-console-nano-0.1.0-b4
-docker rm ldc-console-nano-0.1.0-b4
+docker stop ldc-console-nano${ldcvers}${ldcextv}
+docker rm ldc-console-nano${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-console-nano-0.1.0-b4 container"
+echo "   **** installing ldc-console-nano${ldcvers}${ldcextv} container"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -35,27 +38,22 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-console-nano-0.1.0-b4:/root \
-  -v ${HOME}/.config/docker/ldc-console-nano-0.1.0-b4/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-console-nano${ldcvers}${ldcextv}:/root \
+  -v ${HOME}/.config/docker/ldc-console-nano${ldcvers}${ldcextv}/workspace:/workspace \
   \
   -v ${HOME}/Downloads:/Downloads \
   \
-  -e LMSLIB_INST="0" \
-  -e LMSLIB_HOST=http://alpine-nginx-pkgcache \
-  -e LMSLIB_VERS="0.1.6" \
-  -e LMSLIB_VERS_MOD="-b4" \
-  \
-  --name=ldc-console-nano-0.1.0-b4 \
-ewsdocker/ldc-console:nano-0.1.0-b4 
+  --name=ldc-console-nano${ldcvers}${ldcextv} \
+ewsdocker/ldc-console:nano${ldcvers}${ldcextv} 
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-console:nano-0.1.0-b4 failed."
+ 	echo "build ewsdocker/ldc-console:nano${ldcvers}${ldcextv} failed."
  	exit 2
  }
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** ldc-console:nano-0.1.0-b4 successfully installed."
+echo "   **** ldc-console:nano${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   ********************************************"
 echo

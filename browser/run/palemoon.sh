@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-browser:palemoon-0.1.0-b4
+#    ldc-browser:palemoon${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -11,12 +14,12 @@ echo "   **** stopping ldc-browser-palemoon container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-browser-palemoon-0.1.0-b4
-docker rm ldc-browser-palemoon-0.1.0-b4
+docker stop ldc-browser-palemoon${ldcvers}${ldcextv}
+docker rm ldc-browser-palemoon${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-browser-palemoon-0.1.0-b4"
+echo "   **** installing ldc-browser-palemoon${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -31,8 +34,8 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-browser-palemoon-0.1.0:/root \
-  -v ${HOME}/.config/docker/ldc-browser-palemoon-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-browser-palemoon${ldcvers}:/root \
+  -v ${HOME}/.config/docker/ldc-browser-palemoon${ldcvers}/workspace:/workspace \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
@@ -43,13 +46,13 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Source:/source \
   \
-  --network=webnet \
+  --network="${webnet}" \
   \
-  --name=ldc-browser-palemoon-0.1.0-b4 \
-ewsdocker/ldc-browser:palemoon-0.1.0-b4
+  --name=ldc-browser-palemoon${ldcvers}${ldcextv} \
+ewsdocker/ldc-browser:palemoon${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-browser-palemoon-0.1.0-b4 failed."
+ 	echo "build container ldc-browser-palemoon${ldcvers}${ldcextv} failed."
  	exit 2
  }
 

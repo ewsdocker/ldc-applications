@@ -62,8 +62,8 @@ docker build \
   \
   --build-arg ECLIPSE_HOST="http://alpine-nginx-pkgcache" \
   --build-arg ECLIPSE_IDE="rust" \
-  --build-arg ECLIPSE_RELEASE="2020-09" \
-  --build-arg ECLIPSE_VERS="R" \
+  --build-arg ECLIPSE_RELEASE="2020-12" \
+  --build-arg ECLIPSE_VERS="RC1" \
   \
   --build-arg BUILD_DESKTOP="Eclipse IDE rust" \
   --build-arg BUILD_ICON="default.png" \

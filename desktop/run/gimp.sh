@@ -1,17 +1,19 @@
 #!/bin/bash
 
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 echo "   ********************************************"
 echo "   ****"
 echo "   **** stopping gimp container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-gimp-0.1.0-b4
-docker rm ldc-desktop-gimp-0.1.0-b4
+docker stop ldc-desktop-gimp${ldcvers}${ldcextv}
+docker rm ldc-desktop-gimp${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-gimp-0.1.0-b4"
+echo "   **** installing ldc-desktop-gimp${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -34,29 +36,29 @@ docker run \
       -v ${HOME}/bin:/userbin \
       -v ${HOME}/.local:/usrlocal \
       -v ${HOME}/.config/docker:/conf \
-      -v ${HOME}/.config/docker/ldc-desktop-gimp-0.1.0:/root \
-      -v ${HOME}/.config/docker/ldc-desktop-gimp-0.1.0/workspace:/workspace \
+      -v ${HOME}/.config/docker/ldc-desktop-gimp${ldcvers}:/root \
+      -v ${HOME}/.config/docker/ldc-desktop-gimp${ldcvers}/workspace:/workspace \
       \
       -v ${HOME}/Pictures/Gimp:/artwork \
       -v ${HOME}/Pictures:/pictures \
       -v ${HOME}/Documents:/www \
       \
       -e LRUN_APP="gimp" \
-      --name=ldc-desktop-gimp-0.1.0-b4 \
-    ewsdocker/ldc-desktop:gimp-0.1.0-b4
+      --name=ldc-desktop-gimp${ldcvers}${ldcextv} \
+    ewsdocker/ldc-desktop:gimp${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-gimp-0.1.0-b4 failed."
+ 	echo "create container ldc-desktop-gimp${ldcvers}${ldcextv} failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:gimp-0.1.0-b4 successfully installed."
+echo "   **** ldc-desktop:gimp${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-gimp-0.1.0-b4"
+echo "   ****    docker start ldc-desktop-gimp${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ****************************************************************"
 echo

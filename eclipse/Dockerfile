@@ -37,6 +37,28 @@
 # =========================================================================
 # =========================================================================
 
+# =========================================================================
+# =========================================================================
+#
+#   Notes:
+#
+#       Eclipse ports to open in the firewall:
+#           http://kb.eclipseinc.com/kb/eclipse-network-ports/
+#
+# =========================================================================
+#
+#	To add ShellWax after install bash-language-server,
+#		- start eclipse
+#		- select Help/Install New Software from menu,
+# 		- select Add button and fill in the form:
+#			Name:     ShellWax
+#           Location: https://download.eclipse.org/shellwax/snapshots/
+#		- pull-down the Uncatagorized selection and enable ShellWax
+#		- Follow install instructions.
+#
+# =========================================================================
+# =========================================================================
+
 ARG FROM_REPO="ewsdocker"
 ARG FROM_PARENT="ldc-base"
 ARG FROM_VERS="dx11-surface"
@@ -183,7 +205,7 @@ ENV RUP_URL="${RUP_HOST}/${RUP_PKG}"
 
 # =========================================================================
 
-ENV OJDK_RELEASE=${JDK_RELEASE:-"jdk11"} \
+ENV OJDK_RELEASE=${JDK_RELEASE:-"jdk13"} \
     OJDK_VERS=${JDK_VERS:-"13.0.1"} \
     OJDK_TYPE=${JDK_TYPE:-""}
 
@@ -231,18 +253,6 @@ ARG RUST_NAME
 
 # =========================================================================
 # =========================================================================
-#
-#	To add ShellWax after install bash-lanauage-server,
-#		- start eclipse
-#		- select Help/Install New Software from menu,
-# 		- select Add button and fill in the form:
-#			Name:     ShellWax
-#           Location: https://download.eclipse.org/shellwax/snapshots/
-#		- pull-down the Uncatagorized selection and enable ShellWax
-#		- Follow install instructions.
-#
-# =========================================================================
-# =========================================================================
 
 ENV PHP_VER=${PHP_PLUGIN:-""}
 ENV PHP_COMPOSER=${PHP_PLUGIN_COMP:-""}
@@ -250,9 +260,38 @@ ENV PHP_COMPOSER=${PHP_PLUGIN_COMP:-""}
 # =========================================================================
 # =========================================================================
 #
+#
+# =========================================================================
+# =========================================================================
+
+# =========================================================================
+# =========================================================================
+#
 # URL:		HOST/RELEASE/VERSION/PACKAGE
 # HOST:		http://mirror.csclub.uwaterloo.ca/eclipse/technology/epp/downloads/release
 # PACKAGE:	eclipse-IDE-RELEASE-VERSION-linux-gtk-x86_64.tar.gz
+#
+# =========================================================================
+#
+# RELEASE:	2020-12
+# VERSION:	RC1
+# IDE:
+#	cpp:		eclipse-cpp-2020-12-RC1-linux-gtk-x86_64.tar.gz
+#	java:		eclipse-java-2020-12-RC1-linux-gtk-x86_64.tar.gz
+#	javascript:	eclipse-javascript-2020-12-RC1-linux-gtk-x86_64.tar.gz
+#	php:		eclipse-php-2020-12-RC1-linux-gtk-x86_64.tar.gz
+#	rust:		eclipse-rust-2020-12-RC1-linux-gtk-x86_64.tar.gz
+#
+# =========================================================================
+#
+# RELEASE:	2020-12
+# VERSION:	M3
+# IDE:
+#	cpp:		eclipse-cpp-2020-12-M3-linux-gtk-x86_64.tar.gz
+#	java:		eclipse-java-2020-12-M3-linux-gtk-x86_64.tar.gz
+#	javascript:	eclipse-javascript-2020-12-M3-linux-gtk-x86_64.tar.gz
+#	php:		eclipse-php-2020-12-M3-linux-gtk-x86_64.tar.gz
+#	rust:		eclipse-rust-2020-12-M3-linux-gtk-x86_64.tar.gz
 #
 # =========================================================================
 #
@@ -264,6 +303,17 @@ ENV PHP_COMPOSER=${PHP_PLUGIN_COMP:-""}
 #	javascript:	eclipse-javascript-2020-09-R-linux-gtk-x86_64.tar.gz
 #	php:		eclipse-php-2020-09-R-linux-gtk-x86_64.tar.gz
 #	rust:		eclipse-rust-2020-09-R-linux-gtk-x86_64.tar.gz
+#
+# =========================================================================
+#
+# RELEASE:	2020-09
+# VERSION:	M3
+# IDE:
+#	cpp:		eclipse-cpp-2020-09-M3-linux-gtk-x86_64.tar.gz
+#	java:		eclipse-java-2020-09-M3-linux-gtk-x86_64.tar.gz
+#	javascript:	eclipse-javascript-2020-09-M3-linux-gtk-x86_64.tar.gz
+#	php:		eclipse-php-2020-09-M3-linux-gtk-x86_64.tar.gz
+#	rust:		eclipse-rust-2020-09-M3-linux-gtk-x86_64.tar.gz
 #
 # =========================================================================
 #
@@ -287,40 +337,11 @@ ENV PHP_COMPOSER=${PHP_PLUGIN_COMP:-""}
 #	php:		eclipse-php-2020-06-M3-linux-gtk-x86_64.tar.gz
 #
 # =========================================================================
-#
-# RELEASE:	2019-12
-# VERSION:	M2
-# IDE:
-#	cpp:		eclipse-cpp-2019-12-M2-linux-gtk-x86_64.tar.gz
-#	java:		eclipse-java-2019-12-M2-linux-gtk-x86_64.tar.gz
-#	javascript:	eclipse-javascript-2019-12-M2-linux-gtk-x86_64.tar.gz
-#	php:		eclipse-php-2019-12-M2-linux-gtk-x86_64.tar.gz
-#
-# RELEASE:	2019-12
-# VERSION:	M1
-# IDE:
-#	cpp:		eclipse-cpp-2019-12-M1-linux-gtk-x86_64.tar.gz
-#	java:		eclipse-java-2019-12-M1-linux-gtk-x86_64.tar.gz
-#	javascript:	eclipse-javascript-2019-12-M1-linux-gtk-x86_64.tar.gz
-#	php:		eclipse-php-2019-12-M1-linux-gtk-x86_64.tar.gz
-#
-# =========================================================================
-#
-# RELEASE:	2019-09
-# VERSION:	M3
-# IDE:
-#	cpp:		eclipse-cpp-2019-09-M3-linux-gtk-x86_64.tar.gz
-#	java:		eclipse-java-2019-09-M3-linux-gtk-x86_64.tar.gz
-#	javascript:	eclipse-javascript-2019-09-M3-linux-gtk-x86_64.tar.gz
-#	php:		eclipse-php-2019-09-M3-linux-gtk-x86_64.tar.gz
-#
-# =========================================================================
-# =========================================================================
 
 ENV EC_IDE=${ECLIPSE_IDE:-"cpp"} \
     \
     EC_RELEASE=${ECLIPSE_RELEASE:-"2020-09"} \
-    EC_VERS=${ECLIPSE_VERS:-"R"} \
+    EC_VERS=${ECLIPSE_VERS:-"RC"} \
     \
     EC_DIR=${ECLIPSE_DIR:-"eclipse"} 
 

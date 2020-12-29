@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-libre:office-0.1.0-b4
+#    ldc-libre:office${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -13,8 +16,8 @@ echo "   **** stopping ldc-libre-office container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-libre-office-0.1.0-b4
-docker rm ldc-libre-office-0.1.0-b4
+docker stop ldc-libre-office${ldcvers}${ldcextv}
+docker rm ldc-libre-office${ldcvers}${ldcextv}
 
 echo "   ********************************************"
 echo "   ****"
@@ -23,11 +26,11 @@ echo "   ****"
 echo "   ********************************************"
 echo
 
-docker rmi ewsdocker/ldc-libre:office-0.1.0-b4
+docker rmi ewsdocker/ldc-libre:office${ldcvers}${ldcextv}
 
 echo "   ***************************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-libre:office-0.1.0-b4"
+echo "   **** building ewsdocker/ldc-libre:office${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***************************************************"
 echo
@@ -44,30 +47,29 @@ docker build \
   \
   --build-arg BUILD_NAME="ldc-libre" \
   --build-arg BUILD_VERSION="office" \
-  --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b4" \
+  --build-arg BUILD_VERS_EXT="${ldcvers}" \
+  --build-arg BUILD_EXT_MOD="${ldcextv}" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-stack" \
   --build-arg FROM_VERS="dgtk3-x11" \
-  --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b4" \
+  --build-arg FROM_EXT="${ldcvers}" \
+  --build-arg FROM_EXT_MOD="${ldcextv}" \
   \
-  --build-arg OFFICE_HOST=http://alpine-nginx-pkgcache \
-  --build-arg LIB_HOST=http://alpine-nginx-pkgcache \
-  --network=pkgnet \
+  --build-arg OFFICE_HOST="${pkgserver}" \
+  --network="${pkgnet}" \
   \
   --file Dockerfile \
-  -t ewsdocker/ldc-libre:office-0.1.0-b4  .
+  -t ewsdocker/ldc-libre:office${ldcvers}${ldcextv}  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-libre:office-0.1.0-b4 failed."
+ 	echo "build ewsdocker/ldc-libre:office${ldcvers}${ldcextv} failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** created ldc-libre-office-0.1.0-b4"
+echo "   **** created ldc-libre-office${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo

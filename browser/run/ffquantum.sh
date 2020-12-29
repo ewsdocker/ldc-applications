@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
 #    ldc-ffquantum
@@ -35,8 +37,8 @@ docker run \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-browser-ffquantum-0.1.0:/root \
-  -v ${HOME}/.config/docker/ldc-browser-ffquantum-0.1.0/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-browser-ffquantum${ldcvers}:/root \
+  -v ${HOME}/.config/docker/ldc-browser-ffquantum${ldcvers}/workspace:/workspace \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:${HOME}/.Xauthority \
@@ -50,7 +52,7 @@ docker run \
   --network=webnet \
   \
   --name=ldc-ffquantum \
-ewsdocker/ldc-browser:ffquantum-0.1.0-b4
+ewsdocker/ldc-browser:ffquantum${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
  	echo "build container ldc-ffquantum failed."

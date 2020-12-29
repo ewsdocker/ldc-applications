@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-console:nano-0.1.0-b4
+#    ldc-console:nano${ldcvers}${ldcextv}
 #
 # ===========================================================================
 cd ~/Development/ewsldc/ldc-applications/console
@@ -12,8 +15,8 @@ echo "   **** stopping ldc-console-nano container"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-console-nano-0.1.0-b4
-docker rm ldc-console-nano-0.1.0-b4
+docker stop ldc-console-nano${ldcvers}${ldcextv}
+docker rm ldc-console-nano${ldcvers}${ldcextv}
 
 echo "   ********************************************"
 echo "   ****"
@@ -21,11 +24,11 @@ echo "   **** removing ldc-console:nano images"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rmi ewsdocker/ldc-console:nano-0.1.0-b4
+docker rmi ewsdocker/ldc-console:nano${ldcvers}${ldcextv}
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** building ewsdocker/ldc-console:nano-0.1.0-b4"
+echo "   **** building ewsdocker/ldc-console:nano${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ********************************************"
 echo
@@ -38,34 +41,29 @@ docker build \
   \
   --build-arg BUILD_NAME="ldc-console" \
   --build-arg BUILD_VERSION="nano" \
-  --build-arg BUILD_VERS_EXT="-0.1.0" \
-  --build-arg BUILD_EXT_MOD="-b4" \
+  --build-arg BUILD_VERS_EXT="${ldcvers}" \
+  --build-arg BUILD_EXT_MOD="${ldcextv}" \
   \
   --build-arg FROM_REPO="ewsdocker" \
   --build-arg FROM_PARENT="ldc-base" \
   --build-arg FROM_VERS="dbase" \
-  --build-arg FROM_EXT="-0.1.0" \
-  --build-arg FROM_EXT_MOD="-b4" \
+  --build-arg FROM_EXT="${ldcvers}" \
+  --build-arg FROM_EXT_MOD="${ldcextv}" \
   \
-  --build-arg LIB_INSTALL=0 \
-  --build-arg LIB_VERSION=0.1.6 \
-  --build-arg LIB_VERS_MOD="-b4" \
-  \
-  --build-arg LIB_HOST=http://alpine-nginx-pkgcache \
-  --network=pkgnet \
+  --network="${pkgnet}" \
   \
   --file Dockerfile \
   \
-  -t ewsdocker/ldc-console:nano-0.1.0-b4  .
+  -t ewsdocker/ldc-console:nano${ldcvers}${ldcextv}  .
 [[ $? -eq 0 ]] ||
  {
- 	echo "build ewsdocker/ldc-console:nano-0.1.0-b4 failed."
+ 	echo "build ewsdocker/ldc-console:nano${ldcvers}${ldcextv} failed."
  	exit 1
  }
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** created ldc-console-nano-0.1.0-b4 container"
+echo "   **** created ldc-console-nano${ldcvers}${ldcextv} container"
 echo "   ****"
 echo "   ***********************************************"
 echo

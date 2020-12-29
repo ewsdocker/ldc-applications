@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-eclipse:php-0.1.0-b4
+#    ldc-eclipse:php${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -11,12 +14,12 @@ echo "   **** stopping php container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-eclipse-php-0.1.0-b4
-docker rm ldc-eclipse-php-0.1.0-b4
+docker stop ldc-eclipse-php${ldcvers}${ldcextv}
+docker rm ldc-eclipse-php${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-eclipse-php-0.1.0-b4"
+echo "   **** installing ldc-eclipse-php${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -36,8 +39,8 @@ docker run \
    -v ${HOME}/bin:/userbin \
    -v ${HOME}/.local:/usrlocal \
    -v ${HOME}/.config/docker:/conf \
-   -v ${HOME}/.config/docker/ldc-eclipse-php-0.1.0:/root \
-   -v ${HOME}/.config/docker/ldc-eclipse-php-0.1.0/workspace:/workspace \
+   -v ${HOME}/.config/docker/ldc-eclipse-php${ldcvers}:/root \
+   -v ${HOME}/.config/docker/ldc-eclipse-php${ldcvers}/workspace:/workspace \
    \
    -e DISPLAY=unix${DISPLAY} \
    -v ${HOME}/.Xauthority:/root/.Xauthority \
@@ -48,11 +51,11 @@ docker run \
    -v ${HOME}/Development:/Development \
    -v ${HOME}/Source:/Source \
    \
-   --name=ldc-eclipse-php-0.1.0-b4 \
- ewsdocker/ldc-eclipse:php-0.1.0-b4
+   --name=ldc-eclipse-php${ldcvers}${ldcextv} \
+ ewsdocker/ldc-eclipse:php${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-eclipse-php-0.1.0-b4 failed."
+ 	echo "build container ldc-eclipse-php${ldcvers}${ldcextv} failed."
  	exit 2
  }
 

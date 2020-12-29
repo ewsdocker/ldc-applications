@@ -1,17 +1,19 @@
 #!/bin/bash
 
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 echo "   ********************************************"
 echo "   ****"
 echo "   **** stopping ripme container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-desktop-ripme-0.1.0-b4
-docker rm ldc-desktop-ripme-0.1.0-b4
+docker stop ldc-desktop-ripme${ldcvers}${ldcextv}
+docker rm ldc-desktop-ripme${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-desktop-ripme-0.1.0-b4"
+echo "   **** installing ldc-desktop-ripme${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -34,28 +36,28 @@ docker run \
       -v ${HOME}/bin:/userbin \
       -v ${HOME}/.local:/usrlocal \
       -v ${HOME}/.config/docker:/conf \
-      -v ${HOME}/.config/docker/ldc-desktop-ripme-0.1.0:/root \
-      -v ${HOME}/.config/docker/ldc-desktop-ripme-0.1.0/workspace:/workspace \
+      -v ${HOME}/.config/docker/ldc-desktop-ripme${ldcvers}:/root \
+      -v ${HOME}/.config/docker/ldc-desktop-ripme${ldcvers}/workspace:/workspace \
       \
       -v ${HOME}/Pictures/RipMe:/artwork \
       -v ${HOME}/Pictures:/pictures \
       -v ${HOME}/Documents:/www \
       \
-      --name=ldc-desktop-ripme-0.1.0-b4 \
-    ewsdocker/ldc-desktop:ripme-0.1.0-b4
+      --name=ldc-desktop-ripme${ldcvers}${ldcextv} \
+    ewsdocker/ldc-desktop:ripme${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-desktop-ripme-0.1.0-b4 failed."
+ 	echo "create container ldc-desktop-ripme${ldcvers}${ldcextv} failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-desktop:ripme-0.1.0-b4 successfully installed."
+echo "   **** ldc-desktop:ripme${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-desktop-ripme-0.1.0-b4"
+echo "   ****    docker start ldc-desktop-ripme${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ****************************************************************"
 echo

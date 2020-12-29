@@ -1,0 +1,12 @@
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libgtksourceview-3.0-1 libgtksourceview-3.0-common
+The following NEW packages will be installed:
+  libgtksourceview-3.0-1 libgtksourceview-3.0-common libgtksourceview2.0-0
+  libgtksourceview2.0-common mousepad
+0 upgraded, 5 newly installed, 0 to remove and 2 not upgraded.
+Need to get 1515 kB of archives.
+After this operation, 8650 kB of additional disk space will be used.

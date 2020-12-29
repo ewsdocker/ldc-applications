@@ -1,7 +1,10 @@
 #!/bin/bash
+
+. ~/Development/ewsldc/ldc/ldc-common.sh
+
 # ===========================================================================
 #
-#    ldc-eclipse:javascript-0.1.0-b4
+#    ldc-eclipse:javascript${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
@@ -11,7 +14,7 @@ echo "   **** stopping javascript container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-eclipse-javascript-0.1.0-b4
+docker stop ldc-eclipse-javascript${ldcvers}${ldcextv}
 
 echo "   ********************************************"
 echo "   ****"
@@ -19,11 +22,11 @@ echo "   **** removing javascript container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker rm ldc-eclipse-javascript-0.1.0-b4
+docker rm ldc-eclipse-javascript${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-eclipse-javascript-0.1.0-b4"
+echo "   **** installing ldc-eclipse-javascript${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -32,7 +35,6 @@ docker run \
    -it \
    -e LMSOPT_QUIET="0" \
    -e LRUN_APP="eclipse" \
-   \
    \
    -v /etc/localtime:/etc/localtime:ro \
    \
@@ -43,8 +45,8 @@ docker run \
    -v ${HOME}/bin:/userbin \
    -v ${HOME}/.local:/usrlocal \
    -v ${HOME}/.config/docker:/conf \
-   -v ${HOME}/.config/docker/ldc-eclipse-javascript-0.1.0:/root \
-   -v ${HOME}/.config/docker/ldc-eclipse-javascript-0.1.0/workspace:/workspace \
+   -v ${HOME}/.config/docker/ldc-eclipse-javascript${ldcvers}:/root \
+   -v ${HOME}/.config/docker/ldc-eclipse-javascript${ldcvers}/workspace:/workspace \
    \
    -e DISPLAY=unix${DISPLAY} \
    -v ${HOME}/.Xauthority:/root/.Xauthority \
@@ -55,11 +57,11 @@ docker run \
    -v ${HOME}/Development:/Development \
    -v ${HOME}/Source:/Source \
    \
-   --name=ldc-eclipse-javascript-0.1.0-b4 \
- ewsdocker/ldc-eclipse:javascript-0.1.0-b4
+   --name=ldc-eclipse-javascript${ldcvers}${ldcextv} \
+ ewsdocker/ldc-eclipse:javascript${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "build container ldc-eclipse-javascript-0.1.0-b4 failed."
+ 	echo "build container ldc-eclipse-javascript${ldcvers}${ldcextv} failed."
  	exit 2
  }
 
