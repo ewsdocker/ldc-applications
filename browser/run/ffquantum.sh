@@ -36,6 +36,8 @@ docker run \
   \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
+  -v ${HOME}/.local/ewsldc:/opt \
+  \
   -v ${HOME}/.config/docker:/conf \
   -v ${HOME}/.config/docker/ldc-browser-ffquantum${ldcvers}:/root \
   -v ${HOME}/.config/docker/ldc-browser-ffquantum${ldcvers}/workspace:/workspace \
@@ -49,7 +51,7 @@ docker run \
   -v ${HOME}/Downloads:/Downloads \
   -v ${HOME}/Documents:/Documents \
   \
-  --network=webnet \
+  --network="${webnet}" \
   \
   --name=ldc-ffquantum \
 ewsdocker/ldc-browser:ffquantum${ldcvers}${ldcextv}

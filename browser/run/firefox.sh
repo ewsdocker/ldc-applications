@@ -36,6 +36,8 @@ docker run \
   \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
+  -v ${HOME}/.local/ewsldc:/opt \
+  \
   -v ${HOME}/.config/docker:/conf \
   -v ${HOME}/.config/docker/ldc-browser-firefox${ldcvers}:/root \
   -v ${HOME}/.config/docker/ldc-browser-firefox${ldcvers}/workspace:/workspace \

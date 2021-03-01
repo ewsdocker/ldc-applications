@@ -4,22 +4,22 @@
 
 # ===========================================================================
 #
-#    ldc-libre:office-jdk${ldcvers}${ldcextv}
+#    ldc-libre:office${ldcvers}${ldcextv}
 #
 # ===========================================================================
 
 echo "   ********************************************"
 echo "   ****"
-echo "   **** stopping ldc-libre-office-jdk container(s)"
+echo "   **** stopping ldc-libre-office container(s)"
 echo "   ****"
 echo "   ********************************************"
 echo
-docker stop ldc-libre-office-jdk${ldcvers}${ldcextv}
-docker rm ldc-libre-office-jdk${ldcvers}${ldcextv}
+docker stop ldc-libre-office${ldcvers}${ldcextv}
+docker rm ldc-libre-office${ldcvers}${ldcextv}
 
 echo "   ***********************************************"
 echo "   ****"
-echo "   **** installing ldc-libre-office-jdk${ldcvers}${ldcextv}"
+echo "   **** installing ldc-libre-office${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ***********************************************"
 echo
@@ -34,8 +34,9 @@ docker run \
   -v ${HOME}/.local/ewsldc:/opt \
   \
   -v ${HOME}/.config/docker:/conf \
-  -v ${HOME}/.config/docker/ldc-libre-office-jdk${ldcvers}:/root \
-  -v ${HOME}/.config/docker/ldc-libre-office-jdk${ldcvers}/workspace:/workspace \
+  -v ${HOME}/.config/docker/ldc-libre-office${ldcvers}:/root \
+  -v ${HOME}/.config/docker/ldc-libre-office${ldcvers}/workspace:/workspace \
+  -v ${HOME}/.config/mimeapps.list:/root/.config/mimeapps.list \
   \
   -e DISPLAY=unix${DISPLAY} \
   -v ${HOME}/.Xauthority:/root/.Xauthority \
@@ -45,22 +46,23 @@ docker run \
   \
   -v ${HOME}/Documents:/documents \
   -v ${HOME}/Source:/source \
+  -v /media/AdultLib-1:/adultlib \
   \
-  --name=ldc-libre-office-jdk${ldcvers}${ldcextv} \
-ewsdocker/ldc-libre:office-jdk${ldcvers}${ldcextv}
+  --name=ldc-libre-office-lib \
+ewsdocker/ldc-libre:office${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
  {
- 	echo "create container ldc-libre-office-jdk${ldcvers}${ldcextv} failed."
+ 	echo "create container ldc-libre-office${ldcvers}${ldcextv} failed."
  	exit 2
  }
 
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-libre:office-jdk-0.1.0-b4 successfully installed."
+echo "   **** ldc-libre:office${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-libre-office-jdk-0.1.0-b4"
+echo "   ****    docker start ldc-libre-office${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ****************************************************************"
 echo

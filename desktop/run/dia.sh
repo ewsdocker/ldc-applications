@@ -29,6 +29,8 @@ docker run \
   \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
+  -v ${HOME}/.local/ewsldc:/opt \
+  \
   -v ${HOME}/.config/docker:/conf \
   -v ${HOME}/.config/docker/ldc-desktop-dia${ldcvers}:/root \
   -v ${HOME}/.config/docker/ldc-desktop-dia${ldcvers}/workspace:/workspace \

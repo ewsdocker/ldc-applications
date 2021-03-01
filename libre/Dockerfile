@@ -120,6 +120,14 @@ ARG OPT_QUIET
 # =========================================================================
 #
 # LibreOffice download site:
+#   http://download.documentfoundation.org/libreoffice/stable/7.0.4/deb/x86_64/LibreOffice_7.0.4_Linux_x86-64_deb.tar.gz
+# Help pack
+#   http://download.documentfoundation.org/libreoffice/stable/7.0.4/deb/x86_64/LibreOffice_7.0.4_Linux_x86-64_deb_helppack_en-US.tar.gz
+#
+# =========================================================================
+# =========================================================================
+#
+# LibreOffice download site:
 #   https://download.documentfoundation.org/libreoffice/stable/6.4.5/deb/x86_64/LibreOffice_6.4.5_Linux_x86-64_deb.tar.gz
 # Help pack
 #   https://download.documentfoundation.org/libreoffice/stable/6.4.5/deb/x86_64/LibreOffice_6.4.5_Linux_x86-64_deb_helppack_en-US.tar.gz
@@ -165,8 +173,8 @@ ARG OPT_QUIET
 #
 # =========================================================================
 
-ENV LIBRE_VER=${OFFICE_VER:-"6.4.5"} \
-    LIBRE_REL=${OFFICE_REL:-"6.4"} \
+ENV LIBRE_VER=${OFFICE_VER:-"7.0.4"} \
+    LIBRE_REL=${OFFICE_REL:-"7.0"} \
     LIBRE_LANG_VER=${OFFICE_LANG_VER:-"2"} \
     LIBRE_LANG=${OFFICE_LANG:-"en-US"}
 

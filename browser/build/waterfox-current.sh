@@ -42,7 +42,7 @@ docker build \
   \
   --build-arg BROWSER_LABEL="Waterfox Current" \
   --build-arg BROWSER_RELEASE="G3" \
-  --build-arg BROWSER_VERS="0.1" \
+  --build-arg BROWSER_VERS="0.2" \
   \
   --build-arg WATERFOX_NAME="Waterfox Current" \
   --build-arg WATERFOX_GENERIC="waterfox" \

@@ -75,7 +75,7 @@ function installArchive()
 
 # =========================================================================
 
-apt-get -y update
+#apt-get -y update
 
 addPkg "apt-get -y install"
 
