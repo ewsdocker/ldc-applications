@@ -31,7 +31,6 @@ docker run \
   \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
-  -v ${HOME}/.local/ewsldc:/opt \
   \
   -v ${HOME}/.config/docker:/conf \
   -v ${HOME}/.config/docker/ldc-libre-office-jdk${ldcvers}:/root \
@@ -57,10 +56,10 @@ ewsdocker/ldc-libre:office-jdk${ldcvers}${ldcextv}
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-libre:office-jdk-0.1.0-b4 successfully installed."
+echo "   **** ldc-libre-office-jdk${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   **** run with "
-echo "   ****    docker start ldc-libre-office-jdk-0.1.0-b4"
+echo "   ****    docker start ldc-libre-office-jdk${ldcvers}${ldcextv}"
 echo "   ****"
 echo "   ****************************************************************"
 echo

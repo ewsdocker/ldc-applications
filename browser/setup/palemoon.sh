@@ -96,6 +96,8 @@ function installPackage()
 	local instUrl="${2}"
 	local instDir="${3}"
 
+	mkdir -p "${instDir}"
+
     wget "${instUrl}" 
     [[ $? -eq 0 ]] || return $?
 

@@ -39,8 +39,8 @@ docker build \
   --build-arg RUN_APP="firefox" \
   \
   --build-arg BROWSER_LABEL="Firefox Quantum" \
-  --build-arg BROWSER_RELEASE="84" \
-  --build-arg BROWSER_VERS="0.1" \
+  --build-arg BROWSER_RELEASE="86" \
+  --build-arg BROWSER_VERS="0" \
   \
   --build-arg FIREFOX_NAME="Firefox Quantum" \
   --build-arg FIREFOX_GENERIC="ffquantum" \

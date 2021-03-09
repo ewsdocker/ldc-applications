@@ -94,8 +94,16 @@ removeImage "browser" "firefox"
 removeImage "browser" "firefox-esr"
 removeImage "browser" "ffquantum"
 
+echo
+echo "*****************************************************************************"
+echo
+
 removeImage "console" "tumblr"
 removeImage "console" "nano"
+
+echo
+echo "*****************************************************************************"
+echo
 
 removeImage "desktop" "shotcut"
 removeImage "desktop" "ripme"
@@ -103,7 +111,11 @@ removeImage "desktop" "obs-studio"
 removeImage "desktop" "mousepad"
 removeImage "desktop" "gimp"
 removeImage "desktop" "dia"
-#
+
+echo
+echo "*****************************************************************************"
+echo
+
 removeImage "eclipse" "rust"
 removeImage "eclipse" "qt"
 removeImage "eclipse" "php"
@@ -112,12 +124,26 @@ removeImage "eclipse" "java"
 removeImage "eclipse" "fortran"
 removeImage "eclipse" "cpp"
 removeImage "eclipse" "bash"
-#
-#
+
+echo
+echo "*****************************************************************************"
+echo
+
+removeContainer "games" "sol"
+removeContainer "games" "mahjongg"
+
 removeImage "games" "sol"
 removeImage "games" "mahjongg"
-#
-#
+
+echo
+echo "*****************************************************************************"
+echo
+
+removeContainer "libre" "office"
+removeContainer "libre" "office-jdk"
+
+removeContainer "libre" "libre-office-lib" "1"
+
 removeImage "libre" "office-jdk"
 removeImage "libre" "office"
 

@@ -39,8 +39,8 @@ docker build \
   --build-arg RUN_APP="firefox" \
   \
   --build-arg BROWSER_LABEL="Firefox" \
-  --build-arg BROWSER_RELEASE="84" \
-  --build-arg BROWSER_VERS="0-3" \
+  --build-arg BROWSER_RELEASE="86" \
+  --build-arg BROWSER_VERS="0-1" \
   \
   --build-arg FIREFOX_NAME="Firefox Unstable" \
   --build-arg FIREFOX_GENERIC="firefox" \

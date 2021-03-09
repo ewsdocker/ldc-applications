@@ -30,8 +30,24 @@ function buildScript()
 #
 # ===============================================
 
-cd ~/Development/ewsldc/ldc-applications/libre
+cd ~/Development/ewsldc/ldc-applications/browser
+
+#cd ../browser
+
+#buildScript "ffquantum" ; [[ $? -eq 0 ]] || exit $?
+#buildScript "firefox"  ; [[ $? -eq 0 ]] || exit $?
+#buildScript "palemoon" ; [[ $? -eq 0 ]] || exit $?
+#buildScript "waterfox-classic" ; [[ $? -eq 0 ]] || exit $?
+#buildScript "waterfox-current" ; [[ $? -eq 0 ]] || exit $?
+
+#
+
+#buildScript "shotcut" ; [[ $? -eq 0 ]] || exit $?
+
+#
+
+cd ../libre
 
 #buildScript "office" ; [[ $? -eq 0 ]] || exit $?
-buildScript "office-jdk" ; [[ $? -eq 0 ]] || exit $?
+#buildScript "office-jdk" ; [[ $? -eq 0 ]] || exit $?
 

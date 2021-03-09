@@ -160,6 +160,8 @@ echo
 echo "****************************************"
 echo
 
+echo "/${FFOX_DIR}/${FFOX_GENERIC}/${LRUN_APP}"
+
 chmod 775 /${FFOX_DIR}/${FFOX_GENERIC}/${LRUN_APP} 
 ln -s /${FFOX_DIR}/${FFOX_GENERIC}/${LRUN_APP} /usr/bin/${LRUN_APP} 
 

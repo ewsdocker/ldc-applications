@@ -8,14 +8,14 @@
 #
 # @author Jay Wheeler.
 # @version 0.1.0
-# @copyright © 2017-2020. EarthWalk Software.
+# @copyright © 2017-2021. EarthWalk Software.
 # @license Licensed under the GNU General Public License, GPL-3.0-or-later.
 # @package ldc-browser
 # @subpackage Dockerfile
 #
 # =========================================================================
 #
-#	Copyright © 2017-2020. EarthWalk Software
+#	Copyright © 2017-2021. EarthWalk Software
 #	Licensed under the GNU General Public License, GPL-3.0-or-later.
 #
 #   This file is part of ewsdocker/ldc-browser.
@@ -41,7 +41,7 @@ ARG FROM_REPO="ewsdocker"
 ARG FROM_PARENT="ldc-stack"
 ARG FROM_VERS="dgtk3-x11"
 ARG FROM_EXT="-0.1.0"
-ARG FROM_EXT_MOD="-b4"
+ARG FROM_EXT_MOD="-b5"
 
 FROM ${FROM_REPO}/${FROM_PARENT}:${FROM_VERS}${FROM_EXT}${FROM_EXT_MOD}
 
@@ -210,7 +210,6 @@ ENV WFOX_URL="${WFOX_HOST}/${WFOX_PKG}"
 #	http://linux.palemoon.org/download/mainline/
 #
 #   http://linux.palemoon.org/datastore/release/palemoon-28.17.0.linux-x86_64-gtk2.tar.xz
-#   https://linux.palemoon.org/datastore/release/palemoon-28.16.0.linux-x86_64.tar.xz
 #
 #   https://linux.palemoon.org/datastore/release/palemoon-28.16.0.linux-x86_64.tar.xz
 #   http://linux.palemoon.org/datastore/release/palemoon-28.10.0.linux-x86_64.tar.xz
@@ -240,6 +239,7 @@ ENV PMOON_URL="${PMOON_HOST}/${PMOON_PKG}"
 #
 # =========================================================================
 #
+# wget http://ftp.mozilla.org/pub/firefox/releases/86.0/linux-x86_64/en-US/firefox-86.0.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/84.0.1/linux-x86_64/en-US/firefox-84.0.1.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/83.0/linux-x86_64/en-US/firefox-83.0.tar.bz2
 # wget http://ftp.mozilla.org/pub/firefox/releases/80.0/linux-x86_64/en-US/firefox-80.0.tar.bz2
@@ -249,7 +249,7 @@ ENV PMOON_URL="${PMOON_HOST}/${PMOON_PKG}"
 
 ENV FFOX_NAME="Firefox" \
     FFOX_GENERIC="firefox" \
-    FFOX_DIR=${FIREFOX_DIR:-"/opt"}
+    FFOX_DIR=${FIREFOX_DIR:-"/firefox"}
 
 ENV FFOX_PKG="firefox-${BROWSER_RELEASE}.${BROWSER_VERS}.tar.bz2" \
     FFOX_HOST=${FIREFOX_HOST:-"http://ftp.mozilla.org/pub/firefox/releases/${BROWSER_RELEASE}.${BROWSER_VERS}/linux-x86_64/en-US"}

@@ -34,7 +34,7 @@ cd ~/Development/ewsldc/ldc-applications/browser
 
 cd ../browser
 
-buildScript "ffquantum" ; [[ $? -eq 0 ]] || exit $?
+#buildScript "ffquantum" ; [[ $? -eq 0 ]] || exit $?
 buildScript "firefox"  ; [[ $? -eq 0 ]] || exit $?
 buildScript "firefox-esr" ; [[ $? -eq 0 ]] || exit $?
 buildScript "netsurf" ; [[ $? -eq 0 ]] || exit $?

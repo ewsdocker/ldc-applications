@@ -31,7 +31,6 @@ docker run \
   \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
-  -v ${HOME}/.local/ewsldc:/opt \
   \
   -v ${HOME}/.config/docker:/conf \
   -v ${HOME}/.config/docker/ldc-libre-office${ldcvers}:/root \
@@ -58,7 +57,7 @@ ewsdocker/ldc-libre:office${ldcvers}${ldcextv}
 echo
 echo "   ****************************************************************"
 echo "   ****"
-echo "   **** ldc-libre:office${ldcvers}${ldcextv} successfully installed."
+echo "   **** ldc-libre-office${ldcvers}${ldcextv} successfully installed."
 echo "   ****"
 echo "   **** run with "
 echo "   ****    docker start ldc-libre-office${ldcvers}${ldcextv}"

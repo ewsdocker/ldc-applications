@@ -33,7 +33,6 @@ docker run \
   \
   -v ${HOME}/bin:/userbin \
   -v ${HOME}/.local:/usrlocal \
-  -v ${HOME}/.local/ewsldc:/opt \
   \
   -v ${HOME}/.config/docker:/conf \
   -v ${HOME}/.config/docker/ldc-browser-palemoon${ldcvers}:/root \
@@ -60,3 +59,4 @@ ewsdocker/ldc-browser:palemoon${ldcvers}${ldcextv}
 
 exit 0
 
+#  -v ${HOME}/.local/ewsldc:/opt \
