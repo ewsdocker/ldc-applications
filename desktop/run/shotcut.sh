@@ -43,8 +43,6 @@ docker run \
   -v /dev/shm:/dev/shm \
   --device /dev/snd \
   \
-  -e LMSLIB_INST="0" \
-  \
   --name=ldc-desktop-shotcut${ldcvers}${ldcextv} \
 ewsdocker/ldc-desktop:shotcut${ldcvers}${ldcextv}
 [[ $? -eq 0 ]] ||
