@@ -40,7 +40,7 @@ docker build \
   --build-arg RUN_APP="ripme" \
   \
   --build-arg RIPME_VER="1.7" \
-  --build-arg RIPME_EXT=".92" \
+  --build-arg RIPME_EXT=".94" \
   --build-arg RIPME_HOST="${pkgserver}" \
   \
   --build-arg BUILD_DAEMON="0" \
